@@ -26,3 +26,194 @@ We denote by $E^*$ the dual vector space of $E$.
     \end{array}$$
     One has $\beta \wedge \alpha = (-1)^{pq} \alpha \wedge \beta$.
 \end{definitionenv}
+
+\begin{remark}
+    Let $E$ be a finite dimensional vector space over $\RR$,
+    $p_1,\cdots,p_r$ be natural numbers,
+    $$\begin{array}{rcl}
+        \bigwedge^{p_1} (E^*) \times \cdots \times \bigwedge^{p_r} (E^*) & \longrightarrow & \bigwedge^{p_1+\cdots+p_r} (E^*)\\
+        (\alpha_1,\cdots,\alpha_r) & \longmapsto & \alpha_1 \wedge \cdots \wedge \alpha_r
+    \end{array}$$
+    is multilinear, so it is of class $C^{\infty}$.
+
+    Let $U \subseteq E$ be an open subset.
+    For any $i \in \{1,\cdots,r\}$, let $\omega_i$ be a $p$-form on $U$.
+    Let $\omega = \omega_1 \wedge \cdots \wedge \omega_r$.
+    If $\omega_1,\cdots,\omega_r$ are of class $C^l$, so is $\omega$.
+\end{remark}
+
+\begin{propositionenv}
+    Let $K$ be a commutative ring, $V$ and $W$ be $K$-modules.
+    One has a homomorphism of $K$-modules,
+    $$\begin{array}{rrcl}
+        \Phi: & V^\vee \otimes W & \longrightarrow & \Hom_K (V,W)\\
+        & \varphi \otimes w & \longmapsto & (x \mapsto \varphi(x) w).
+    \end{array}$$
+    It is an isomorphism if $V$ is a free $K$-module of finite rank.
+\end{propositionenv}
+\begin{proofenv}
+    The mapping
+    $$\begin{array}{rcl}
+        V^\vee \times W & \longrightarrow & \Hom_K (V,W)\\
+        (\varphi,w) & \longmapsto & (x \mapsto \varphi(x) w)
+    \end{array}$$
+    is $K$-bilinear, hence it induced a homomorphism of $K$-modules.
+    Suppose that $(e_i)_{i=1}^n$ is a basis of $V$, let $(e_i^\vee)_{i=1}^n$ be the dual basis of $(e_i)_{i=1}^n$.
+
+    We claim that
+    $$\begin{array}{rrcl}
+        \Psi: & \Hom_{K}(V,W) & \longrightarrow & V^\vee \otimes W\\
+        & f & \longmapsto & \dis \sum_{i=1}^n e_i^\vee \otimes f(e_i)
+    \end{array}$$
+    is the inverse of $\Phi$.
+    For any $(\varphi,w) \in V^\vee \times W$,
+    $$\Psi(\Phi(\varphi \otimes w)) = \Psi (x \mapsto \varphi(x) w) = (\sum_{i=1}^n \varphi(e_i) e_i^\vee) \otimes w = \varphi \otimes w.$$
+    For any $f \in \Hom_{K}(V,W)$,
+    $$\begin{aligned}
+        \Phi(\Psi(f)) = & \sum_{i=1}^{n} \Phi(e_{i}^\vee \otimes f(e_i)) = \sum_{i=1}^{n}(x \mapsto e_i^\vee (x)f(e_i))\\
+        = & \left(x \mapsto f\left(\sum_{i=1}^{n}e_i^\vee (x)e_i\right)\right) = f.
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $U \subseteq E$ be an open subset, $p \in \NN$.
+    Let $\alpha : U \rightarrow \bigwedge^p E^*$ be a differentiable $p$-form.
+    Then
+    $$\DD \alpha : U \longrightarrow \Hom_{\RR} (E,\bigwedge^p E^*) \cong E^* \otimes \bigwedge^p E^*$$
+    can be considered as a mapping from $U$ to $E^* \otimes \bigwedge^p E^*$.
+    We denote by $\dd \alpha$ the mapping
+    $$\begin{array}{rcccl}
+        U & \overset{\DD \alpha}{\longrightarrow} & E^* \otimes \bigwedge^p E^* & \longrightarrow & \bigwedge^{p+1} E^*\\
+        & & \varphi \otimes \beta & \longmapsto & \varphi \wedge \beta.
+    \end{array}$$
+\end{definitionenv}
+
+\begin{exampleenv}
+    If $f : U \rightarrow \RR$ is differentiable, then $\DD f : U \rightarrow E^*$, and $\dd f = \DD f$.
+    If $p \in \NN$, $\omega : U \rightarrow \bigwedge^p E^*$ is a $p$-form,
+    taking a basis $(x_i)_{i=1}^n$ of $E^*$, we can express $\omega$ as
+    $$(x \in U) \longmapsto \sum_{1 \le i_1 \le \cdots \le i_p \le n} f_{i_1 \cdots i_p} (x) \dd x_{i_1} \wedge \cdots \wedge \dd x_{i_p}.$$
+\end{exampleenv}
+
+\begin{remark}
+    In the study of $p$-forms, we may often assume, by linearity that a $p$-form $\omega$ is of the form $f\cdot\eta$, where $f : U \rightarrow \RR$ is a mapping and $\eta \in \bigwedge^{p} E^*$.
+    If $f$ is differentiable,
+    $$\dd(f \eta) = \dd f \wedge \eta.$$
+\end{remark}
+
+\begin{propositionenv}
+    Let $p$ and $q$ be natural numbers. $U \subseteq E$ be an open subset, $\alpha : U \rightarrow \bigwedge^p E^*$ and $\beta : U \rightarrow \bigwedge^q E^*$ be differentiable mappings.
+    Then $\alpha \wedge \beta$ is differentiable, and
+    $$\dd(\alpha \wedge \beta) = \dd \alpha \wedge \beta + (-1)^p \alpha \wedge \dd \beta.$$
+\end{propositionenv}
+\begin{proofenv}
+    We may assume that $\alpha = f \omega$, $\beta = g \eta$, where $f: U \rightarrow \RR$, $g: U \rightarrow \RR$ are differentiable and $(\omega,\eta) \in (\bigwedge^p E^*)\times (\bigwedge^q E^*)$.
+    $$\dd \alpha = \dd f \wedge \omega,\quad \dd \beta = \dd g \wedge \eta.$$
+    $$\dd \alpha \wedge \beta = \dd f \wedge \omega \wedge g \eta = g \dd f \wedge (\omega \wedge \eta)$$
+    $$\alpha \wedge \dd \beta = f \omega \wedge (\dd g \wedge \eta) = f (-a)^{p+1} \dd g \wedge \omega \wedge \eta = (-1)^p f \dd g \wedge (\omega \wedge \eta).$$
+    $$\dd \alpha \wedge \beta + (-1)^p \alpha \wedge \dd \beta = (g \dd f + f \dd g)\wedge (\omega \wedge \eta) = \dd(fg)\wedge (\omega \wedge \eta) = \dd (\alpha \wedge \beta).$$
+\end{proofenv}
+
+\begin{propositionenv}
+    Let $K$ be a commutative unitary ring, $n \in \NN_{\ge 1}$ and $(V_{i})_{i=1}^n$ be a family of $K$-modules.
+    There is a homomorphism of $K$-modules,
+    $$\begin{array}{rrcl}
+        \Phi : & V_1^\vee \otimes \cdots \otimes V_n^\vee & \longrightarrow & (V_1 \otimes \cdots \otimes V_n)^\vee\\
+        & \varphi_1 \otimes \cdots \otimes \varphi_n & \longmapsto & (x_1 \otimes \cdots \otimes x_n \mapsto \varphi_1(x_1) \otimes \cdots \otimes \varphi_n(x_n)).
+    \end{array}$$
+    It is an isomorphism when $V_1,\cdots,V_n$ are free $K$-modules of finite rank.
+\end{propositionenv}
+\begin{proofenv}
+    $$\begin{aligned}
+        V_1^\vee \otimes \cdots \otimes V_n^\vee \cong & \Hom_{K} (V_1,V_2^\vee \otimes \cdots \otimes V_n^\vee) \cong \cdots\\
+        \cong & \Hom_{K}\left(V_1,\Hom_{K}\left(V_2,\cdots \Hom_{K}(V_n,K)\right)\right)\\
+        \cong &  \Hom_{K}^{(n)} (V_1\times \cdots \times V_n,K)\\
+        = & \Hom_{K}(V_1 \otimes \cdots \otimes V_n, K) = (V_1\otimes \cdots V_n)^\vee.
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $K$ be a commutative unitary ring, $n \in \NN$, $V$ be a $K$-module.
+    Let
+    $$\begin{array}{rrcl}
+        \pi : & V^n & \longrightarrow & V^{\otimes n}\\
+        & (x_1,\cdots,x_n) & \longmapsto & x_1 \otimes \cdots \otimes x_n
+    \end{array}$$
+    Note that $\mathfrak{S}_n$ acts from left to $V^n$ by permuting the coordinates.
+    For any $\sigma \in \mathfrak{S}_n$, $(x_1,\cdots,x_n) \in V^n$, this action sends
+    $(\sigma,(x_1,\cdots,x_n)) \mapsto (x_{\sigma^{-1}(1)},\cdots,x_{\sigma^{-1}(n)})$.
+
+    \quad The mapping $(x_1,\cdots,x_n) \mapsto (x_{\sigma^{-1}(1)},\cdots,x_{\sigma^{-1}(n)})$ is $n$-linear, hence it induces a $K$-module homomorphism
+    $$\begin{array}{rcl}
+        V^{\otimes n} & \longrightarrow & V^{\otimes n}\\
+        x_1 \otimes \cdots \otimes x_n & \longmapsto & x_{\sigma^{-1}(1)} \otimes \cdots \otimes x_{\sigma^{-1}(n)}
+    \end{array}$$
+    Thus we obtain a left action of $\mathfrak{S}_n$ on $V^{\otimes n}$.
+    If $T \in V^{\otimes n}$ is such that $\forall \sigma \in \mathfrak{S}_n$, $\sigma(T) = T$, we say that $T$ is symmetric.
+\end{definitionenv}
+
+\begin{exampleenv}
+    Let $(x_1,\cdots,x_n) \in V^n$, then
+    $$T = \sum_{\sigma \in \mathfrak{S}_n} x_{\sigma(1)} \otimes \cdots \otimes x_{\sigma(n)}$$
+    is symmetric.
+\end{exampleenv}
+
+\begin{propositionenv}
+    Let $K$ be a commutative unitary ring, $n \in \NN$, $V$ be a $K$-module.
+    For any $\varphi \in (V^\vee)^{\otimes n}$,
+    let $\lambda_\varphi : V^n \rightarrow K$ be an $n$-linear mapping corresponding to $\Phi(\varphi)$,
+    where $\Phi : (V^\vee)^{\otimes n} \rightarrow (V^{\otimes n})^\vee$ is the mapping that sends $\mu_1 \otimes \cdots \otimes \mu_n$ to $(x_1 \otimes \cdots \otimes x_n \mapsto \prod_{i=1}^{n}\mu_{i}(x_i))$.
+    If $\varphi$ is symmetric, $\forall \sigma \in \mathfrak{S}_{n}$, $\forall (x_1,\cdots,x_n) \in V^n$, one has
+    $$\lambda_\varphi (x_{\sigma(1)},\cdots,x_{\sigma(n)}) = \lambda_\varphi(x_1,\cdots,x_n).$$
+    The converse is true when $V$ is free of finite rank.
+\end{propositionenv}
+\begin{proofenv}
+    Note that $\varphi$ can be written as
+    $$\sum_{i=1}^{n} \varphi_{i,1} \otimes \cdots \otimes \varphi_{i,n},\; \varphi_{i,j} \in V^\vee,$$
+    $$\lambda_{\varphi}(x_1,\cdots,x_n) = \sum_{i=1}^{n} \varphi_{i,1}(x_1)\cdots \varphi_{i,n}(x_n).$$
+    If $\varphi$ is symmetric, then $\forall \sigma \in \mathfrak{S}_n$,
+    $$\begin{aligned}
+        \varphi = & \sum_{i=1}^{n}\varphi_{i,\sigma^{-1}(1)} \otimes \cdots \otimes \varphi_{i,\sigma^{-1}(n)}(x_n) = \sum_{i=1}^{n}\varphi_{i,1}(x_{\sigma(1)}) \cdots \varphi_{i,n}(x_{\sigma(n)})\\
+        = & \lambda_{\varphi}(x_{\sigma(1)},\cdots,x_{\sigma(n)})
+    \end{aligned}.$$
+    Assume that $(e_i)_{i=1}^r$ is a basis of $V$, $(e_j^\vee)_{j=1}^r$ be its dual basis.
+    $$\varphi = \sum_{(j_1,\cdots,j_n) \in \{1,\cdots,r\}^n} \lambda_{\varphi} (e_{j_1},\cdots,e_{j_n})\cdot e_{j_1}^\vee \otimes \cdots \otimes e_{j_n}^\vee.$$
+    $$\begin{aligned}
+        \sigma(\varphi) = & \sum_{(j_1,\cdots,j_n) \in \{1,\cdots,r\}^n} \lambda_{\varphi} (e_{j_1},\cdots,e_{j_n})\cdot e_{j_{\sigma^{-1}(1)}}^\vee \otimes \cdots \otimes e_{j_{\sigma^{-1}(n)}}^\vee\\
+        = & \sum_{(j_1,\cdots,j_n) \in \{1,\cdots,r\}^n} \lambda_{\varphi} (e_{j_{\sigma(1)}},\cdots,e_{j_{\sigma(n)}})\cdot e_{j_1}^\vee \otimes \cdots \otimes e_{j_n}^\vee
+    \end{aligned}$$
+    If for any $\sigma \in \mathfrak{S}_n$,
+    $$\lambda_{\varphi}(x_1,\cdots,x_n) = \lambda_{\varphi}(x_{\sigma(1)},\cdots,x_{\sigma(n)}),$$
+    then $\sigma(\varphi) = \varphi$.
+\end{proofenv}
+
+\begin{propositionenv}
+    Let $K$ be a commutative unitary ring, $n \in \NN$, $V$ be a $K$-module, $\varphi \in V^{\otimes n}$.
+    Suppose that $2 \coloneq 1+1$ is invertible in $K$.
+    If $\varphi$ is symmetric, then the image of $\varphi$ by
+    $$\begin{array}{rrcl}
+        \pi : & V^{\otimes n} & \longrightarrow & \bigwedge^n V\\
+        & x_1 \otimes \cdots \otimes x_n & \longmapsto & x_1 \wedge \cdots \wedge x_n
+    \end{array}$$
+    is zero.
+\end{propositionenv}
+\begin{proofenv}
+    Let $\sigma = (1\;2)$, $\sigma(\varphi) = \varphi$.
+    However
+    $$\pi(\sigma(\varphi)) = - \pi(\varphi) = \pi(\varphi).$$
+    $2 \pi(\varphi) = 0$ since $2$ is invertible.
+\end{proofenv}
+
+\begin{propositionenv}
+    Let $p \in \NN$, $U \subseteq E$ be open $\alpha : U \rightarrow \bigwedge^p E^*$ be of class $C^2$.
+    Then
+    $$\dd^2 \alpha \coloneq \dd(\dd \alpha) = 0.$$
+\end{propositionenv}
+\begin{proofenv}
+    We may assume $\alpha = f \cdot \eta$, $\eta \in \bigwedge^p E^*$, $f : U \rightarrow \RR$ is of class $C^2$.
+    Then $\dd \alpha = \DD f \wedge \eta$.
+    So $\dd^2 \alpha = \dd (\DD f) \wedge \eta$.
+    For any $x \in U$, $\dd(\DD f)$ is the image of $\DD^2 f(x)$ in $\bigwedge^2 E^*$.
+    Since $\DD^2f (x)$ is symmetric, one has $\dd(\DD f) = 0$.
+    So $\dd^2 \alpha = 0$.
+\end{proofenv}
