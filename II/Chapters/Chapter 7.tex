@@ -110,7 +110,7 @@ We denote by $E^*$ the dual vector space of $E$.
     We may assume that $\alpha = f \omega$, $\beta = g \eta$, where $f: U \rightarrow \RR$, $g: U \rightarrow \RR$ are differentiable and $(\omega,\eta) \in (\bigwedge^p E^*)\times (\bigwedge^q E^*)$.
     $$\dd \alpha = \dd f \wedge \omega,\quad \dd \beta = \dd g \wedge \eta.$$
     $$\dd \alpha \wedge \beta = \dd f \wedge \omega \wedge g \eta = g \dd f \wedge (\omega \wedge \eta)$$
-    $$\alpha \wedge \dd \beta = f \omega \wedge (\dd g \wedge \eta) = f (-a)^{p+1} \dd g \wedge \omega \wedge \eta = (-1)^p f \dd g \wedge (\omega \wedge \eta).$$
+    $$\alpha \wedge \dd \beta = f \omega \wedge (\dd g \wedge \eta) = f (-1)^p \dd g \wedge \omega \wedge \eta = (-1)^p f \dd g \wedge (\omega \wedge \eta).$$
     $$\dd \alpha \wedge \beta + (-1)^p \alpha \wedge \dd \beta = (g \dd f + f \dd g)\wedge (\omega \wedge \eta) = \dd(fg)\wedge (\omega \wedge \eta) = \dd (\alpha \wedge \beta).$$
 \end{proofenv}
 
@@ -119,7 +119,7 @@ We denote by $E^*$ the dual vector space of $E$.
     There is a homomorphism of $K$-modules,
     $$\begin{array}{rrcl}
         \Phi : & V_1^\vee \otimes \cdots \otimes V_n^\vee & \longrightarrow & (V_1 \otimes \cdots \otimes V_n)^\vee\\
-        & \varphi_1 \otimes \cdots \otimes \varphi_n & \longmapsto & (x_1 \otimes \cdots \otimes x_n \mapsto \varphi_1(x_1) \otimes \cdots \otimes \varphi_n(x_n)).
+        & \varphi_1 \otimes \cdots \otimes \varphi_n & \longmapsto & (x_1 \otimes \cdots \otimes x_n \mapsto \varphi_1(x_1) \cdots \varphi_n(x_n)).
     \end{array}$$
     It is an isomorphism when $V_1,\cdots,V_n$ are free $K$-modules of finite rank.
 \end{propositionenv}
@@ -128,7 +128,7 @@ We denote by $E^*$ the dual vector space of $E$.
         V_1^\vee \otimes \cdots \otimes V_n^\vee \cong & \Hom_{K} (V_1,V_2^\vee \otimes \cdots \otimes V_n^\vee) \cong \cdots\\
         \cong & \Hom_{K}\left(V_1,\Hom_{K}\left(V_2,\cdots \Hom_{K}(V_n,K)\right)\right)\\
         \cong &  \Hom_{K}^{(n)} (V_1\times \cdots \times V_n,K)\\
-        = & \Hom_{K}(V_1 \otimes \cdots \otimes V_n, K) = (V_1\otimes \cdots V_n)^\vee.
+        = & \Hom_{K}(V_1 \otimes \cdots \otimes V_n, K) = (V_1\otimes \cdots \otimes V_n)^\vee.
     \end{aligned}$$
 \end{proofenv}
 
@@ -273,7 +273,7 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     we obtain that
     $$\exp(x) \ge \frac{x^{n+1}}{(n+1)!},$$
     and hence
-    $$\forall x \in \RR_{>0},\; 0 \le x^n \exp(-x) \le \frac{x^{n+1}}{x}.$$
+    $$\forall x \in \RR_{>0},\; 0 \le x^n \exp(-x) \le \frac{(n+1)!}{x}.$$
     Taking the limit when $x \rightarrow +\infty$, we get
     $$\lim_{x \to +\infty} x^n \exp(-x) = 0.$$
     
@@ -287,15 +287,15 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     We assume that the statement is true for $n$.
     Then the function $b^{(n)}$ is differentiable on $\interval[open]{-1}{1}$ and on this interval
     $$\begin{aligned}
-        b^{(n-1)}(t) = & \frac{F_{n}(t)}{(t^2 - 1)^{2n}}b'(t) - \frac{4ntF_n(t)}{(t^2 - 1)^{2n+1}}b(t) + \frac{F'_n(t)}{(t^2 - 1)^{2n}} b(t)\\
+        b^{(n+1)}(t) = & \frac{F_{n}(t)}{(t^2 - 1)^{2n}}b'(t) - \frac{4ntF_n(t)}{(t^2 - 1)^{2n+1}}b(t) + \frac{F'_n(t)}{(t^2 - 1)^{2n}} b(t)\\
         = & \frac{-2t F_n(t) - 4nt (t^2 - 1) F_n(t) +(t^2 - 1)^2 F'_n(t)}{(t^2 - 1)^{2n+2}} b(t).
     \end{aligned}$$
     Moreover, $b^{(n)}$ is also differentiable on $\RR\setminus\interval{-1}{1}$ and $b^{(n+1)}(t) = 0$ for any $t \in \RR\setminus[-1,1]$.
 
     \quad By the change of variable $x = - \frac{1}{t^2 - 1}$, we obtain
-    $$\lim_{|t| \to 1^-} \frac{b(t)}{(t^2 - 1)^{2n + 1}} = \lim_{x \rightarrow +\infty} x^{2n + 1} \exp(x) = 0.$$
+    $$\lim_{|t| \to 1^-} \frac{b(t)}{(t^2 - 1)^{2n + 1}} = \lim_{x \rightarrow +\infty} (-1)^{2n+1} x^{2n + 1} \exp(-x) = 0.$$
     As a consequence, we obtain that
-    $$\lim_{t \rightarrow 1} \frac{b^{n}(t)}{t - 1} = \lim_{t \rightarrow -1} \frac{b^{(n)}(t)}{t + 1} = 0.$$
+    $$\lim_{t \rightarrow 1} \frac{b^{(n)}(t)}{t - 1} = \lim_{t \rightarrow -1} \frac{b^{(n)}(t)}{t + 1} = 0.$$
     In particular, $b^{(n)}$ is differentiable at $1,-1$ and 
     $$b^{(n+1)}(1) = b^{(n+1)}(-1) = 0.$$
 \end{proofenv}
@@ -307,7 +307,7 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     such that $\rho(x) = 1$ for any $x \in K$ and $\supp(\rho) \subseteq U$.
 \end{propositionenv}
 \begin{proofenv}
-    Without losing of generality, we may assume that $E = \RR^n$, $n \in \ZZ_{>0}$.
+    Without loss of generality, we may assume that $E = \RR^n$, $n \in \ZZ_{>0}$.
     We equip $\RR^n$ with the norm $\|\cdot\|$ such that
     $$\|(x_1,\cdots,x_n)\| = \max_{i \in \{1,\cdots,n\}} |x_i|.$$
     Let $\chi : \RR^n \rightarrow \RR$, $\chi(x_1,\cdots,x_n) = C b(x_1) \cdots b(x_n)$,
@@ -316,17 +316,17 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     Note that by Fubini's theorem,
     $$\int_{\RR^n} \chi(x_1,\cdots,x_n)\dd(x_1,\cdots,x_n) = 1$$
     where $\dd (x_1,\cdots,x_n)$ denotes the Lebesgue measure on $\RR^n$.
-    For any $\varepsilon \in \RR_{>0}$, we obtain by $\chi_{\varepsilon}$,
-    $\chi_{\varepsilon} : E \rightarrow \RR$ defined as $\chi_{\varepsilon} \coloneq \frac{1}{\varepsilon^n} \chi(x/\varepsilon)$.
+    For any $\varepsilon \in \RR_{>0}$, we denote by $\chi_{\varepsilon}$ the mapping
+    $\chi_{\varepsilon} : E \rightarrow \RR$ defined as $\chi_{\varepsilon}(x) \coloneq \frac{1}{\varepsilon^n} \chi(x/\varepsilon)$.
     By the formula of change of variables
-    $$\int_{\RR} (x_1,\cdots,x_n) \dd(x_1,\cdots,x_n) = 1.$$
+    $$\int_{\RR^n} \chi_{\varepsilon}(x_1,\cdots,x_n) \dd(x_1,\cdots,x_n) = 1.$$
     For any $\varepsilon \in \RR_{>0}$, define $K_{\varepsilon} = \bigcup_{y \in K}\bar{B}(y,\varepsilon)$.
     Clearly, for any $x \in K_{\varepsilon}$, one has
-    $$\dd(x,K) \coloneq \inf_{y \in K} \dd(x,y) < \varepsilon.$$
+    $$\dd(x,K) \coloneq \inf_{y \in K} \dd(x,y) \le \varepsilon.$$
 
-    \quad Conversely, if $x$ is an element of $E$ such that $\dd(x,K)\le \varepsilon$, the there exists a sequence $(y_n)_{n \in \NN}$ of elements in $K$ such that
+    \quad Conversely, if $x$ is an element of $E$ such that $\dd(x,K)\le \varepsilon$, then there exists a sequence $(y_n)_{n \in \NN}$ of elements in $K$ such that
     $$\lim_{n\rightarrow +\infty}\|x - y_n\|\le \varepsilon.$$
-    By taking a subsequence, we may assume without losing of generality that $(y_n)_{n \in \NN}$ converges to some $y \in K$.
+    By taking a subsequence, we may assume without loss of generality that $(y_n)_{n \in \NN}$ converges to some $y \in K$.
     Hence
     $$\dd(x,y) \le \varepsilon.$$
     We obtain that
@@ -338,21 +338,21 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     Let $(\varepsilon_n)_{n \in \NN}$ be a decreasing sequence converging to $0$.
     Suppose by contradiction that for any $n \in \NN$, there exists $x_n \in K_{\varepsilon_n} \setminus U$.
     Since $K_{\varepsilon_0}$ is compact,
-    by existing a subsequence of $(x_n)_{n \in \NN}$ we may assume without losing of generality that $(x_n)_{n \in \NN}$ converges to some $x \in K_{\varepsilon_0}$.
+    by taking a subsequence of $(x_n)_{n \in \NN}$ we may assume without loss of generality that $(x_n)_{n \in \NN}$ converges to some $x \in K_{\varepsilon_0}$.
     Since $U$ is open, $x \notin U$.
     However, one has $\dd(x,K) = 0$ and hence $x \in K \subseteq U$ (contradiction).
     
     \quad We now let $\rho$ to be the convolution of $\mathbbm{1}_{K_{\varepsilon}}$ and $\chi_{\varepsilon}$, i.e.
-    $$\forall x \in \RR,\; \rho(x) = \int_{\RR} \mathbbm{1}_{K_{\varepsilon}}(y)\chi_{\varepsilon}(x-y)\dd y.$$
+    $$\forall x \in \RR^n,\; \rho(x) = \int_{\RR^n} \mathbbm{1}_{K_{\varepsilon}}(y)\chi_{\varepsilon}(x-y)\dd y.$$
     Since $\chi_{\varepsilon}$ is smooth and of compact support, by the theorem of differentiability under integral,
     we get that $\rho$ is smooth.
     By the formula of change of variable and the fact that $\chi_{\varepsilon}$ is an even function
-    $$\rho(x) = \int_{\RR^n} \mathbbm{1}_{K_{\varepsilon}} (x - y)\chi_{\varepsilon} (y) \dd y = \int_{\RR^n} \mathbbm{1}_{K_{\varepsilon}}(y) \dd y.$$
+    $$\rho(x) = \int_{\RR^n} \mathbbm{1}_{K_{\varepsilon}} (x - y)\chi_{\varepsilon} (y) \dd y.$$
     For any $x \in K$,
     $$\rho(x) = \int_{\RR^n} \chi_{\varepsilon}(y) \dd y = 1.$$
     For any $x \notin K_{2\varepsilon}$, one has
     $$\rho(x) = \int_{K_{2\varepsilon}} \mathbbm{1}_{K_{\varepsilon}}(x+y)\chi_{\varepsilon}(y) \dd y = 0.$$
-    Hence the support of $\rho$ is contained $K_{2\varepsilon} \subseteq U$.
+    Hence the support of $\rho$ is contained in $K_{2\varepsilon} \subseteq U$.
     In particular $\supp(\rho) \subseteq U$.
 \end{proofenv}
 
@@ -375,7 +375,7 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     there exists $g \in S$ such that $I(|f - g|) \le \varepsilon$.
 \end{lemmaenv}
 \begin{proofenv}
-    Without losing of generality, we may assume that $f$ is non-negative ($f = f^+ - f^-$).
+    Without loss of generality, we may assume that $f$ is non-negative ($f = f^+ - f^-$).
     
     For any $\varepsilon > 0$, $u \in S^\uparrow$ such that $u \ge f$ and $I(u) - I(f) \le \frac{\varepsilon}{2}$.
     ($I(f) = \inf \{I(u), u\in S^\uparrow, u\ge f\}$).
@@ -466,7 +466,7 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
 \end{proofenv}
 
 \begin{theoremenv}[Taylor's formula]\label{thm:7.2.6}
-    Let $(E,\|\cdot\|)$ e a Banach space, $U \subseteq E$ be open,
+    Let $(E,\|\cdot\|)$ be a Banach space, $U \subseteq E$ be open,
     $a \in U$ and $h \in E$.
     Suppose that for any $t \in [0,1]$, $a + th \in U$.
     Let $f : U \rightarrow \RR$ be a mapping of class $C^{n+1}$.
@@ -476,18 +476,18 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
 \begin{proofenv}
     We reason by induction on $n$.
     In the case where $n = 0$, one has
-    $$\frac{\dd}{\dd t} f(a + th) = \DD f(a)(h,\cdots,h),$$
+    $$\frac{\dd}{\dd t} f(a + th) = \DD f(a + th)(h),$$
     so that
-    $$\int_{0}^{t} \DD f(a + th)(h) \dd t = f(a + h) - f(a),$$
+    $$\int_{0}^{1} \DD f(a + th)(h) \dd t = f(a + h) - f(a),$$
     by the fundamental theorem of analysis.
 
-    \quad Suppose that the formula holds for $n$.
+    \quad Suppose that the formula holds for $n-1$.
     By the relation
     $$\frac{\dd}{\dd t}\DD^n f(a + th)(h,\cdots,h) = \DD^{n+1}f(a + th)(h,\cdots,h),$$
     Integrating by parts, we obtain
     $$\begin{aligned}
         & \int_{0}^{1} \frac{(1 - t)^n}{n!} \DD^{n+1}f(a + th)(h,\cdots,h) \dd t\\
-        = & \frac{1}{n!} f(a) (h,\cdots,a) + \int_{0}^{1} \frac{(1 - t)^{n-1}}{n!} \DD^n f(a + th)(h,\cdots,h) \dd t.
+        = & -\frac{1}{n!}\DD^n f(a)(h,\cdots,h) + \int_{0}^{1} \frac{(1 - t)^{n-1}}{(n-1)!} \DD^n f(a + th)(h,\cdots,h) \dd t.
     \end{aligned}$$
     By inductive assumption, we obtain the desired formula.
 \end{proofenv}
@@ -535,7 +535,7 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
     Let $K$ be a commutative unitary ring, $A$ be a commutative $K$-algebra and $P : A \rightarrow K$ be a homomorphism of $K$-algebras.
     Let $I = \ker(P)$.
     \begin{enumerate}[label=(\arabic*)]
-        \item Let $\partial : A \rightarrow K$ be a derivation at $p$.
+        \item Let $\partial : A \rightarrow K$ be a derivation at $P$.
             For any $f \in I^2$, $\partial(f) = 0$.
             Hence $\partial$ induces a homomorphism of $K$-modules $I/I^2 \rightarrow K$.
         \item  Suppose that $2$ is not a zero divisor in $K$.
@@ -543,10 +543,10 @@ In this section, we fix a finite-dimensional vector space $E$ over $\RR$.
         \item Suppose that $2$ is not a zero divisor in $K$.
             The mapping 
             $$\begin{array}{rrcl}
-                \Der_p(A) & \longrightarrow & \Hom_K(I/I^2, K)\\
-                \partial & \longmapsto & ([f] \mapsto \partial(f))
+                \Phi : & \Der_P(A) & \longrightarrow & \Hom_K(I/I^2, K)\\
+                & \partial & \longmapsto & ([f] \mapsto \partial(f))
             \end{array}$$
-            is a isomorphism of $K$-modules.
+            is an isomorphism of $K$-modules.
     \end{enumerate}
 \end{propositionenv}
 \begin{proofenv}
