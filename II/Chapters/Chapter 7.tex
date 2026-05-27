@@ -815,3 +815,195 @@ By expanding the determinant along the first row, we get the equality.
         = & 0.
     \end{aligned}$$
 \end{proofenv}
+
+\begin{notationenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$, $U \subseteq E$ be an open subset,
+    $X$ be a tangent vector field on $U$ of class $C^m$.
+    If $\omega$ is a $p$-form on $U$ of class $C^m$, 
+    $$\mathcal{L}_{X}(\omega)(X_1,\cdots,X_p) = X\left(\omega(X_1,\cdots,X_p)\right) - \sum_{i=1}^{p} \omega(X_1,\cdots,[X,X_i],\cdots,X_p).$$
+    $\mathcal{L}_{X}(\omega)$ is a $p$-form of class $C^{m-1}$.
+\end{notationenv}
+
+\begin{propositionenv}
+    Let $X$ be a tangent vector field on $U$ of class $C^1$.
+    Let $p$ and $q$ be natural numbers.
+    $\alpha$ and $\beta$ be $p$-form and $q$-form of class $C^1$ on $U$.
+    Then 
+    $$\mathcal{L}_{X}(\alpha \wedge \beta) = \mathcal{L}_{X}(\alpha) \wedge \beta + \alpha \wedge \mathcal{L}_{X}(\beta).$$
+\end{propositionenv}
+\begin{proofenv}
+    We reason by induction on $p$.
+    For $p=0$, $\alpha$ is given by a mapping $f : U \rightarrow \RR$ of class $C^1$.
+    By definition,
+    $$\begin{aligned}
+        & \mathcal{L}_{X}(f \beta)(X_1,\cdots,X_q)\\
+        = & X(f\beta(X_1,\cdots,X_q)) - \sum_{i=1}^{q}f \beta(X_1,\cdots,[X,X_i],\cdots,X_q)\\
+        = & f \mathcal{L}_{X}(\beta)(X_1,\cdots,X_q) + X(f) \beta(X_1,\cdots,X_q).
+    \end{aligned}$$
+    For $p = 1$,
+    $$\begin{aligned}
+        (\alpha \wedge \beta)(X_0,\cdots,X_q) = \sum_{i=0}^{q} (-1)^i \alpha(X_i) \beta(X_0,\cdots,\hat{X}_i,\cdots,X_q).
+    \end{aligned}$$
+    $$\begin{aligned}
+        & \mathcal{L}_{X}(\alpha \wedge \beta) (X_0,\cdots,X_q)\\
+        = & X \left((\alpha \wedge \beta)(X_0,\cdots,X_q)\right) - \sum_{i=0}^{q}(\alpha \wedge \beta)(X_0,\cdots,\hat{X}_i,\cdots,X_q)\\
+        = & X\left(\sum_{i=0}^{q}(-1)^i \alpha (X_i) \beta(X_0,\cdots,\hat{X}_i,\cdots,X_q)\right)\\
+        & - \sum_{i=0}^{q}((-1)^{i}\alpha([X,X_i]) \beta(X_0,\cdots,\hat{X}_i,\cdots,X_q)\\
+        & \quad + \sum_{j \neq i} (-1)^j \alpha(X_j) \beta(X_0,\cdots,\hat{X}_j,\cdots,[X,X_i],\cdots,X_q))\\
+        = & \sum_{i=0}^{q}(-1)^{i} \left(X(\alpha(X_i)) - \alpha([X,X_i])\right) \beta(X_0,\cdots,\hat{X}_i,\cdots,X_q)\\
+        & + \sum_{j=0}^{q}(-1)^{j} \alpha(X_j) (X(\beta(X_0,\cdots,\hat{X}_j,\cdots,X_q))\\
+        & \quad - \sum_{i \neq j} \beta(X_0,\cdots,\hat{X}_j,\cdots,[X,X_i],\cdots,X_q))\\
+        = & (\mathcal{L}_{X}(\alpha) \wedge \beta)(X_0,\cdots,X_q) + (\alpha \wedge \mathcal{L}_{X}(\beta))(X_0,\cdots,X_q).
+    \end{aligned}$$
+    Assume that $p \ge 2$ and the formula holds for $p-1$-form and $q$-form.
+    By multilinearity, we may assume that $\alpha = \theta \wedge \omega$, where $\theta$ is a $1$-form and $\omega$ is a $(p-1)$-form.
+    $$\begin{aligned}
+        & \mathcal{L}_{X}(\alpha \wedge \beta) = \mathcal{L}_{X}\left(\theta \wedge (\omega \wedge \beta)\right)\\
+        = & \mathcal{L}_{X}(\theta)\wedge(\omega \wedge \beta) + \theta \wedge \mathcal{L}_{X}(\omega \wedge \beta)\\
+        = & (\mathcal{L}_{X}(\theta)\wedge\omega) \wedge \beta + \theta \wedge (\mathcal{L}_{X}(\omega) \wedge \beta + \omega \wedge \mathcal{L}_{X}(\beta))\\
+        = & (\mathcal{L}_{X}(\theta) \wedge \omega + \theta \wedge \mathcal{L}_{X}(\omega)) \wedge \beta + (\theta \wedge \omega)\wedge\mathcal{L}_X(\beta)\\
+        = & \mathcal{L}_{X}(\theta \wedge \omega) \wedge \beta + (\theta \wedge \omega) \wedge \mathcal{L}_{X}(\beta).
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $\omega$ be a $p$-form on $U$.
+    For any tangent vector field $X$,
+    we denote by $\iota_{X}(\omega)$ the $(p-1)$-form on $U$ such that
+    $$\iota_{X}(\omega)(X_1,\cdots,X_{p-1}) = \omega(X,X_1,\cdots,X_{p-1}).$$
+\end{definitionenv}
+
+\begin{propositionenv}
+    If $\alpha$ and $\beta$ are $p$-form and $q$-form on $U$, then
+    $$\iota_{X}(\alpha \wedge \beta) = \iota_{X}(\alpha) \wedge \beta + (-1)^{p}\alpha \wedge \iota_{X}(\beta).$$
+\end{propositionenv}
+\begin{proofenv}
+    We reason by induction on $p$.
+    For $p=0$, By convention, $\iota_{X}(\alpha) = 0$.
+    $\alpha$ is given by a mapping $f : U \rightarrow \RR$.
+    $$\iota_{X}(f \beta)(X_1,\cdots,X_{q-1})
+    = (f \beta)(X,X_1,\cdots,X_{q-1})
+    = f \iota_{X}(\beta)(X_1,\cdots,X_{q-1}).$$
+    For $p=1$, Let $X_0 = X$.
+    $$\begin{aligned}
+        & \iota_{X}(\alpha \wedge \beta)(X_1,\cdots,X_{q}) = (\alpha \wedge \beta)(X_0,X_1,\cdots,X_{q})\\
+        = & \alpha(X_0) \beta(X_1,\cdots,X_{q}) + \sum_{i=1}^{q} (-1)^i \alpha(X_i) \beta(X_0,\cdots,\hat{X}_i,\cdots,X_{q})\\
+        = & (\iota_{X}(\alpha) \wedge \beta)(X_1,\cdots,X_{q}) - (\alpha \wedge \iota_{X}(\beta))(X_1,\cdots,X_{q}).
+    \end{aligned}$$
+    Assume that $p\ge 2$ and the formula holds for $p-1$-form and $q$-form.
+    Let $\alpha = \theta \wedge \omega$, where $\theta$ is a $1$-form and $\omega$ is a $(p-1)$-form.
+    $$\begin{aligned}
+        & \iota_{X}(\alpha \wedge \beta) = \iota_{X}\left(\theta \wedge (\omega \wedge \beta)\right)\\
+        = & \iota_{X}(\theta) \wedge (\omega \wedge \beta) - \theta \wedge \iota_{X}(\omega \wedge \beta)\\
+        = & (\iota_{X}(\theta) \wedge \omega) \wedge \beta - \theta \wedge (\iota_{X}(\omega) \wedge \beta + (-1)^{p - 1} \omega \wedge \iota_{X}(\beta))\\
+        = & \left(\iota_{X}(\theta) \wedge \omega - \theta \wedge \iota_{X}(\omega)\right) \wedge \beta + (-1)^{p}\theta \wedge \omega \wedge \iota_{X}(\beta)\\
+        = & \iota_{X}(\theta \wedge \omega) \wedge \beta + (-1)^{p} (\theta \wedge \omega) \wedge \iota_{X}(\beta).
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{theoremenv}[Cartan's magic formula]
+    Let $E$ be a finite-dimensional vector space over $\RR$, $U \subseteq E$ be an open subset,
+    $X$ be a vector field on $U$ of class $C^1$.
+    For any $p$-form of class $C^1$ on $U$, one has
+    $$\mathcal{L}_{X}(\omega) = \iota_{X}(\dd \omega) + \dd (\iota_{X} (\omega)).$$
+\end{theoremenv}
+\begin{proofenv}
+    $$\begin{aligned}
+        & \delta_{X}(\alpha \wedge \beta) = \iota_{X}(\dd (\alpha \wedge \beta)) + \dd (\iota_{X}(\alpha \wedge \beta))\\
+        = & \iota_{X}(\dd \alpha \wedge \beta + (-1)^{p} \alpha \wedge \dd \beta) + \dd \left(\iota_{X}(\alpha) \wedge \beta + (-1)^{p}\alpha \wedge \iota_{X}(\beta)\right)\\
+        = & \iota_{X}(\dd \alpha) \wedge \beta + (-1)^{p+1} \dd \alpha \wedge \iota_{X}(\beta)\\
+        & + (-1)^{p}\iota_{X}(\alpha) \wedge \dd \beta + \alpha \wedge \iota_{X}(\dd \beta)\\
+        & + \dd (\iota_{X}(\alpha)) \wedge \beta + (-1)^{p-1} \iota_{X}(\alpha) \wedge \dd \beta\\
+        & + (-1)^{p} \dd (\alpha) \wedge \iota_{X}(\beta) + \alpha \wedge \dd (\iota_{X}(\beta))\\
+        = & \delta_{X}(\alpha) \wedge \beta + \alpha \wedge \delta_{X}(\beta).
+    \end{aligned}$$
+    If $\omega$ is a $1$-form, 
+    $$\mathcal{L}_{X}(\omega)(Y) = X(\omega(Y)) - \omega([X,Y]),$$
+    $$\begin{aligned}
+        \delta_{X}(\omega)(Y)
+        = & \iota_{X} (\dd \omega) (Y) + \dd (\iota_{X}(\omega))(Y)\\
+        = & (\dd \omega)(X,Y) + \dd(\omega(X))(Y)\\
+        = & \dd \omega (X,Y) - Y (\omega(X)).
+    \end{aligned}$$
+    To prove that $\mathcal{L}_{X}(\omega)(Y) = \delta_{X}(\omega)(Y)$, we need to check
+    $$\dd \omega (X,Y) = X (\omega(Y)) - Y (\omega(X)) - \omega([X,Y]).$$
+    For this purpose, we may assume that $\omega = f \dd g$, where $f \in C^{1}(U)$, $g \in E^*$.
+    $$\begin{aligned}
+        \dd \omega (X,Y) = & (\dd f \wedge \dd g)(X,Y)\\
+        = & \dd f (X) \dd g (Y) - \dd f (Y) \dd g (X)\\
+        = & X(f) Y(g) - Y(f) X(g)\\
+    \end{aligned}$$
+    $$\begin{aligned}
+        & X(\omega(Y)) - Y(\omega(X)) - \omega([X,Y])\\
+        = & X(f Y(g)) - Y(f X(g)) - f [X,Y](g)\\
+        = & X(f) Y(g) + f X(Y(g)) - Y(f) X(g) - f Y(X(g)) - f [X,Y](g).
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{theoremenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$, $U \subseteq E$ be an open subset,
+    $p \in \NN$, $\omega$ be a $p$-form on $U$ of class $C^1$.
+    For any tangent vector fields $X_1,\cdots,X_p$ of class $C^1$ on $U$, one has
+    $$\begin{aligned}
+        \dd \omega (X_0,\cdots,X_p) = & \sum_{i = 0}^{p} (-1)^{i} X_i (\omega(X_0,\cdots,\hat{X}_i,\cdots,X_p))\\
+        & + \sum_{0 \le i < j \le p} (-1)^{i+j} \omega([X_i,X_j],X_0,\cdots,\hat{X}_i,\cdots,\hat{X}_j,\cdots,X_p).
+    \end{aligned}$$
+\end{theoremenv}
+\begin{proofenv}
+    We reason by induction on $p$.
+    For $p=0$, $\omega$ is given by a mapping $f : U \rightarrow \RR$ of class $C^1$.
+    $$\dd f (X_0) = X_0(f).$$
+    For $p=1$, this case have been checked in the proof of Cartan's magic formula.
+    Suppose that the equality holds for $p-1$-form.
+    $$\begin{aligned}
+        \dd \omega (X_0,\cdots,X_p) = & \iota_{X_0} (\dd \omega) (X_1,\cdots,X_p)\\
+        = & \mathcal{L}_{X_0} (\omega) (X_1,\cdots,X_p) - \dd (\iota_{X_0}(\omega))(X_1,\cdots,X_p).
+    \end{aligned}$$
+    $$\begin{aligned}
+        & \mathcal{L}_{X_0} (\omega) (X_1,\cdots,X_p)\\
+        = & X_0 (\omega(X_1,\cdots,X_p)) - \sum_{i=1}^{p} \omega(X_1,\cdots,[X_0,X_i],\cdots,X_p)\\
+        = & X_0 (\omega(X_1,\cdots,X_p)) + \sum_{i=1}^{p} (-1)^{i} \omega ([X_0,X_i],X_1,\cdots,\hat{X}_i,\cdots,X_p).
+    \end{aligned}$$
+    By the induction hypothesis,
+    $$\begin{aligned}
+        & \dd (\iota_{X_0}(\omega))(X_1,\cdots,X_p)\\
+        = & \sum_{i=1}^{p} (-1)^{i-1} X_i (\omega(X_0,X_1,\cdots,\hat{X}_i,\cdots,X_p))\\
+        & - \sum_{0 \le i < j \le p} (-1)^{i+j} \omega([X_i,X_j],X_0,\cdots,\hat{X}_i,\cdots,\hat{X}_j,\cdots,X_p).
+    \end{aligned}$$
+\end{proofenv}
+
+
+\section{Submanifolds}
+
+
+\begin{theoremenv}
+    Let $E,F,G$ be Banach spaces over $\RR$, $U \subseteq E$, $V \subseteq F$ be open subsets, $(x_0,y_0) \in U \times V$.
+    Let $f : U \times V \rightarrow G$ be a mapping.
+    Let $n \in \NN_{\ge 1} \cup \{\infty\}$.
+    Assume that
+    \begin{enumerate}[label=(\arabic*)]
+        \item $f(x_0,y_0) = 0$.
+        \item $f$ is of class $C^n$ on a neighborhood of $(x_0,y_0)$.
+        \item $\partial_{y} f(x_0,y_0) : F \rightarrow G$ is an isomorphism of Banach spaces.
+    \end{enumerate}
+    Then there exists an open subsets $U_0$ and $V_0$ of $E$ and $F$ such that $x_0 \in U_0 \subseteq U$, $y_0 \in V_0 \subseteq V$,
+    and a unique mapping $\varphi : U_0 \rightarrow V_0$ of class $C^n$, such that $\varphi(x_0) = y_0$ and
+    $$\forall x \in U_0, \quad f(x, \varphi(x)) = 0.$$
+    Moreover, 
+    $$\DD \varphi(x) = - \left(\partial_{y} f(x,\varphi(x))\right)^{-1} \circ \partial_{x} F(x,\varphi(x)).$$
+\end{theoremenv}
+\begin{proofenv}
+    Let
+    $$\begin{array}{rrcl}
+        g : & U \times V & \longrightarrow & E \times G\\
+            & (x,y) & \longmapsto & (x, f(x,y)).
+    \end{array}$$
+    $$\DD g (x_0,y_0)(\mu,\nu) = (\mu,\partial_{x} f(x_0,y_0)(\mu) + \partial_{y} f(x_0,y_0)(\nu)).$$
+    This mapping is invertible, and its inverse is given by
+    $$(a,b) \longmapsto (a,\partial_{y} f(x_0,y_0)^{-1}(b - \partial_{x} f(x_0,y_0)(a))).$$
+    By the dual inversion theorem, there exists an open neighborhood $W \subseteq E \times F$ of $(x_0,y_0)$, $W \subseteq U \times V$ such that $g|_{W}$ defines a $C^n$ homeomorphism.
+    
+    \quad Note that $g(x_0,y_0) = (x_0,0)$.
+    There exists $U_0 \subseteq E$ open, $x_0 \in U_0 \subseteq U$ such that for any $x \in U_0$, $(x,0) \in g(W)$.
+    So for any $x \in U_0$, there exists a unique $\varphi(x) \in V$ such that $(x,\varphi(x)) \in W$ and $f(x,\varphi(x)) = 0$.
+\end{proofenv}
