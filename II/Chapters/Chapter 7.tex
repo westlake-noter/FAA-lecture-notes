@@ -990,7 +990,7 @@ By expanding the determinant along the first row, we get the equality.
     and a unique mapping $\varphi : U_0 \rightarrow V_0$ of class $C^n$, such that $\varphi(x_0) = y_0$ and
     $$\forall x \in U_0, \quad f(x, \varphi(x)) = 0.$$
     Moreover, 
-    $$\DD \varphi(x) = - \left(\partial_{y} f(x,\varphi(x))\right)^{-1} \circ \partial_{x} F(x,\varphi(x)).$$
+    $$\DD \varphi(x) = - \left(\partial_{y} f(x,\varphi(x))\right)^{-1} \circ \partial_{x} f(x,\varphi(x)).$$
 \end{theoremenv}
 \begin{proofenv}
     Let
@@ -1001,9 +1001,322 @@ By expanding the determinant along the first row, we get the equality.
     $$\DD g (x_0,y_0)(\mu,\nu) = (\mu,\partial_{x} f(x_0,y_0)(\mu) + \partial_{y} f(x_0,y_0)(\nu)).$$
     This mapping is invertible, and its inverse is given by
     $$(a,b) \longmapsto (a,\partial_{y} f(x_0,y_0)^{-1}(b - \partial_{x} f(x_0,y_0)(a))).$$
-    By the dual inversion theorem, there exists an open neighborhood $W \subseteq E \times F$ of $(x_0,y_0)$, $W \subseteq U \times V$ such that $g|_{W}$ defines a $C^n$ homeomorphism.
+    By the local inversion theorem, there exists an open neighborhood $W \subseteq E \times F$ of $(x_0,y_0)$, $W \subseteq U \times V$ such that $g|_{W}$ defines a $C^n$ homeomorphism.
     
     \quad Note that $g(x_0,y_0) = (x_0,0)$.
     There exists $U_0 \subseteq E$ open, $x_0 \in U_0 \subseteq U$ such that for any $x \in U_0$, $(x,0) \in g(W)$.
     So for any $x \in U_0$, there exists a unique $\varphi(x) \in V$ such that $(x,\varphi(x)) \in W$ and $f(x,\varphi(x)) = 0$.
 \end{proofenv}
+
+\begin{exampleenv}
+    Consider
+    $$\begin{array}{rrcl}
+        f : & \RR^2 & \longrightarrow & \RR\\
+        & (x,y) & \longmapsto & x^2 + y^2 - 1
+    \end{array}$$
+    and $(x_0,y_0) = (0,1)$, one easily checks
+    $$\frac{\partial f}{\partial y} (x,y) = 2y, \quad \frac{\partial f}{\partial y} (x_0,y_0) = 2.$$
+    Hence
+    $$\varphi'(0) = \frac{\frac{\partial f}{\partial x}(0,1)}{\frac{\partial f}{\partial y}(0,1)} = 0.$$
+\end{exampleenv}
+
+\begin{definitionenv}
+    Let $E$ and $F$ be Banach spaces over $\RR$,
+    $U \subseteq E$ open, $f : U \longrightarrow F$ be a differentiable mapping.
+    If for any $x \in U$, $\DD f(x) : E \longrightarrow F$ is injective (resp. surjective),
+    then we say that $f$ is an immersion (resp. submersion).
+\end{definitionenv}
+
+\begin{theoremenv}
+    Let $n \in \NN$ and $E$ be a vector space over $\RR$ of dimension $n$ and let $M \subseteq E$ be a subset.
+    Let $l \in \NN_{\ge 1} \cup \{\infty\}$ and $d \in \{0,\cdots,n\}$.
+    Then the following conditions are equivalent:
+    \begin{enumerate}[label=(\arabic*)]
+        \item For any $a \in M$, there exists an open neighborhood $a \in U$ in $E$, and an open neighborhood $V$ of $0$ in $E$,
+            a vector subspace $F$ of $E$ of dimension $d$, and a $C^l$ diffeomorphism $f : U \longrightarrow V$ such that $f(a) = 0$ and $f(U \cap M) = F \cap V$.
+            \begin{figure}[H]
+                \centering
+                \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+                \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+                %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+                
+                %Curve Lines [id:da10908968685352238] 
+                \draw    (122.5,102) .. controls (164,92) and (211.5,112) .. (221.5,142) ;
+                %Curve Lines [id:da819855903411314] 
+                \draw    (121.5,162.9) .. controls (139.94,157.13) and (169.5,159) .. (193.5,189) ;
+                %Curve Lines [id:da7860855625210581] 
+                \draw    (193.5,189) .. controls (192.5,171) and (199.5,149) .. (221.5,142) ;
+                %Curve Lines [id:da7743752312293308] 
+                \draw    (121.5,162.9) .. controls (116.5,149) and (119.5,110) .. (122.5,102) ;
+                
+                %Straight Lines [id:da006402136189289309] 
+                \draw    (100.5,185) -- (45.9,240.57) ;
+                \draw [shift={(44.5,242)}, rotate = 314.49] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                %Straight Lines [id:da4298109190055668] 
+                \draw    (100.5,185) -- (180.5,185.98) ;
+                \draw [shift={(182.5,186)}, rotate = 180.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                %Straight Lines [id:da33785935798230193] 
+                \draw    (100.5,185) -- (100.5,82) ;
+                \draw [shift={(100.5,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                
+                %Straight Lines [id:da5462832714337938] 
+                \draw    (362.5,186) -- (307.9,241.57) ;
+                \draw [shift={(306.5,243)}, rotate = 314.49] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                %Straight Lines [id:da6451494503997357] 
+                \draw    (362.5,186) -- (442.5,186.98) ;
+                \draw [shift={(444.5,187)}, rotate = 180.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                %Straight Lines [id:da8175832100807386] 
+                \draw    (362.5,186) -- (362.5,83) ;
+                \draw [shift={(362.5,81)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                
+                %Shape: Parallelogram [id:dp178150064378078] 
+                \draw   (322.75,152.5) -- (468.25,152.5) -- (402.25,219.5) -- (256.75,219.5) -- cycle ;
+                %Shape: Free Drawing [id:dp4575306689482117] 
+                \draw  [line width=3] [line join = round][line cap = round] (154.09,132) .. controls (154.09,132.33) and (154.09,132.67) .. (154.09,133) ;
+                %Curve Lines [id:da07569397998902161] 
+                \draw  [dash pattern={on 4.5pt off 4.5pt}]  (154,132) .. controls (193.8,102.15) and (296.47,95.07) .. (361.52,184.64) ;
+                \draw [shift={(362.5,186)}, rotate = 234.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                
+                % Text Node
+                \draw (76,100.4) node [anchor=north west][inner sep=0.75pt]    {$E$};
+                % Text Node
+                \draw (134,114.4) node [anchor=north west][inner sep=0.75pt]    {$a$};
+                % Text Node
+                \draw (246,95.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
+                % Text Node
+                \draw (360,196.4) node [anchor=north west][inner sep=0.75pt]    {$F\cap V$};
+                % Text Node
+                \draw (148,145.4) node [anchor=north west][inner sep=0.75pt]    {$U\cap M$};
+                
+                
+                \end{tikzpicture}
+            \end{figure}
+        \item For any $a \in M$, there exists an open neighborhood $U$ of $a$, a vector space $G$ of dimension $n - d$ over $\RR$ together with a submersion $g : U \longrightarrow G$ of class $C^l$,
+            such that $g(a) = 0$ and $U \cap M = g^{-1}(\{0\})$.
+        \item For any $a \in M$, there exists an open neighborhood $U$ of $a$,
+            a vector space $H$ of dimension $d$ over $\RR$,
+            an open neighborhood $W$ of $0$ in $H$, and an immersion $\varphi : W \longrightarrow E$ of class $C^l$ such that $\varphi(0) = a$ and that $\varphi$ defines a homeomorphism between $W$ and $U \cap M$.
+    \end{enumerate}
+\end{theoremenv}
+\begin{proofenv}
+    \quad
+    \begin{enumerate}[label=\roman*.]
+        \item (1) $\Rightarrow$ (2).
+            
+            Take $G \coloneq E/F$ and let
+            $$g : U \longrightarrow G$$
+            to be the composite of $f$ with $\pi : E \longrightarrow G$.
+            For any $x \in U$, $\DD f(x)$ is an isomorphism.
+            Hence $\DD g(x) = \pi \circ \DD f (x)$ is surjective.
+            We deduce that $g$ is a submersion.
+
+            \quad One can easily check that
+            $$g^{-1}(\{0\}) = f^{-1}\left(\pi^{-1}(\{0\})\right) = f^{-1} \left(F \cap V\right) = U \cap M.$$
+        \item (2) $\Rightarrow$ (3).
+
+            By definition, $\DD g(a) : E \longrightarrow G$ is surjective.
+            Let $$H \coloneq \ker \DD g(a),$$ and let $u : G \longrightarrow E$ $\RR$ linear such that $\DD g(a) \circ U = \Id(G)$ (in particular $u$ is injective).
+            
+            \quad Note that $E = H \oplus u(G)$.
+            Consider
+            $$\begin{array}{rrcl}
+                h : & H \times u(G) & \longrightarrow & G\\
+                & (x,y) & \longmapsto & g (x + y + a)
+            \end{array}$$
+            and notice that
+            $$\DD g(a) |_{u(G)} = \DD_y h(0,0)$$
+            is an isomorphism.
+            By implicit function theorem, there exists an open neighborhood $W$ of $0$ in $H$ and a mapping $\psi : W \longrightarrow u(G)$ of class $C^l$ such that
+            $\psi(0) = 0$ and for any $x \in W$,
+            $$h(x,\psi(x)) = g(x + \psi(x) + a) = 0.$$
+            Namely,
+            $$x + \psi(x) + a \in U \cap M.$$
+            Let
+            $$\begin{array}{rrcl}
+                \varphi : & W & \longrightarrow & E\\
+                & x & \longmapsto & x + \psi(x) + a.
+            \end{array}$$
+            Then $\varphi(0) = a$, $\DD \varphi(x) = i_{H} + \DD_{\psi}(x)$,
+            where $i_H : H \longrightarrow E$ is the mapping of inclusion.
+            Since $\DD \psi (x)$ takes values in $u(G)$, and $E = H \oplus u(G)$, so $\DD \varphi (x)$ is injective.
+            Using $E = H \oplus u(G)$, we obtain that $\varphi$ is injective.
+            We conclude that $\varphi$ is an immersion.
+            Its inverse is the restriction of the projection to $H$ along $u(G)$ to the image of $\varphi$ which is also continuous.
+            Hence $\varphi$ is a homeomorphism to its image.
+        \item (3) $\Rightarrow$ (1).
+
+            Without loss of generality, we may assume that $a = 0$.
+            Let $F = \mathrm{Im}(\DD \varphi (0))$, $\dim (F) = d$.
+            We choose a vector subspace $F'$ of $E$ such that $E = F \oplus F'$.
+            Let $\pi : E \longrightarrow F$, $\pi' : E \longrightarrow F'$ be linear projections (in other words, if $x = u + u'$, $u \in F$, $u' \in F'$),
+            then $\pi(x) = u$ and $\pi'(x) = u'$.
+            By local inversion theorem, there exists an open subset $0 \in W_0 \subseteq W$ such that 
+            $\pi\circ \varphi |_{W_0}$ is $C^l$-homomorphism.
+            By ``shrinking'' $W$ (to $W_0$), we may assume $\pi \circ \varphi$ is $C^l$-homeomorphism.
+            Take $f : U \longrightarrow E$, $f(x) = x - (\pi' \circ \varphi)((\pi \circ \varphi)^{-1} (\pi(x)))$, $V = \mathrm{Im}(f)$.
+            Notice that
+            $$f^{-1} : V \ni y \mapsto y + (\pi' \circ \varphi)\left((\pi \circ \varphi)^{-1} (\pi(y))\right)$$
+            and both $f,f^{-1}$ are of class $C^l$.
+            Hence $f$ is $C^l$-diffeomorphism.
+            Finally, $x \in U \cap M$ if and only if there exists $b \in W$ such that $\varphi(b) = x$.
+            In this case,
+            $$f(x) = x - (\pi' \circ \varphi)(b) = x - \pi'(x) = \pi(x) \in V \cap F.$$
+            Conversely, if $f(x) \in V \cap F$, then
+            $$(\pi' \circ \varphi)\left((\pi \circ \varphi)^{-1} (\pi(x))\right) = \pi'(x).$$
+            Since $\pi(\varphi(\pi \circ \varphi)^{-1} (\pi (x))) = \pi(x)$,
+            we have
+            $$x = \pi'(x) + \pi(x) = \varphi\left((\pi \circ \varphi)^{-1}(\pi(x))\right).$$
+    \end{enumerate}
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $E$ be a finite dimensional vector space over $\RR$, and $M$ be a subset of $E$.
+    Let $l \in \NN_{\ge 1} \cup \{\infty\}$.
+    If $M$ satisfies one of the $3$ conditions of the previous theorem,
+    then we say that $M$ is a $C^l$ submanifold of dimension $d$ of $E$.
+\end{definitionenv}
+
+\begin{exampleenv}
+    Let $E$ be a finite dimensional vector space over $\RR$, $U \subseteq E$ open, $U$ is a $C^\infty$ submanifold of $E$ of dimension $n$.
+\end{exampleenv}
+
+\begin{exampleenv}
+    Let $E$ be a finite dimensional vector space over $\RR$, $U \subseteq E$ open, $f : U \longrightarrow \RR$ a mapping,
+    $M \coloneq \{x \in U \mid f(x) = 0\}$ and assume that $\DD f(x)$ is non-zero for any $x \in U$. Then $M$ is a submanifold of $E$ called a hypersurface in $E$ ($a_1 x_1 + \cdots + a_n x_n = b$ hyperplane).
+\end{exampleenv}
+
+\newpage
+\section{Tangent Space}
+
+
+\begin{definitionenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$, and $M \subseteq E$ be a submanifold of dimension $d$.
+    Let $a \in M$.
+    We call tangent vector of $M$ at $a$ any element of $E$ of the form $\gamma'(0)$, where $\gamma$ is a differentiable mapping from $0 \in U \subseteq \RR$ to $E$ whose image if contained in $M$.
+    We denote by $T_aM$ the set of all tangent vectors of $M$ at $a$ and call it the \textbf{tangent space} of $M$ at $a$.
+    \begin{figure}[H]
+        \centering
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Straight Lines [id:da6574948311999638] 
+        \draw    (125.5,194.31) -- (71.06,237.75) ;
+        \draw [shift={(69.5,239)}, rotate = 321.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da6145400307351391] 
+        \draw    (125.5,194.31) -- (205.5,195.08) ;
+        \draw [shift={(207.5,195.1)}, rotate = 180.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da3103165663831048] 
+        \draw    (125.5,194.31) -- (125.5,114) ;
+        \draw [shift={(125.5,112)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        
+        %Curve Lines [id:da23177423148406984] 
+        \draw    (141.5,121) .. controls (183,111) and (219.5,123) .. (244.5,145) ;
+        %Curve Lines [id:da9581070726654312] 
+        \draw    (222.5,198) .. controls (224.5,183) and (236.5,152) .. (244.5,145) ;
+        %Curve Lines [id:da1059031472307711] 
+        \draw    (140.5,181.9) .. controls (158.94,176.13) and (190.5,174) .. (222.5,198) ;
+        %Curve Lines [id:da791229989390287] 
+        \draw    (140.5,181.9) .. controls (135.5,168) and (138.5,129) .. (141.5,121) ;
+        
+        %Shape: Free Drawing [id:dp955280372576063] 
+        \draw  [line width=3] [line join = round][line cap = round] (163.09,150) .. controls (163.09,150.33) and (163.09,150.67) .. (163.09,151) ;
+        %Straight Lines [id:da609360480259626] 
+        \draw    (164,150) -- (222.57,133.54) ;
+        \draw [shift={(224.5,133)}, rotate = 164.31] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Curve Lines [id:da0037903950005488962] 
+        \draw [line width=1.5]    (143.5,167) .. controls (147.5,146) and (204.5,142) .. (222.5,153) ;
+        %Straight Lines [id:da6718229026155219] 
+        \draw [line width=1.5]    (119.5,240) -- (242.5,240) ;
+        %Curve Lines [id:da0797009196270585] 
+        \draw    (179,240) .. controls (187.25,211.87) and (179.02,179.98) .. (167.57,161.66) ;
+        \draw [shift={(166.5,160)}, rotate = 56.31] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        
+        % Text Node
+        \draw (151.5,133.9) node [anchor=north west][inner sep=0.75pt]    {$a$};
+        % Text Node
+        \draw (150,229.4) node [anchor=north west][inner sep=0.75pt]    {$( \ \ \ \ \ \ \ \ \ \ \ )$};
+        % Text Node
+        \draw (159,200.4) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+        % Text Node
+        \draw (219,217.4) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}$};
+        % Text Node
+        \draw (174,119.4) node [anchor=north west][inner sep=0.75pt]    {$M$};
+        
+        
+        \end{tikzpicture}
+    \end{figure}
+\end{definitionenv}
+
+\begin{theoremenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$, let $l \in \NN_{\ge 1} \cup \{\infty\}$ and $M$ be a submanifold of class $C^l$ of $E$ of dimension $d$.
+    Let $a \in M$.
+    Then the tangent space $T_aM$ is a vector subspace of $E$ of dimension $d$.
+    Moreover,
+    \begin{enumerate}[label=(\arabic*)]
+        \item Suppose that $U$ is an open neighborhood of $a$, $V$ is an open neighborhood of $0$, $F$ is a vector subspace of $E$ of dimension $d$, and $f : U \longrightarrow V$ is a $C^l$ diffeomorphism such that $f(a) = 0$ and $f(U \cap M) = F \cap V$.
+            Then
+            $$T_aM = \left(\DD f(a)\right)^{-1}(F).$$
+        \item Suppose that $U$ is an open neighborhood of $a$, $G$ is a vector space of dimension $n - d$ over $\RR$, and $g : U \longrightarrow G$ is a submersion of class $C^l$ such that
+            $$U \cap M = g^{-1}(\{0\}),$$
+            then
+            $$T_aM = \ker\left(\DD g(a)\right).$$
+        \item Suppose that $U$ is an open neighborhood of $a$ in $E$,
+            $H$ is a vector space of dimension $d$ over $\RR$, $W \subseteq H$ open, $\varphi : W \longrightarrow E$ is an immersion of class $C^l$ such that
+            $a \in \varphi(W)$ and such that $\varphi$ defines a homeomorphism between $W$ and $U \cap M$.
+            Then one has
+            $$T_a M = \DD \varphi\left(\varphi^{-1}(a)\right)(H).$$
+    \end{enumerate}
+    \begin{figure}[H]
+        \centering
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Curve Lines [id:da045299032222613334] 
+        \draw    (142.5,87) .. controls (184,77) and (231.5,97) .. (241.5,127) ;
+        %Curve Lines [id:da34120747133545914] 
+        \draw    (141.5,147.9) .. controls (159.94,142.13) and (189.5,144) .. (213.5,174) ;
+        %Curve Lines [id:da7311879720869648] 
+        \draw    (213.5,174) .. controls (212.5,156) and (219.5,134) .. (241.5,127) ;
+        %Curve Lines [id:da17428804645959384] 
+        \draw    (141.5,147.9) .. controls (136.5,134) and (139.5,95) .. (142.5,87) ;
+        
+        %Straight Lines [id:da05045961798312726] 
+        \draw    (120.5,170) -- (65.9,225.57) ;
+        \draw [shift={(64.5,227)}, rotate = 314.49] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da32974036825630737] 
+        \draw    (120.5,170) -- (200.5,170.98) ;
+        \draw [shift={(202.5,171)}, rotate = 180.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da32586173727330725] 
+        \draw    (120.5,170) -- (120.5,67) ;
+        \draw [shift={(120.5,65)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        
+        %Shape: Parallelogram [id:dp28226358362555315] 
+        \draw   (342.75,137.5) -- (488.25,137.5) -- (422.25,204.5) -- (276.75,204.5) -- cycle ;
+        %Shape: Free Drawing [id:dp1378606177424151] 
+        \draw  [line width=3] [line join = round][line cap = round] (174.09,117) .. controls (174.09,117.33) and (174.09,117.67) .. (174.09,118) ;
+        %Curve Lines [id:da6224601077674765] 
+        \draw  [dash pattern={on 4.5pt off 4.5pt}]  (175.84,115.67) .. controls (217.1,86.81) and (318.48,81.36) .. (382.5,171) ;
+        \draw [shift={(174,117)}, rotate = 323.13] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Shape: Free Drawing [id:dp45197147126481263] 
+        \draw  [line width=3] [line join = round][line cap = round] (381.09,170) .. controls (381.09,170.33) and (381.09,170.67) .. (381.09,171) ;
+        
+        % Text Node
+        \draw (154,99.4) node [anchor=north west][inner sep=0.75pt]    {$a$};
+        % Text Node
+        \draw (266,80.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+        % Text Node
+        \draw (409,144.4) node [anchor=north west][inner sep=0.75pt]    {$H\cap W$};
+        % Text Node
+        \draw (69,78.4) node [anchor=north west][inner sep=0.75pt]    {$H\cap U$};
+        % Text Node
+        \draw (325,161.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi ^{-1}( a)$};
+        
+        
+        \end{tikzpicture}
+    \end{figure}
+\end{theoremenv}
