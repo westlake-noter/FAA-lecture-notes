@@ -1032,7 +1032,7 @@ By expanding the determinant along the first row, we get the equality.
     Let $l \in \NN_{\ge 1} \cup \{\infty\}$ and $d \in \{0,\cdots,n\}$.
     Then the following conditions are equivalent:
     \begin{enumerate}[label=(\arabic*)]
-        \item For any $a \in M$, there exists an open neighborhood $a \in U$ in $E$, and an open neighborhood $V$ of $0$ in $E$,
+        \item For any $a \in M$, there exists an open neighborhood $U \ni a$ in $E$, and an open neighborhood $V$ of $0$ in $E$,
             a vector subspace $F$ of $E$ of dimension $d$, and a $C^l$ diffeomorphism $f : U \longrightarrow V$ such that $f(a) = 0$ and $f(U \cap M) = F \cap V$.
             \begin{figure}[H]
                 \centering
@@ -1193,7 +1193,7 @@ By expanding the determinant along the first row, we get the equality.
 \begin{definitionenv}
     Let $E$ be a finite-dimensional vector space over $\RR$, and $M \subseteq E$ be a submanifold of dimension $d$.
     Let $a \in M$.
-    We call tangent vector of $M$ at $a$ any element of $E$ of the form $\gamma'(0)$, where $\gamma$ is a differentiable mapping from $0 \in U \subseteq \RR$ to $E$ whose image if contained in $M$.
+    We call \textbf{tangent vector} of $M$ at $a$ any element of $E$ of the form $\gamma'(0)$, where $\gamma$ is a differentiable mapping from $0 \in U \subseteq \RR$ to $E$ whose image if contained in $M$.
     We denote by $T_aM$ the set of all tangent vectors of $M$ at $a$ and call it the \textbf{tangent space} of $M$ at $a$.
     \begin{figure}[H]
         \centering
@@ -1250,7 +1250,7 @@ By expanding the determinant along the first row, we get the equality.
     \end{figure}
 \end{definitionenv}
 
-\begin{theoremenv}
+\begin{theoremenv}\label{thm:7.5.2}
     Let $E$ be a finite-dimensional vector space over $\RR$, let $l \in \NN_{\ge 1} \cup \{\infty\}$ and $M$ be a submanifold of class $C^l$ of $E$ of dimension $d$.
     Let $a \in M$.
     Then the tangent space $T_aM$ is a vector subspace of $E$ of dimension $d$.
@@ -1320,3 +1320,102 @@ By expanding the determinant along the first row, we get the equality.
         \end{tikzpicture}
     \end{figure}
 \end{theoremenv}
+\begin{proofenv}
+    First consider (3), without lose of generality, $\varphi^{-1}(a) = 0$.
+    Let $v \in H$. There exists $\varepsilon > 0$ such that for any $t \in \interval[open]{-\varepsilon}{\varepsilon}$, $t v \in W$.
+    Let
+    $$\begin{array}{rrcl}
+        \gamma : & \interval[open]{-\varepsilon}{\varepsilon} & \longrightarrow & E\\
+        & t & \longmapsto & \varphi(tv) \subseteq M.
+    \end{array}$$
+    One has $\gamma'(0) = \DD \varphi(0)(v)$ (chain rule).
+    This shows that 
+    $$\DD \varphi(0)(H) \subseteq T_aM$$
+    since $\varphi$ is immersion, so $\dim (T_a M) \ge d$.
+
+    \quad Let's now consider (2).
+    Let $\gamma$ be a mapping of class $C^1$ (like in the definition of a tangent space) from an open neighborhood $I$ of $0$ in $\RR$ to $E$ such that $\gamma(0) = a$ and $\gamma(I) \subseteq M$.
+    By possibly shrinking $I$, we may assume that $\gamma(I) \subseteq U \cap M$.
+    
+    \quad Note that $g \circ r$ is a constant mapping taking $0$ as its value.
+    Thus
+    $$\DD (g \circ \gamma(0)) = \DD g (a) (\gamma'(0)) = 0.$$
+    This shows that $\gamma'(0) \in \ker \left(\DD g (a)\right)$.
+    Thus
+    $$T_aM \subseteq \ker \left(\DD g (a)\right),$$
+    so $\dim(T_aM) \le d$.
+
+    \quad Finally we consider (1).
+    For any  mapping $\gamma$ of class $C^1$ from $0 \in I \subseteq \RR$ (open) to $E$ such that $\gamma(I) \subseteq M \cap U$ and $\gamma(0) = a$,
+    the mapping $f \circ r$ is of class $C^1$ and takes values in $F$.
+    Therefore
+    $$(f \circ r)'(0) = \DD f(a) (\gamma'(0)) \in F,$$
+    which means that $\gamma'(0) \in \left(\DD f(a)\right)^{-1} (F)$.
+    Hence
+    $$T_aM \subseteq \left(\DD f (a)\right)^{-1} (F).$$
+    Since both $T_aM$ and $(\DD f (a))^{-1}(F)$ are of the same dimension ($\DD f (a) = 0$ since $f$ is a $C^l$ diffeomorphism) they must be equal.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $E$ be finite-dimensional vector space over $\RR$.
+    $M$ be a $C^l$ manifold in $E$, $a \in M$, $U$ open neighborhood of $a$.
+    Let $H$ be a vector space over $\RR$, $W \subseteq H$ open, $\varphi : W \longrightarrow E$ be an immersion such that $a \in \varphi(W)$ and $\varphi$ defines a homeomorphism between $W$ and $U \cap M$.
+    We call $\varphi : W \longrightarrow E$ a local chart of $M$ around $a$.
+
+    \quad By theorem \ref{thm:7.5.2}, we obtain that for any $x \in W$,
+    $$T_{\varphi(x)}M = \DD \varphi(x)(H).$$
+    Let $V$ be an open subset of $M$, $F$ be a finite-dimensional vector space over $\RR$ and $f : V \longrightarrow F$ be a mapping.
+    Let $m$ be such that $m \in \NN \cup \{\infty\}$, $m \le l$.
+    If for any local chart $\varphi : W \longrightarrow M$, $\varphi(W) \subseteq V$, the mapping $f \circ \varphi : \varphi^{-1}(V) \longrightarrow F$ is differentiable (resp. of class $C^m$),
+    then we say that $f$ is differentiable (resp. of class $C^m$).
+    We denote by $C^m(V,F)$ the set of all mappings of class $C^m$ from $V$ to $F$.
+    If $F = \RR$, then $C^m(V,F) = C^m(V)$.
+\end{definitionenv}
+
+\begin{exampleenv}[Canonical local chart]
+    Let $(E,\langle \cdot , \cdot \rangle)$ be an Euclidean space (i.e. finite dimensional inner product space over $\RR$) and $M$ be a $C^l$-submanifold of $E$, $l \in \NN_{\ge 1} \cup \{\infty\}$. 
+    Let $a \in M$ and $\pi : E \longrightarrow T_a M$ be the orthogonal projection. Let $\psi : W \longrightarrow M$ be a local chart around $a$.
+    The composite mapping
+    $$\eta : W \overset{\psi}{\longrightarrow} M \overset{x \mapsto \pi(x - a)}{\longrightarrow} T_a M$$
+    sends $\psi^{-1}(a)$ to $0$ and $\DD \eta (\psi^{-1}(a)) = \pi \circ \DD \psi(\psi^{-1}(a))$.
+    By the local inversion theorem, there exists an open subset $W' \subseteq W$, $\psi^{-1} \in W'$ such that $\eta$ defines a $C^l$-homeomorphism from $W'$ to $\eta(W')$.
+    In particular,
+    $$\begin{array}{rrcl}
+        \tilde{\psi} : & \eta(W') & \longrightarrow & M\\
+        & w & \longmapsto & \psi(\eta^{-1}(w))
+    \end{array}$$
+    is also a local chart.
+    We call it a canonical chart around $a$.
+    Note that such a local chart is the inverse of the orthogonal projection to the tangent space,
+    hence locally it does not depend on the choice of local chart $\psi$ (in other words, two canonical charts only differ by their domains of definition).
+    This justify our picture for the situation (2) in the theorem \ref{thm:7.5.2}.
+\end{exampleenv}
+
+\begin{remark}
+    Let $E$ be a finite-dimensional vector space over $\RR$.
+    $M$ be a $C^l$-submanifold of $E$, $a \in M$ and $\psi_1 : W_1 \longrightarrow M$, $\psi_2 : W_2 \longrightarrow M$ be two local charts around $a$.
+    Then $\psi^1_2 \circ \psi_1$ locally defines a $C^l$-homeomorphism around $\psi^{-1}_1(a)$.
+    This can be seen via a canonical local chart around $E$ (after choosing an inner product on $E$).
+    In particular, if $F$ is a finite-dimensional vector space over $\RR$, $V \subseteq M$ open, $f : V \longrightarrow F$ is a mapping, then $f$ is of class $C^m$ ($m \in \NN \cup \{\infty\}$, $m \le l$) if and only if,
+    for any $a \in V$, there exists a local chart $\psi : W \longrightarrow M$ around $a$ such that $\psi(W) \subseteq V$ and $f \circ \psi$ is of class $C^m$.
+\end{remark}
+
+\begin{definitionenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$ and $M$ be a $C^l$-submanifold of $E$, $\dim(M) = d$, $V \subseteq M$ open.
+    We call tangent vector field of $M$ on $V$ any mapping
+    $$\begin{array}{rrcl}
+        X : & V & \longrightarrow & T_aM\\
+        & v & \longmapsto & X(a).
+    \end{array}$$
+    For any $a \in M$, we denote by $T^*_aM$ the dual vector space of $T_aM$, $V \subseteq M$ open.
+    We call a $p$-form on $V$ any family
+    $$\omega = (\omega_a)_{a \in V} \in \prod_{a \in V} \bigwedge^p T^*_aM.$$
+    For any $a$, $\omega_a$ determines an alternating $n$-linear mapping $(T_aM)^p \longrightarrow \RR$.
+    We say that $w$ is of class $C^n$ if for any family $(X_1,\cdots,X_p)$ of tangent vector fields on $V$ which are of class $C^m$, the mapping
+    $$(a \in V) \longmapsto \omega_a(X_1,\cdots,X_p)$$
+    is of class $C^m$.
+    The set of all $p$-forms on $V$ forms a $\RR^V$-module.
+
+    \quad We denote by $\Omega^p_m(V)$ the set of all $p$-forms on $V$ of class $C^m$.
+    It is a $C^m(V)$ module.
+\end{definitionenv}
