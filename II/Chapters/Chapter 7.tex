@@ -940,7 +940,7 @@ By expanding the determinant along the first row, we get the equality.
     \end{aligned}$$
 \end{proofenv}
 
-\begin{theoremenv}
+\begin{theoremenv}\label{thm:7.3.15}
     Let $E$ be a finite-dimensional vector space over $\RR$, $U \subseteq E$ be an open subset,
     $p \in \NN$, $\omega$ be a $p$-form on $U$ of class $C^1$.
     For any tangent vector fields $X_1,\cdots,X_p$ of class $C^1$ on $U$, one has
@@ -1419,3 +1419,217 @@ By expanding the determinant along the first row, we get the equality.
     \quad We denote by $\Omega^p_m(V)$ the set of all $p$-forms on $V$ of class $C^m$.
     It is a $C^m(V)$ module.
 \end{definitionenv}
+
+\begin{exampleenv}[Definition]
+    Let $E$ be a finite-dimensional vector space over $\RR$, $M$ be a $C^l$-submanifold of $E$, $l \in \NN_{\ge 1} \cup \{\infty\}$.
+    Let $V$ be an open subset of $M$ (i.e. $V = M \cap U$, $U \subseteq E$ open) and $f : V \longrightarrow \RR$ be differentiable.
+    For any $a \in V$, we denote by $\dd f(a)$ the following element
+    $$\DD (f \circ \psi) (\psi^{-1}(a)) \circ \DD \psi(\psi^{-1}(a))^{-1}$$
+    where $\psi$ is a local chart of $M$ around $a$.
+
+    (Intuition: By theorem \ref{thm:7.5.2}, $T_a M = \mathrm{Im}(\DD \psi (\psi^{-1}(a)))$.)
+
+    Note that $\dd f(a)$ does not depend on the choice of local chart $\psi$.
+    Indeed, if $\psi_1 \cap \psi_2$ are local charts around $a$, and $\eta = \psi^{-1}_2 \circ \psi_1$.
+    Let $x = \psi^{-1}_1(a)$, $y = \eta(x) = \psi^{-1}_2(a)$.
+    Then
+    $$\begin{aligned}
+        \DD(f \circ \psi_1)(x) \circ \DD \psi_1(x)^{-1} = & \DD(f \circ \psi_2 \circ \eta)(x) \circ \left(\DD(\psi_2 \circ \eta)(x)\right)^{-1}\\
+        = & \DD(f \circ \psi_2)(y) \circ \DD \eta(x) \circ \left(\DD \psi_2(y) \circ \DD \eta (x)\right)^{-1}\\
+        = & \DD(f \circ \psi_2)(y) \circ \DD \psi_2 (y).
+    \end{aligned}$$
+    The family $(\dd f(a))_{a \in V}$ is a $1$-form on $V$.
+    The mapping from the vector space of all differentiable mappings on $V$ to that of $1$-forms on $V$ is $\RR$-linear.
+
+    \quad Note that
+    $$\dd (f g) = f \dd g + g \dd f$$
+    for any differentiable mappings $f,g: V \longrightarrow \RR$.
+    Let $X$ be a tangent vector field on $V$.
+    If $f: V \longrightarrow \RR$ is differentiable, we denote by $X(f)$ the mapping from $V$ to $\RR$ sends any $a \in V$ to
+    $$\dd f (a)(X(a)).$$
+    If $f,g : V \longrightarrow \RR$ are differentiable, then 
+    $$X(fg) = f X(g) + g X(f).$$
+    If we consider a local chart $\psi : W \longrightarrow M$ such that $\psi(W) \subseteq V$,
+    then one has
+    $$X(f) \circ \psi = \DD (f \circ \psi)((\DD \psi)^{-1}(X \circ \psi)).$$
+    In particular, for any $m \in \NN \cup \{\infty\}$ such that $m \le l - 1$ if $f$ is of class $C^m$.
+    This can be seen using a canonical chart where $(\DD \psi)^{-1}$ is given by orthogonal projection.
+    \begin{figure}[H]
+        \centering
+
+
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Curve Lines [id:da9917887118500973] 
+        \draw    (95.5,102) .. controls (137,92) and (184.5,112) .. (194.5,142) ;
+        %Curve Lines [id:da07959036329018221] 
+        \draw    (94.5,162.9) .. controls (112.94,157.13) and (142.5,159) .. (166.5,189) ;
+        %Curve Lines [id:da3694490579293499] 
+        \draw    (166.5,189) .. controls (165.5,171) and (172.5,149) .. (194.5,142) ;
+        %Curve Lines [id:da5956712815434871] 
+        \draw    (94.5,162.9) .. controls (89.5,149) and (92.5,110) .. (95.5,102) ;
+        
+        %Curve Lines [id:da03882890818597451] 
+        \draw    (257.46,135.03) .. controls (288.5,123) and (334.5,111) .. (364.17,131.31) ;
+        %Curve Lines [id:da6793897673045755] 
+        \draw    (281.31,191.08) .. controls (295.81,178.3) and (339.5,177) .. (357.7,185.63) ;
+        %Curve Lines [id:da591888631554929] 
+        \draw    (357.7,185.63) .. controls (361.5,177) and (368.5,145) .. (364.17,131.31) ;
+        %Curve Lines [id:da3522811287858496] 
+        \draw    (281.31,191.08) .. controls (271.09,180.41) and (257.97,143.56) .. (257.46,135.03) ;
+        
+        %Shape: Free Drawing [id:dp5941174747884823] 
+        \draw  [line width=3] [line join = round][line cap = round] (142.09,142) .. controls (142.09,142.33) and (142.09,142.67) .. (142.09,143) ;
+        %Shape: Free Drawing [id:dp9060254571567534] 
+        \draw  [line width=3] [line join = round][line cap = round] (315.09,149) .. controls (315.09,149.33) and (315.09,149.67) .. (315.09,150) ;
+        %Curve Lines [id:da2671810127296458] 
+        \draw    (151,138) .. controls (190.8,108.15) and (252.88,100.08) .. (308.66,145.31) ;
+        \draw [shift={(309.5,146)}, rotate = 219.4] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Shape: Trapezoid [id:dp13304828312606065] 
+        \draw   (280.7,174) -- (286.15,126.63) -- (350.06,126.63) -- (355.5,174) -- cycle ;
+        %Shape: Trapezoid [id:dp3314329908290218] 
+        \draw   (88.35,145.13) -- (133.04,111.27) -- (192.62,133.55) -- (158.41,171.32) -- cycle ;
+        %Straight Lines [id:da09643853127891622] 
+        \draw    (163.41,156.32) -- (283.7,158.96) ;
+        \draw [shift={(285.7,159)}, rotate = 181.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        
+        % Text Node
+        \draw (64,116.4) node [anchor=north west][inner sep=0.75pt]    {$M$};
+        % Text Node
+        \draw (295,93.4) node [anchor=north west][inner sep=0.75pt]    {$N$};
+        % Text Node
+        \draw (127,127.4) node [anchor=north west][inner sep=0.75pt]    {$a$};
+        % Text Node
+        \draw (300,150.4) node [anchor=north west][inner sep=0.75pt]    {$f(a)$};
+        % Text Node
+        \draw (216,93.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
+        % Text Node
+        \draw (211,136.4) node [anchor=north west][inner sep=0.75pt]    {$\mathrm{D} f$};
+        
+        
+        \end{tikzpicture}
+    \end{figure}
+\end{exampleenv}
+
+\begin{exampleenv}
+    Let $l \in \NN_{\ge 1} \cup \{\infty\}$.
+    Let $M$ be a $C^l$-submanifold of a finite dimensional vector space $E$ over $\RR$.
+    Let $U \subseteq E$ open.
+    For each $a \in M \cap U$, the inclusion mapping $T_aM \longrightarrow E$ induces, by passing to dual spaces, a surjective mapping
+    $$\pi_a : E^* \longrightarrow T_a^* M.$$
+    Let $p \in \NN$ and $\omega$ be a $p$-form on $U$.
+    The family $(\pi_a (\omega_a))_{a \in M \cap U}$ is a $p$-form on $M \cap U$, denoted as $\omega|_{M \cap U}$.
+
+    \quad If $X_1,\cdots,X_p$ are tangent vector fields on $M \cap U$, by abuse of notation, we denote by 
+    $$\omega(X_1,\cdots, X_p)$$
+    the mapping from $M \cap U$ to $\RR$ that sends $a \in U \cap M$ to
+    $$\pi_a (\omega_a)(X_1(a),\cdots,X_p(a)).$$
+\end{exampleenv}
+
+\begin{definitionenv}
+    Let $l \in \NN_{\ge 1} \cup {\infty}$, $M$ be a $C^l$-submanifold of $E$.
+    If $\psi : W \longrightarrow M$ is a local chart on $W$ and $Y$ is a tangent vector field on $W$, then we denote by $\psi_* (Y)$ the tangent vector field of $\psi(W)$, defined as
+    $$\forall x \in W, \psi_* (Y)(\psi(x)) = \DD \psi(x) (Y(x)).$$
+    Note that for any tangent vector field $X$ on $\psi(W)$, there exists a unique tangent vector filed $Y$ on $W$ such that $X = \psi_*(Y)$.
+    This tangent vector field $Y$ is given by
+    $$Y(x) = \DD \psi (x)^{-1} (X(\psi(x))).$$
+    For any differentiable $f : \psi(W) \longrightarrow \RR$, one has
+    $$\psi_*(Y)(f)(\psi(x)) = \DD (f \circ \psi)(x)(\DD \psi(x)^{-1}(\DD \psi(x) (Y(x)))) = \DD (f \circ \psi)(x) (Y(x)).$$
+    In other words,
+    $$\psi_*(Y)(f) \circ \psi = Y (f \circ \psi).$$
+    Therefore, for $m \in \NN \cup \{\infty\}$ such that $m \le l$, $\psi_*(Y)$ is of class $C^m$ if and only if $Y$ is of class $C^m$.
+\end{definitionenv}
+
+\begin{propositionenv}
+    Let $l \in \NN_{\ge 2} \cup \{\infty\}$ and $M$ be a $C^l$-submanifold of $E$ and $V = M \cap U$, $U \subseteq E$ open.
+    Let $X_1,X_2$ be tangent vector fields of class $C^1$ on $V$.
+    There exists a unique tangent vector field $[X_1,X_2]$ (Lie bracket) on $V$ such that for any $C^2$ mapping $f : V \longrightarrow \RR$,
+    $$[X_1,X_2](f) = X_1(X_2(f)) - X_2(X_1(f)).$$
+\end{propositionenv}
+\begin{proofenv}
+    Let $\psi: W \longrightarrow M$ be a local chart  of $M$ such that $\psi(W) \subseteq V$.
+    Let $Y_1$ and $Y_2$ be tangent vector fields on $W$ such that
+    $$\psi_*(Y_1) = X_1, \psi_*(Y_2) = X_2.$$
+    For any $f : V \longrightarrow \RR$ of class $C^2$, 
+    $$\begin{aligned}
+        \left(X_1(X_2(f)) - X_2(X_1(f))\right) \circ \psi = & \left(Y_1(Y_2(f)) - Y_2(Y_1(f))\right) \circ \psi\\
+        = & Y_1(Y_2(f \circ \psi)) - Y_2(Y_1(f \circ \psi))\\
+        = & [Y_1,Y_2](f \circ \psi)\\
+        = & \psi_*[Y_1,Y_2](f)\circ \psi.
+    \end{aligned}$$
+    Therefore, we obtain that there is a unique tangent vector field $[X_1,X_2]$ on $V$ such that
+    $$[X_1,X_2](f) = X_1(X_2(f)) - X_2(X_1(f))$$
+    which identifies with $\psi_*[Y_1,Y_2]$ on $\psi(W)$.
+\end{proofenv}
+
+\begin{remark}[Geometric intuition]
+    Locally, two vector fields on $M$ define flows $\varphi_t$, $\psi_t$ respectively.
+    $[X,Y] = 0$ if and only if $\varphi_t \circ \psi_s = \psi_s \circ \varphi_t$.
+    \begin{figure}[H]
+        \centering
+
+
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+            
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Straight Lines [id:da49372865465591376] 
+        \draw    (88,213) -- (155.5,209.11) ;
+        \draw [shift={(157.5,209)}, rotate = 176.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da6357022419801767] 
+        \draw    (157.5,209) -- (169.97,163.93) ;
+        \draw [shift={(170.5,162)}, rotate = 105.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da9406171618636636] 
+        \draw    (88,213) -- (97.1,167.96) ;
+        \draw [shift={(97.5,166)}, rotate = 101.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da6569936765934915] 
+        \draw    (97.5,166) -- (147.61,148.65) ;
+        \draw [shift={(149.5,148)}, rotate = 160.91] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da4457916840466133] 
+        \draw    (149.5,148) -- (170.5,162) ;
+        
+        % Text Node
+        \draw (47,181.4) node [anchor=north west][inner sep=0.75pt]    {$X(P)$};
+        % Text Node
+        \draw (97,137.4) node [anchor=north west][inner sep=0.75pt]    {$Y(R)$};
+        % Text Node
+        \draw (102,217.4) node [anchor=north west][inner sep=0.75pt]    {$Y(P)$};
+        % Text Node
+        \draw (166,181.4) node [anchor=north west][inner sep=0.75pt]    {$X(Q)$};
+        % Text Node
+        \draw (157,135.4) node [anchor=north west][inner sep=0.75pt]    {$[X,Y]$};
+        % Text Node
+        \draw (73,213.4) node [anchor=north west][inner sep=0.75pt]    {$P$};
+        % Text Node
+        \draw (154,209.4) node [anchor=north west][inner sep=0.75pt]    {$Q$};
+        % Text Node
+        \draw (79,154.4) node [anchor=north west][inner sep=0.75pt]    {$R$};
+        
+        
+        \end{tikzpicture}
+    \end{figure}
+\end{remark}
+
+\begin{definitionenv}
+    Let $l \in \NN_{\ge 2} \cup \{\infty\}$, $M$ a $C^l$-submanifold of $E$.
+    Let $V = U \cap M$, for some open $U \subseteq E$ and let $\omega$ be a $p$-form of class $C^1$ on $V$.
+    We define $\dd \omega$ to be the $(p+1)$-form on $V$ such that for any tangent vector fields $X_0,\cdots,X_p$ of class $C^1$ on $V$,
+    such that
+    $$\begin{aligned}
+        \dd \omega(X_0,\cdots,X_p) = & \sum_{i=0}^p (-1)^{i} X_i(\omega(X_0,\cdots,\hat{X}_i,\cdots,X_p))\\
+        & + \sum_{0 \le i \le j \le p}(-1)^{p + q}\omega([X_i,X_j], X_0,\cdots,\hat{X}_i,\cdots,\hat{X}_j,\cdots,X_p).
+    \end{aligned}$$
+    Note that if $\omega$ is of class $C^m$, $m \in \NN_{\ge 1} \cup \{\infty\}$, $m \le l$, then $\dd \omega$ is of class $C^{m-1}$.
+\end{definitionenv}
+
+\begin{remark}
+    Let $\psi : W \longrightarrow M$ be a local chart of $M$ such that $\psi (W) \subseteq V$.
+    If $\omega$ is a $p$-form on $V$, we denote by $\psi^*(\omega)$ the $p$-form on $W$ such that for any tangent vector fields $Y_1,\cdots,Y_p$ on $W$, one has
+    $$\psi^*(\omega)(Y_1,\cdots,Y_p) = \omega(\psi_* (Y_1),\cdots,\psi_* (Y_p)) \circ \psi.$$
+    By the theorem \ref{thm:7.3.15}
+    $$\dd \psi^*(\omega) = \psi^*(\dd \omega).$$
+\end{remark}
