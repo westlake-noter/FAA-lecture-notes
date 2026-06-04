@@ -1347,9 +1347,9 @@ By expanding the determinant along the first row, we get the equality.
 
     \quad Finally we consider (1).
     For any  mapping $\gamma$ of class $C^1$ from $0 \in I \subseteq \RR$ (open) to $E$ such that $\gamma(I) \subseteq M \cap U$ and $\gamma(0) = a$,
-    the mapping $f \circ r$ is of class $C^1$ and takes values in $F$.
+    the mapping $f \circ \gamma$ is of class $C^1$ and takes values in $F$.
     Therefore
-    $$(f \circ r)'(0) = \DD f(a) (\gamma'(0)) \in F,$$
+    $$(f \circ \gamma)'(0) = \DD f(a) (\gamma'(0)) \in F,$$
     which means that $\gamma'(0) \in \left(\DD f(a)\right)^{-1} (F)$.
     Hence
     $$T_aM \subseteq \left(\DD f (a)\right)^{-1} (F).$$
@@ -1530,7 +1530,7 @@ By expanding the determinant along the first row, we get the equality.
 \end{exampleenv}
 
 \begin{definitionenv}
-    Let $l \in \NN_{\ge 1} \cup {\infty}$, $M$ be a $C^l$-submanifold of $E$.
+    Let $l \in \NN_{\ge 1} \cup \{\infty\}$, $M$ be a $C^l$-submanifold of $E$.
     If $\psi : W \longrightarrow M$ is a local chart on $W$ and $Y$ is a tangent vector field on $W$, then we denote by $\psi_* (Y)$ the tangent vector field of $\psi(W)$, defined as
     $$\forall x \in W, \psi_* (Y)(\psi(x)) = \DD \psi(x) (Y(x)).$$
     Note that for any tangent vector field $X$ on $\psi(W)$, there exists a unique tangent vector filed $Y$ on $W$ such that $X = \psi_*(Y)$.
@@ -1632,4 +1632,139 @@ By expanding the determinant along the first row, we get the equality.
     $$\psi^*(\omega)(Y_1,\cdots,Y_p) = \omega(\psi_* (Y_1),\cdots,\psi_* (Y_p)) \circ \psi.$$
     By the theorem \ref{thm:7.3.15}
     $$\dd \psi^*(\omega) = \psi^*(\dd \omega).$$
+\end{remark}
+
+
+\section{Partition of Unity}
+
+\begin{definitionenv}
+    Let $X$ be a set, $(U_i)_{i \in I}$ and $(V_j)_{j \in J}$ be covers of $X$.
+    We say that $(V_j)_{j \in J}$ is finer than $(U_i)_{i \in I}$ if for any $j \in J$, there exists $i \in I$ such that $U_i \subseteq V_j$.
+    Let $(X,\mathscr{T})$ be a topological space, and $(U_i)_{i \in I}$ be a cover of $X$.
+    We say that $(U_i)_{i \in I}$ is \textbf{locally finite} if for any $x \in X$, there exists a neighborhood $V$ of $x$ such that 
+    $\{i \in I \mid V \cap U_i \neq \varnothing\}$ is finite.
+
+    \quad We say that a topological space $(X,\mathscr{T})$ is \textbf{paracompact} if for any open cover $(U_i)_{i \in I}$ of $X$, there exists a locally finite open cover $(V_j)_{j \in J}$ of $X$ which is finer than $(U_i)_{i \in I}$.
+\end{definitionenv}
+
+\begin{theoremenv}\label{thm:7.6.2}
+    Let $(X,\mathscr{T})$ be a locally compact Hausdorff space with a countable topological basis.
+    Then $(X,\mathscr{T})$ is paracompact.
+\end{theoremenv}
+\begin{proofenv}
+    Let $U = (U_i)_{i \in I}$ be an open cover of $X$.
+    Let $\mathcal{B}$ be a topological basis of $X$.
+    $$\mathcal{B}' = \{V \in \mathcal{B} \mid \exists i \in I, V \subseteq U_i\}$$
+    is also a topological basis of $X$.
+
+    \quad By replacing $U$ by $\mathcal{B}'$, we may assume without lose of generality that $U$ forms a topological basis of $X$.
+    By proposition \ref{prop:5.3.7}, there exists a sequence $(V_n)_{n \in \NN}$ of open sets such that for any $n \in \NN$, $\bar{V}_n$ is compact,
+    $V_n \subseteq \bar{V}_n \subseteq V_{n+1}$ and $\bigcup_{n \in \NN} V_n = X$.
+    Let $K_n = \bar{V}_n \setminus V_{n-1}$ closed in $\bar{V}_n$, hence compact.
+    $W_n = V_{n + 1} \setminus \bar{V}_{n-2}$ open. (With the convention that $\bar{V}_{-2} = \bar{V}_{-1} = \varnothing$).
+    We have that $K_n \subseteq W_n$.
+    We choose a finite subset $I_n$ of $I$ such that $U_i \subseteq W_n$ for any $i \in I_n$ and $K_n \subseteq \bigcup_{i \in I} U_i$.
+    Let $J = \bigcup_{n \in \NN} I_n$.
+    $(U_i)_{i \in I}$ is finer than $(U_i)_{i \in I}$.
+    
+    \quad Note that $W_n \cap W_m = \varnothing$, once $|n-m| \ge 2$.
+    Hence $(U_i)_{i \in I}$ is locally finite.
+\end{proofenv}
+
+\begin{theoremenv}[Partition of unity]
+    Let $E$ be a finite-dimensional vector space over $\RR$, $l \in \NN_{\ge 1} \cup \{\infty\}$, $M$ is a $C^l$-submanifold.
+    Let $(U_i)_{i \in I}$ be an open cover of $M$.
+    Then there exists a family $(\chi_i)_{i \in I}$ of mappings from $M$ to $[0,1]$ that satisfies the following conditions:
+    \begin{enumerate}
+        \item for any $i \in I$, $\supp (\chi_i) \subseteq U_i$ compact
+        \item $(\supp(\chi_i))_{i \in I}$ forms a locally finite cover of $M$
+        \item for any $x \in M$, $\displaystyle \sum_{i \in I} \chi_i(x) = 1$
+    \end{enumerate}
+    The family $(\chi_i)_{i \in I}$ is called a partition of unity with respect to the open cover $(U_i)_{i \in I}$.
+\end{theoremenv}
+\begin{proofenv}
+    For each $p \in M$, let 
+    $$\left(\psi_j : W_j \longrightarrow M\right)_{j \in J_p}$$
+    to be the family of local charts around $p$, such that $\psi_j(W_j)$ is contained in the certain $U_i$ and that $\{\psi_j(W_j) \mid j \in J_p\}$ forms a neighborhood basis at $p$.
+    For simplicity, we assume that $(J_p)_{p \in M}$ are pairwise disjoint and we denote by $J$ the union $(J_p)_{p \in M}$.
+    
+    \quad For each $j \in J$, we let $f_j : W_j \longrightarrow [0,1]$ be a mapping of class $C^\infty$ with compact support such that $\supp(f_j) \subseteq W_j$.
+    Let
+    $$W_j' = \{x \in W_j \mid f_j(x) > 0\},$$
+    $\{\psi_j(W_j')\}$ forms a topological basis of $M$.
+    By the proof of theorem \ref{thm:7.6.2}, we observe tat there exists $J' \subseteq J$ such that $(\psi_j(W'_j)){j \in J'}$ forms a locally finite open cover of $M$.
+    For any $j \in J'$, let
+    $$g_j = f_j \circ \psi_j^{-1}.$$
+    We extend the domain of definition of $g_j$ of $M$ by putting $g_j|_{M \setminus W_j} \equiv 0$.
+
+    \quad Define
+    $$G = \sum_{j \in J'} g_j : M \longrightarrow \RR_{\ge 0}.$$
+    It is well defined because $\psi_j(W_j')$ is a locally finite cover.
+    For any $j \in J'$, pick $\lambda(j) \in I$ such that $\psi_j(W_j) \subseteq U_{\lambda(j)}$.
+    Define 
+    $$\chi_{\lambda(j)} = \sum_{j \in J', \lambda(j) = i} \frac{g_i}{G},$$
+    $(\chi_i)_{i \in I}$ satisfies the desired conditions.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$, $l \in \NN_{\ge 1} \cup \{\infty\}$, $M$ be a $C^l$-submanifold of $E$.
+    We call \textbf{orientation field} of $M$ any continuous mapping
+    $$\begin{array}{rrcl}
+        \Theta : & M & \longrightarrow & \bigwedge^d E\\
+        & p & \longmapsto & \Theta(p)
+    \end{array}$$
+    such that $\Theta(p) \in \bigwedge^d T_pM\setminus \{0\}$ for any $p \in M$.
+    We say that $M$ is \textbf{orientable} if there exists an orientation field on $M$.
+    We say that $M$ is oriented if $M$ is orientable and some orientation field $\Theta$ has been fixed on $M$.
+    In this situation, by abuse of notation, we call $\Theta$ an orientation on $M$.
+\end{definitionenv}
+
+\begin{remark}
+    Equivalently, we can define orientation field of $M$ as
+    $$\Theta : M \longrightarrow \bigwedge^d (E)$$
+    satisfying the following conditions:
+    \begin{enumerate}
+        \item for any $x \in M$, $\Theta(x) = v_1 \wedge \cdots \wedge v_n$ and $$T_x M = \{v \in E \mid v \wedge \Theta(x) = 0\}$$
+        \item for all $x \in M$, $\Theta(x) \neq 0$
+        \item $\Theta$ is continuous
+    \end{enumerate}
+    Note that the requirement $\Theta(x) = v_1 \wedge \cdots \wedge x_p$ is implied by the requirement $T_xM = \{v \in E \mid v \wedge \Theta(x) = 0\}$.
+    Indeed, let $e_1,\cdots,e_d$ be the basis of $T_xM$, then we can complete it to the basis of $E$ by $e_{d+1},\cdots,e_{n}$.
+    Then
+    $$e_i \wedge \Theta(x) = 0$$
+    for any $i \in \{1,\cdots,d\}$, so $e_i$ appears in every summed of $\Theta(x)$
+    $$\Theta(x) = \sum a_{\lambda} e_{\lambda(1)} \wedge \cdots e_{\lambda(d)}.$$
+\end{remark}
+
+\begin{propositionenv}
+    Let $M$ be a $C^l$-submanifold of $E$ and $\Theta$ be an orientation on $M$.
+    Let $F$ be a vector space over $\RR$ of dimension $d$ and $\psi : W \longrightarrow E$ be a local chart ($W \subseteq F$ open neighborhood of $0$).
+    Let $\xi : W \longrightarrow \bigwedge^d(F)$ be a mapping such that the homomorphism $\bigwedge^d(F) \longrightarrow \bigwedge^d(E)$ induced by $\DD \psi(x)$ (i.e. $v_1\wedge\cdots\wedge v_d \longmapsto \DD \psi(x)(v_1) \wedge \cdots \wedge \DD \psi(x)(v_d)$)
+    sends $\xi(x)$ to $\Theta(x)$.
+    Then the orbit of $\xi(x)$ by the action of $\RR_{\ge 0}$ does not depend on $x \in W$.
+    This orbit is called the orientation of $\psi$ (induced by $\Theta$).
+\end{propositionenv}
+\begin{proofenv}
+    Since $\Theta$ is continuous, we obtain that $\xi$ is also continuous
+    (one can formally justify it using a canonical chart in which $\xi$ is given by the composite of $\Theta$ with the projection $\bigwedge^p(E) \longrightarrow \bigwedge^p(F)$).
+    Since $W$ is connected, the image $\xi(W)$ is also connected.
+    $\bigwedge^d(F)$ is a one-dimensional vector space over $\RR$, so $\bigwedge^d(F) \setminus \{0\}$ has two connected components that coincide with the orbits by the action $\RR_{\ge 0}$.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $M$ be a $C^l$-submanifold of $E$.
+    We fix an orientation $\Theta$ on $M$.
+    Let $\psi : W \longrightarrow M$ be a local chart such that $W$ is connected,
+    and $\omega$ be a $d$-form of compact support contained in $\psi(W)$.
+    If $\psi^*(\omega)$ is integrable on $W$, we say that $\omega$ is integrable and denote by
+    $$\int_{M} \omega$$
+    the integral of $\psi^*(\omega)$ on $W$ with respect to the orientation of $\psi$.
+\end{definitionenv}
+
+\begin{remark}
+    Let $M$ be a $C^l$-submanifold of $E$, $\Theta$ be an orientation.
+    $\psi_1: W_1 \longrightarrow M_1$, $\psi_2 : W_2 \longrightarrow M$ two local charts such that $W_1$, $W_2$ is connected,
+    $\omega$ be a $d$-form of compact support contained in a connected component of $\psi_1(W_1)\cap \psi_2(W_2)$.
+    Then $\det(\DD (\psi_2^{-1} \circ \psi_1)) > 0$, so by the formula of the change of variables,
+    $$\int_{W_1} \psi_1^*(\omega) = \int_{W_2} \psi_2^*(\omega).$$
 \end{remark}
