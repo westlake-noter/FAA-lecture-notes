@@ -4,7 +4,7 @@
 \section{Differential Forms}
 
 
-We fix a finite dimensional vector space $E$ over $\RR$.
+We fix a finite-dimensional vector space $E$ over $\RR$.
 We denote by $E^*$ the dual vector space of $E$.
 
 \begin{definitionenv}
@@ -14,8 +14,8 @@ We denote by $E^*$ the dual vector space of $E$.
 
     \quad If $\omega: U \rightarrow \bigwedge^p(E^*)$ is a $p$-form, we define the support of $\omega$ the closure of
     $$\{x \in U \mid \omega(x) \neq 0\}$$
-    in $U$, denote as $\supp(\omega)$.
-    If $\supp(\omega)$ is compact, we say that $\omega$ has a compact support.
+    in $U$, denoted by $\supp(\omega)$.
+    If $\supp(\omega)$ is compact, we say that $\omega$ has compact support.
     Let $\Omega_{l,c}^{p}(U)$ be the set of $p$-forms of class $C^l$ on $U$ which are of compact support.
 
     \quad Let $\alpha,\beta$ be $p$-form and $q$-form respectively.
@@ -28,7 +28,7 @@ We denote by $E^*$ the dual vector space of $E$.
 \end{definitionenv}
 
 \begin{remark}
-    Let $E$ be a finite dimensional vector space over $\RR$,
+    Let $E$ be a finite-dimensional vector space over $\RR$,
     $p_1,\cdots,p_r$ be natural numbers,
     $$\begin{array}{rcl}
         \bigwedge^{p_1} (E^*) \times \cdots \times \bigwedge^{p_r} (E^*) & \longrightarrow & \bigwedge^{p_1+\cdots+p_r} (E^*)\\
@@ -751,7 +751,7 @@ $$\begin{array}{rcl}
         \varphi_p(e_1) & \cdots & \varphi_p(e_p)
     \end{pmatrix}
 \end{array}$$
-is a alternating multilinear form, 
+is an alternating multilinear form,
 so it induces a linear form
 $$\tilde{\Phi} (\varphi_1,\cdots,\varphi_p) : \bigwedge^p (V) \longrightarrow K.$$
 The mapping $\tilde{\Phi}: (V^\vee)^p \longrightarrow (\bigwedge^p (V))^\vee$ is an alternating multilinear mapping.
@@ -1171,18 +1171,18 @@ By expanding the determinant along the first row, we get the equality.
 \end{proofenv}
 
 \begin{definitionenv}
-    Let $E$ be a finite dimensional vector space over $\RR$, and $M$ be a subset of $E$.
+    Let $E$ be a finite-dimensional vector space over $\RR$, and $M$ be a subset of $E$.
     Let $l \in \NN_{\ge 1} \cup \{\infty\}$.
     If $M$ satisfies one of the $3$ conditions of the previous theorem,
     then we say that $M$ is a $C^l$ submanifold of dimension $d$ of $E$.
 \end{definitionenv}
 
 \begin{exampleenv}
-    Let $E$ be a finite dimensional vector space over $\RR$, $U \subseteq E$ open, $U$ is a $C^\infty$ submanifold of $E$ of dimension $n$.
+    Let $E$ be a finite-dimensional vector space over $\RR$, $U \subseteq E$ open, $U$ is a $C^\infty$ submanifold of $E$ of dimension $n$.
 \end{exampleenv}
 
 \begin{exampleenv}
-    Let $E$ be a finite dimensional vector space over $\RR$, $U \subseteq E$ open, $f : U \longrightarrow \RR$ a mapping,
+    Let $E$ be a finite-dimensional vector space over $\RR$, $U \subseteq E$ open, $f : U \longrightarrow \RR$ a mapping,
     $M \coloneq \{x \in U \mid f(x) = 0\}$ and assume that $\DD f(x)$ is non-zero for any $x \in U$. Then $M$ is a submanifold of $E$ called a hypersurface in $E$ ($a_1 x_1 + \cdots + a_n x_n = b$ hyperplane).
 \end{exampleenv}
 
@@ -1193,7 +1193,7 @@ By expanding the determinant along the first row, we get the equality.
 \begin{definitionenv}
     Let $E$ be a finite-dimensional vector space over $\RR$, and $M \subseteq E$ be a submanifold of dimension $d$.
     Let $a \in M$.
-    We call \textbf{tangent vector} of $M$ at $a$ any element of $E$ of the form $\gamma'(0)$, where $\gamma$ is a differentiable mapping from $0 \in U \subseteq \RR$ to $E$ whose image if contained in $M$.
+    We call \textbf{tangent vector} of $M$ at $a$ any element of $E$ of the form $\gamma'(0)$, where $\gamma$ is a differentiable mapping from $0 \in U \subseteq \RR$ to $E$ whose image is contained in $M$.
     We denote by $T_aM$ the set of all tangent vectors of $M$ at $a$ and call it the \textbf{tangent space} of $M$ at $a$.
     \begin{figure}[H]
         \centering
@@ -1321,7 +1321,7 @@ By expanding the determinant along the first row, we get the equality.
     \end{figure}
 \end{theoremenv}
 \begin{proofenv}
-    First consider (3), without lose of generality, $\varphi^{-1}(a) = 0$.
+    First consider (3), without loss of generality, $\varphi^{-1}(a) = 0$.
     Let $v \in H$. There exists $\varepsilon > 0$ such that for any $t \in \interval[open]{-\varepsilon}{\varepsilon}$, $t v \in W$.
     Let
     $$\begin{array}{rrcl}
@@ -1373,7 +1373,7 @@ By expanding the determinant along the first row, we get the equality.
 \end{definitionenv}
 
 \begin{exampleenv}[Canonical local chart]
-    Let $(E,\langle \cdot , \cdot \rangle)$ be an Euclidean space (i.e. finite dimensional inner product space over $\RR$) and $M$ be a $C^l$-submanifold of $E$, $l \in \NN_{\ge 1} \cup \{\infty\}$. 
+    Let $(E,\langle \cdot , \cdot \rangle)$ be a Euclidean space (i.e. finite-dimensional inner product space over $\RR$) and $M$ be a $C^l$-submanifold of $E$, $l \in \NN_{\ge 1} \cup \{\infty\}$.
     Let $a \in M$ and $\pi : E \longrightarrow T_a M$ be the orthogonal projection. Let $\psi : W \longrightarrow M$ be a local chart around $a$.
     The composite mapping
     $$\eta : W \overset{\psi}{\longrightarrow} M \overset{x \mapsto \pi(x - a)}{\longrightarrow} T_a M$$
@@ -1388,7 +1388,7 @@ By expanding the determinant along the first row, we get the equality.
     We call it a canonical chart around $a$.
     Note that such a local chart is the inverse of the orthogonal projection to the tangent space,
     hence locally it does not depend on the choice of local chart $\psi$ (in other words, two canonical charts only differ by their domains of definition).
-    This justify our picture for the situation (2) in the theorem \ref{thm:7.5.2}.
+    This justifies our picture for the situation (2) in the theorem \ref{thm:7.5.2}.
 \end{exampleenv}
 
 \begin{remark}
@@ -1516,12 +1516,12 @@ By expanding the determinant along the first row, we get the equality.
 
 \begin{exampleenv}
     Let $l \in \NN_{\ge 1} \cup \{\infty\}$.
-    Let $M$ be a $C^l$-submanifold of a finite dimensional vector space $E$ over $\RR$.
+    Let $M$ be a $C^l$-submanifold of a finite-dimensional vector space $E$ over $\RR$.
     Let $U \subseteq E$ open.
     For each $a \in M \cap U$, the inclusion mapping $T_aM \longrightarrow E$ induces, by passing to dual spaces, a surjective mapping
     $$\pi_a : E^* \longrightarrow T_a^* M.$$
     Let $p \in \NN$ and $\omega$ be a $p$-form on $U$.
-    The family $(\pi_a (\omega_a))_{a \in M \cap U}$ is a $p$-form on $M \cap U$, denoted as $\omega|_{M \cap U}$.
+    The family $(\pi_a (\omega_a))_{a \in M \cap U}$ is a $p$-form on $M \cap U$, denoted by $\omega|_{M \cap U}$.
 
     \quad If $X_1,\cdots,X_p$ are tangent vector fields on $M \cap U$, by abuse of notation, we denote by 
     $$\omega(X_1,\cdots, X_p)$$
@@ -1533,7 +1533,7 @@ By expanding the determinant along the first row, we get the equality.
     Let $l \in \NN_{\ge 1} \cup \{\infty\}$, $M$ be a $C^l$-submanifold of $E$.
     If $\psi : W \longrightarrow M$ is a local chart on $W$ and $Y$ is a tangent vector field on $W$, then we denote by $\psi_* (Y)$ the tangent vector field of $\psi(W)$, defined as
     $$\forall x \in W, \psi_* (Y)(\psi(x)) = \DD \psi(x) (Y(x)).$$
-    Note that for any tangent vector field $X$ on $\psi(W)$, there exists a unique tangent vector filed $Y$ on $W$ such that $X = \psi_*(Y)$.
+    Note that for any tangent vector field $X$ on $\psi(W)$, there exists a unique tangent vector field $Y$ on $W$ such that $X = \psi_*(Y)$.
     This tangent vector field $Y$ is given by
     $$Y(x) = \DD \psi (x)^{-1} (X(\psi(x))).$$
     For any differentiable $f : \psi(W) \longrightarrow \RR$, one has
@@ -1618,10 +1618,9 @@ By expanding the determinant along the first row, we get the equality.
     Let $l \in \NN_{\ge 2} \cup \{\infty\}$, $M$ a $C^l$-submanifold of $E$.
     Let $V = U \cap M$, for some open $U \subseteq E$ and let $\omega$ be a $p$-form of class $C^1$ on $V$.
     We define $\dd \omega$ to be the $(p+1)$-form on $V$ such that for any tangent vector fields $X_0,\cdots,X_p$ of class $C^1$ on $V$,
-    such that
     $$\begin{aligned}
         \dd \omega(X_0,\cdots,X_p) = & \sum_{i=0}^p (-1)^{i} X_i(\omega(X_0,\cdots,\hat{X}_i,\cdots,X_p))\\
-        & + \sum_{0 \le i \le j \le p}(-1)^{p + q}\omega([X_i,X_j], X_0,\cdots,\hat{X}_i,\cdots,\hat{X}_j,\cdots,X_p).
+        & + \sum_{0 \le i < j \le p}(-1)^{i + j}\omega([X_i,X_j], X_0,\cdots,\hat{X}_i,\cdots,\hat{X}_j,\cdots,X_p).
     \end{aligned}$$
     Note that if $\omega$ is of class $C^m$, $m \in \NN_{\ge 1} \cup \{\infty\}$, $m \le l$, then $\dd \omega$ is of class $C^{m-1}$.
 \end{definitionenv}
@@ -1639,7 +1638,7 @@ By expanding the determinant along the first row, we get the equality.
 
 \begin{definitionenv}
     Let $X$ be a set, $(U_i)_{i \in I}$ and $(V_j)_{j \in J}$ be covers of $X$.
-    We say that $(V_j)_{j \in J}$ is finer than $(U_i)_{i \in I}$ if for any $j \in J$, there exists $i \in I$ such that $U_i \subseteq V_j$.
+    We say that $(V_j)_{j \in J}$ is finer than $(U_i)_{i \in I}$ if for any $j \in J$, there exists $i \in I$ such that $V_j \subseteq U_i$.
     Let $(X,\mathscr{T})$ be a topological space, and $(U_i)_{i \in I}$ be a cover of $X$.
     We say that $(U_i)_{i \in I}$ is \textbf{locally finite} if for any $x \in X$, there exists a neighborhood $V$ of $x$ such that 
     $\{i \in I \mid V \cap U_i \neq \varnothing\}$ is finite.
@@ -1657,18 +1656,18 @@ By expanding the determinant along the first row, we get the equality.
     $$\mathcal{B}' = \{V \in \mathcal{B} \mid \exists i \in I, V \subseteq U_i\}$$
     is also a topological basis of $X$.
 
-    \quad By replacing $U$ by $\mathcal{B}'$, we may assume without lose of generality that $U$ forms a topological basis of $X$.
+    \quad By replacing $U$ by $\mathcal{B}'$, we may assume without loss of generality that $U$ forms a topological basis of $X$.
     By proposition \ref{prop:5.3.7}, there exists a sequence $(V_n)_{n \in \NN}$ of open sets such that for any $n \in \NN$, $\bar{V}_n$ is compact,
     $V_n \subseteq \bar{V}_n \subseteq V_{n+1}$ and $\bigcup_{n \in \NN} V_n = X$.
     Let $K_n = \bar{V}_n \setminus V_{n-1}$ closed in $\bar{V}_n$, hence compact.
     $W_n = V_{n + 1} \setminus \bar{V}_{n-2}$ open. (With the convention that $\bar{V}_{-2} = \bar{V}_{-1} = \varnothing$).
     We have that $K_n \subseteq W_n$.
-    We choose a finite subset $I_n$ of $I$ such that $U_i \subseteq W_n$ for any $i \in I_n$ and $K_n \subseteq \bigcup_{i \in I} U_i$.
+    We choose a finite subset $I_n$ of $I$ such that $U_i \subseteq W_n$ for any $i \in I_n$ and $K_n \subseteq \bigcup_{i \in I_n} U_i$.
     Let $J = \bigcup_{n \in \NN} I_n$.
-    $(U_i)_{i \in I}$ is finer than $(U_i)_{i \in I}$.
+    $(U_i)_{i \in J}$ is finer than $(U_i)_{i \in I}$.
     
-    \quad Note that $W_n \cap W_m = \varnothing$, once $|n-m| \ge 2$.
-    Hence $(U_i)_{i \in I}$ is locally finite.
+    \quad Note that $W_n \cap W_m = \varnothing$, once $|n-m| \ge 3$.
+    Hence $(U_i)_{i \in J}$ is locally finite.
 \end{proofenv}
 
 \begin{theoremenv}[Partition of unity]
@@ -1685,24 +1684,24 @@ By expanding the determinant along the first row, we get the equality.
 \begin{proofenv}
     For each $p \in M$, let 
     $$\left(\psi_j : W_j \longrightarrow M\right)_{j \in J_p}$$
-    to be the family of local charts around $p$, such that $\psi_j(W_j)$ is contained in the certain $U_i$ and that $\{\psi_j(W_j) \mid j \in J_p\}$ forms a neighborhood basis at $p$.
+    to be the family of local charts around $p$, such that $\psi_j(W_j)$ is contained in a certain $U_i$ and that $\{\psi_j(W_j) \mid j \in J_p\}$ forms a neighborhood basis at $p$.
     For simplicity, we assume that $(J_p)_{p \in M}$ are pairwise disjoint and we denote by $J$ the union $(J_p)_{p \in M}$.
     
     \quad For each $j \in J$, we let $f_j : W_j \longrightarrow [0,1]$ be a mapping of class $C^\infty$ with compact support such that $\supp(f_j) \subseteq W_j$.
     Let
     $$W_j' = \{x \in W_j \mid f_j(x) > 0\},$$
     $\{\psi_j(W_j')\}$ forms a topological basis of $M$.
-    By the proof of theorem \ref{thm:7.6.2}, we observe tat there exists $J' \subseteq J$ such that $(\psi_j(W'_j)){j \in J'}$ forms a locally finite open cover of $M$.
+    By the proof of theorem \ref{thm:7.6.2}, we observe that there exists $J' \subseteq J$ such that $(\psi_j(W'_j))_{j \in J'}$ forms a locally finite open cover of $M$.
     For any $j \in J'$, let
     $$g_j = f_j \circ \psi_j^{-1}.$$
-    We extend the domain of definition of $g_j$ of $M$ by putting $g_j|_{M \setminus W_j} \equiv 0$.
+    We extend the domain of definition of $g_j$ to $M$ by putting $g_j|_{M \setminus \psi_j(W_j)} \equiv 0$.
 
     \quad Define
     $$G = \sum_{j \in J'} g_j : M \longrightarrow \RR_{\ge 0}.$$
-    It is well defined because $\psi_j(W_j')$ is a locally finite cover.
+    It is well defined because $(\psi_j(W_j'))_{j \in J'}$ is a locally finite cover.
     For any $j \in J'$, pick $\lambda(j) \in I$ such that $\psi_j(W_j) \subseteq U_{\lambda(j)}$.
     Define 
-    $$\chi_{\lambda(j)} = \sum_{j \in J', \lambda(j) = i} \frac{g_i}{G},$$
+    $$\chi_i = \sum_{j \in J', \lambda(j) = i} \frac{g_j}{G},$$
     $(\chi_i)_{i \in I}$ satisfies the desired conditions.
 \end{proofenv}
 
@@ -1740,15 +1739,15 @@ By expanding the determinant along the first row, we get the equality.
     Let $M$ be a $C^l$-submanifold of $E$ and $\Theta$ be an orientation on $M$.
     Let $F$ be a vector space over $\RR$ of dimension $d$ and $\psi : W \longrightarrow E$ be a local chart ($W \subseteq F$ open neighborhood of $0$).
     Let $\xi : W \longrightarrow \bigwedge^d(F)$ be a mapping such that the homomorphism $\bigwedge^d(F) \longrightarrow \bigwedge^d(E)$ induced by $\DD \psi(x)$ (i.e. $v_1\wedge\cdots\wedge v_d \longmapsto \DD \psi(x)(v_1) \wedge \cdots \wedge \DD \psi(x)(v_d)$)
-    sends $\xi(x)$ to $\Theta(x)$.
-    Then the orbit of $\xi(x)$ by the action of $\RR_{\ge 0}$ does not depend on $x \in W$.
+    sends $\xi(x)$ to $\Theta(\psi(x))$.
+    Then the orbit of $\xi(x)$ by the action of $\RR_{> 0}$ does not depend on $x \in W$.
     This orbit is called the orientation of $\psi$ (induced by $\Theta$).
 \end{propositionenv}
 \begin{proofenv}
     Since $\Theta$ is continuous, we obtain that $\xi$ is also continuous
     (one can formally justify it using a canonical chart in which $\xi$ is given by the composite of $\Theta$ with the projection $\bigwedge^p(E) \longrightarrow \bigwedge^p(F)$).
     Since $W$ is connected, the image $\xi(W)$ is also connected.
-    $\bigwedge^d(F)$ is a one-dimensional vector space over $\RR$, so $\bigwedge^d(F) \setminus \{0\}$ has two connected components that coincide with the orbits by the action $\RR_{\ge 0}$.
+    $\bigwedge^d(F)$ is a one-dimensional vector space over $\RR$, so $\bigwedge^d(F) \setminus \{0\}$ has two connected components that coincide with the orbits by the action $\RR_{> 0}$.
 \end{proofenv}
 
 \begin{definitionenv}
@@ -1763,7 +1762,7 @@ By expanding the determinant along the first row, we get the equality.
 
 \begin{remark}
     Let $M$ be a $C^l$-submanifold of $E$, $\Theta$ be an orientation.
-    $\psi_1: W_1 \longrightarrow M_1$, $\psi_2 : W_2 \longrightarrow M$ two local charts such that $W_1$, $W_2$ is connected,
+    $\psi_1: W_1 \longrightarrow M$, $\psi_2 : W_2 \longrightarrow M$ two local charts such that $W_1$, $W_2$ are connected,
     $\omega$ be a $d$-form of compact support contained in a connected component of $\psi_1(W_1)\cap \psi_2(W_2)$.
     Then $\det(\DD (\psi_2^{-1} \circ \psi_1)) > 0$, so by the formula of the change of variables,
     $$\int_{W_1} \psi_1^*(\omega) = \int_{W_2} \psi_2^*(\omega).$$
@@ -1798,12 +1797,12 @@ In this section, we fix a finite-dimensional vector space $F$ over $\RR$ and $l 
     $U$ be open in $\RR_{\le 0} \times F$.
     We say that a mapping $f: U \longrightarrow G$ is \textbf{differentiable} (resp. of class $C^l$)
     if there exists an open subset $\tilde{U}$ of $\RR \times F$ together with a mapping $\tilde{f} : \tilde{U} \longrightarrow G$ which is differentiable (resp. of class $C^l$) and such that
-    $$\tilde{f} |_{\RR_{\le 0} \times F} = f.$$
+    $$\tilde{f} |_{U} = f.$$
     If furthermore, $\tilde{f}$ can be selected to be an open immersion, then we say that $f$ is an open immersion.
 \end{definitionenv}
 
 \begin{remark}
-    Note that the value of $\DD \tilde{f}(p)(v)$ for $v \in \RR_{\le 0} \times F$ depends only on $f$ (i.e. does not depend on the choice of $\tilde{f}$).
+    Note that the value of $\DD \tilde{f}(p)(v)$ for $v \in \RR \times F$ depends only on $f$ (i.e. does not depend on the choice of $\tilde{f}$).
     Hence we can denote it by $\DD f (p)$.
 \end{remark}
 
@@ -1848,7 +1847,7 @@ In this section, we fix a finite-dimensional vector space $F$ over $\RR$ and $l 
     \begin{enumerate}[label=\Roman*.]
         \item Prove that $f(U \setminus \partial U) \subseteq V \setminus \partial V$.
             Let $x \in U \setminus \partial U$.
-            For any $v \in \RR \times F$, there exists $\varepsilon > 0$ and $\gamma : [-\varepsilon, \varepsilon] \longrightarrow U$ such that $\gamma(0) = x$ and $\gamma'(0) = \DD f(x)^{-1} (v)$.
+            For any $v \in \RR \times G$, there exists $\varepsilon > 0$ and $\gamma : [-\varepsilon, \varepsilon] \longrightarrow U$ such that $\gamma(0) = x$ and $\gamma'(0) = \DD f(x)^{-1} (v)$.
             Let $\mu = f \circ \gamma$, then $\mu(0) = f(x)$ and $\mu'(0) = \DD f (x) (\gamma'(0)) = v$.
             Hence $f(x) \in V \setminus \partial V$.
         \item For the other inclusion, notice that $f^{-1}: V \longrightarrow U$ is also a $C^l$-diffeomorphism, hence by I,
@@ -2037,7 +2036,7 @@ pattern radius = 1pt}
             $$\omega = \sum_{i=1}^{d} f_i \dd x_1 \wedge \cdots \wedge \dd x_{i - 1} \wedge \dd x_{i + 1} \wedge \cdots \wedge \dd x_d.$$
             Then
             $$\dd \omega = \sum_{i=1}^{d} (-1)^{i+1} \frac{\partial f_i}{\partial x_i} \dd x_1 \wedge \cdots \wedge \dd x_{d},$$
-            $$\int_{M} \dd \omega = \sum_{i=1}^{d} (-1)^{i} \int_{\RR^d} \frac{\partial f_i}{\partial x_i} \dd \mu.$$
+            $$\int_{M} \dd \omega = \sum_{i=1}^{d} (-1)^{i+1} \int_{M} \frac{\partial f_i}{\partial x_i} \dd \mu.$$
             Since $f_i$ is of compact support
             $$\int_{\RR} \frac{\partial f_i}{\partial x_i} \dd x_i = 0.$$
             So
@@ -2046,7 +2045,7 @@ pattern radius = 1pt}
             The above argument shows that
             $$\int_{M} \frac{\partial f_i}{\partial x_i} \dd x_1 \wedge \cdots \wedge \dd x_d = 0, \text{ for } i \in \{2,\cdots,d\}$$
             and
-            $$ \int_{M} \frac{\partial f_1}{\partial x_1} \dd x_2 \wedge \cdots \wedge \dd x_d = \int_{\RR^{d-1}} f_1 (0,x_2,\cdots,x_d) \dd x_2 \cdots \dd x_d.$$
+            $$ \int_{M} \frac{\partial f_1}{\partial x_1} \dd x_1 \wedge \cdots \wedge \dd x_d = \int_{\RR^{d-1}} f_1 (0,x_2,\cdots,x_d) \dd x_2 \cdots \dd x_d.$$
             which equals
             $$\int_{\partial M} \omega|_{\partial M}.$$
     \end{enumerate}

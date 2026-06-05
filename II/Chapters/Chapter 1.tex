@@ -64,14 +64,14 @@ $$
     \end{enumerate}
 \end{definitionenv}
 \begin{exampleenv}
-    Let $\mathcal{U}$ be a universe. The elements of $\mathcal{U}$ are sets (by definition). Together with (standard set theoretic) mappings as morphism form a category denote by $\mathcal{U}$-set. The objects of $\mathcal{U}$-set are the elements of $\mathcal{U}$ and for any $A,B\in \mathcal{U}$, 
+    Let $\mathcal{U}$ be a universe. The elements of $\mathcal{U}$ are sets (by definition). Together with (standard set-theoretic) mappings as morphisms, they form a category denoted by $\mathcal{U}$-set. The objects of $\mathcal{U}$-set are the elements of $\mathcal{U}$ and for any $A,B\in \mathcal{U}$,
     $$ \mathcal{U}\text{-}\mathrm{set}(A,B)$$
     is just the set of all mappings from $A$ to $B$.
 \end{exampleenv}
 \begin{remark}
-    In practice, we often emit the mention of the universe $\mathcal{U}$ in which we consider the category theory. With this abbreviation, a $\mathcal{U}$-category is simply called a category. A $\mathcal{U}$-small category is called a small category. Similarly $\mathcal{U}$-set is typically denoted as set.
+    In practice, we often omit the mention of the universe $\mathcal{U}$ in which we consider the category theory. With this abbreviation, a $\mathcal{U}$-category is simply called a category. A $\mathcal{U}$-small category is called a small category. Similarly $\mathcal{U}$-set is typically denoted by set.
 \end{remark}
-\begin{notationenv}[also exmaple]
+\begin{notationenv}[also example]
     \quad
 \begin{enumerate}[label=(\arabic*)]
     \item $\mathbf{Top} = \{\text{topological spaces with continuous mappings between them}\}$
@@ -500,7 +500,7 @@ $$F(f)\circ \Id_{F(X)} = F(f) =\Id_{F(Y)}\circ F(f).$$
         \item The set of all functors from $\mathcal{C}$ to $\mathcal{D}$
         \item Natural transformations.
     \end{itemize}
-    Then $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$ forms a category (is some suitable universe). It is called the category of functors from $\mathcal{C}$ to $\mathcal{D}$. If $F$ and $G$ are two functors from $\mathcal{C}$ to $\mathcal{D}$ such that there exists an isomorphism from $F$ to $G$ in $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$. We say that $F$ and $G$ are isomorphic.
+    Then $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$ forms a category (in some suitable universe). It is called the category of functors from $\mathcal{C}$ to $\mathcal{D}$. If $F$ and $G$ are two functors from $\mathcal{C}$ to $\mathcal{D}$ such that there exists an isomorphism from $F$ to $G$ in $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$. We say that $F$ and $G$ are isomorphic.
 \end{remark}
 \begin{propositionenv}
     Let $\mathcal{U}$ be a universe, $\mathcal{C}$ be a $\mathcal{U}$-small category, and $\mathcal{D}$ be a $\mathcal{U}$-category. For any functors $F$ and $G$ from $\mathcal{C}$ to $\mathcal{D}$, the set $\mathrm{Nat}(F,G)$ of natural transformation from $F$ to $G$ belongs to $\mathcal{U}$.
@@ -509,7 +509,7 @@ $$F(f)\circ \Id_{F(X)} = F(f) =\Id_{F(Y)}\circ F(f).$$
     $\mathrm{Nat}(F,G)$ is a subset of $\dis \prod_{X\in \Obj(\mathcal{C})}\mathcal{D}(F(X),G(X))\in \mathcal{U}$.
 \end{proofenv}
 \begin{notationenv}
-    If $\mathcal{C}$ is a category, then $\underline{\mathrm{Fun}}(\mathcal{C},\underline{\mathrm{Set}})$ is denoted as $\hat{\mathcal{C}}$.
+    If $\mathcal{C}$ is a category, then $\underline{\mathrm{Fun}}(\mathcal{C},\underline{\mathrm{Set}})$ is denoted by $\hat{\mathcal{C}}$.
 \end{notationenv}
 \newpage
 \section{Yoneda Lemma}
@@ -814,7 +814,7 @@ It remains to check that $\varphi^{-1}_Y(y)$ works.
 \begin{proofenv}
     By proposition\ref{1.5.2}, $f = \varphi_Y^{-1}(y)$ is unique in $\mathcal{C}(X,Y)$ such that $F(f)(x) = y$. It remains to check that $f$ is an isomorphism. 
     
-    \quad By proposition\ref{1.5.2}, $g:\psi^{-1}_{X}(x)$ is the unique morphism in $\mathcal{C}(Y,X)$ such that $F(g)(y) = x$.
+    \quad By proposition\ref{1.5.2}, $g = \psi^{-1}_{X}(x)$ is the unique morphism in $\mathcal{C}(Y,X)$ such that $F(g)(y) = x$.
     $$
     F\left(g\circ f\right)(x) = \left(F(g)\circ F(f)\right)(x) = F(g)\left(F(f)(x)\right) = F(g)(y) = x.
     $$

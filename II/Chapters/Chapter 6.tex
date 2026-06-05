@@ -42,8 +42,8 @@
     $$a_0 + a_1 T +\cdots + a_n T^n,$$
     where $a_0,\cdots a_n \in K$ and $a_n \neq 0$.
     
-    \quad The natural number $n$ is called the \textbf{degree} of $P$, and denote as $\deg (P) \in \NN$.
-    The element $a_n$ is called the \textbf{leading coefficient} of $P$, and denote as $c(P) \in K$.
+    \quad The natural number $n$ is called the \textbf{degree} of $P$, and denoted by $\deg (P) \in \NN$.
+    The element $a_n$ is called the \textbf{leading coefficient} of $P$, and denoted by $c(P) \in K$.
 
     \quad If $c(P) = 1$, then we say that $P$ is a \textbf{monic}.
 
@@ -527,7 +527,7 @@
         \varphi_k(x_j) \ &j \in I
     \end{cases}.$$
     $F_l$ is multilinear form and $s_l (\varphi) = F_{l}(\varphi,\cdots,\varphi)$.
-    Hence $s_l$ is a homogenous polynomial of degree $l$ on $\End_{K}(V)$.
+    Hence $s_l$ is a homogeneous polynomial of degree $l$ on $\End_{K}(V)$.
 \end{remark}
 
 
@@ -537,7 +537,7 @@
 In this section, we fix a field $K$.
 
 \begin{definitionenv}\label{def:6.3.1}
-    Let $V$ be a finite dimensional vector space over $K$.
+    Let $V$ be a finite-dimensional vector space over $K$.
     If $\varphi$ is a $K$-linear endomorphism of $V$,
     we let $\lambda_{\varphi}$ to be the homomorphism of $K$-algebras
     $$\begin{array}{rrcl}
@@ -553,10 +553,10 @@ In this section, we fix a field $K$.
 \end{definitionenv}
 
 \begin{propositionenv}\label{prop:6.3.2}
-    Let $V$ be a finite dimensional vector space over $K$,
+    Let $V$ be a finite-dimensional vector space over $K$,
     $\varphi \in \End_{K}(V)$,
     and $W$ be a vector subspace of $V$ such that $\varphi(W) \subseteq W$.
-    Let $\psi : W \rightarrow W$ be the restriction of $V$ to $W$.
+    Let $\psi : W \rightarrow W$ be the restriction of $\varphi$ to $W$.
     Then $Q_{\psi} \mid Q_{\varphi}$.
 \end{propositionenv}
 \begin{proofenv}
@@ -578,7 +578,7 @@ In this section, we fix a field $K$.
 \end{definitionenv}
 
 \begin{propositionenv}\label{prop:6.3.4}
-    Let $V$ be a finite dimensional vector space over $K$,
+    Let $V$ be a finite-dimensional vector space over $K$,
     $\varphi \in \End_{K}(V)$,
     $V_1,\cdots,V_n$ be vector subspaces of $V$.
     We assume that, for any $i \in \{1,\cdots,n\}$, $\varphi(V_i) \subseteq V_{i}$.
@@ -597,7 +597,7 @@ In this section, we fix a field $K$.
             let $F_i \in K[T]$ be such that $G = F_{i} Q_{\varphi_i}$.
             Let $x \in V$, $x = x_1 + \cdots + x_n$, $x_i \in V_i$, $i \in \{1,\cdots,n\}$.
             One has
-            $$G(\varphi)(x) = \sum_{i=1}^{n} G(\varphi)(x_i) = \sum_{i=1}^{n} G(\varphi_i)(x_i) = \sum_{i=1}^{n} F_i (\varphi_i) Q_{\varphi_i}(\varphi_i)(x).$$
+            $$G(\varphi)(x) = \sum_{i=1}^{n} G(\varphi)(x_i) = \sum_{i=1}^{n} G(\varphi_i)(x_i) = \sum_{i=1}^{n} F_i (\varphi_i) Q_{\varphi_i}(\varphi_i)(x_i).$$
             Hence, $G$ is a vanishing polynomial of $\varphi$, so $Q_\varphi \mid G$.
             Conversely, by proposition \ref{prop:6.3.2}, one has that $Q_{\varphi_i} \mid Q_{\varphi}$ for any $i \in \{1,\cdots,n\}$.
             Hence, $G \mid Q_{\varphi}$.
@@ -609,7 +609,7 @@ In this section, we fix a field $K$.
 \end{proofenv}
 
 \begin{theoremenv}
-    Let $V$ be a finite dimensional vector space over $K$,
+    Let $V$ be a finite-dimensional vector space over $K$,
     $\varphi \in \End_{K}(V)$,
     let $F_1,\cdots,F_n$ be non-zero polynomials in $K[T]$ and $F = F_1 \cdots F_n$.
     Assume that $F_1,\cdots F_n$ are pairwise coprime,
@@ -654,33 +654,33 @@ In this section, we fix a field $K$.
 \end{remark}
 
 \begin{propositionenv}
-    Let $K$ be a field and $V$ be a finite dimensional vector space over $K$.
+    Let $K$ be a field and $V$ be a finite-dimensional vector space over $K$.
     Let $\varphi \in \End_{K}(V)$ and $P_{\varphi}$ and $Q_{\varphi}$ be the characteristic polynomial and the minimal polynomial of $\varphi$, respectively.
     Then $Q_{\varphi} \mid P_{\varphi} \mid Q_{\varphi}^{\dim(V)}$.
     In particular, $P_{\varphi}$ and $Q_{\varphi}$ have the same irreducible factors.
 \end{propositionenv}
 \begin{proofenv}
-    Suppose that $Q_{\varphi}(T) = T^n + a_1 T^{n-1} \cdots + \cdots + a_n$.
+    Suppose that $Q_{\varphi}(T) = T^n + a_1 T^{n-1} + \cdots + a_n$.
     $$\begin{aligned}
         & Q_{\varphi}(T) \Id_{K[T]\otimes V} = Q_{\varphi}(T) \otimes \Id_{V} - 1 \otimes Q_{\varphi}(\varphi)\\
         = & \left(T^n + a_1 T^{n-1} + \cdots + a_n\right) \otimes \Id_{V} - 1 \otimes \left(\varphi^n + a_1 \varphi^{n-1} + \cdots + a_n\right)\\
         = & \left(T^n \otimes \Id_{V} - 1 \otimes \varphi^n\right) + \sum_{i=1}^{n}a_i \left(T^{n-i}\otimes\Id_{V} - 1 \otimes \varphi^{n-i}\right)\\
-        = & \left(T \otimes \Id_{V} - 1 \otimes \varphi\right) \circ \left(\sum_{i=0}^{n-1}a_i \sum_{j=0}^{n-i-1}\left(T^j \otimes \varphi^{n-i-1-j}\right)\right).
+        = & \left(T \otimes \Id_{V} - 1 \otimes \varphi\right) \circ \left(\sum_{j=0}^{n-1} T^{n-1-j}\otimes \varphi^j + \sum_{i=1}^{n-1}a_i \sum_{j=0}^{n-i-1} T^{n-i-1-j} \otimes \varphi^j\right).
     \end{aligned}$$
     Taking the determinant, we get
-    $$Q_{\varphi}(T)^{\dim(V)} = P_\varphi(T) \cdot \det\left(\sum_{i=0}^{n-1}a_i \sum_{j=0}^{n-i-1}\left(T^j \otimes \varphi^{n-i-1-j}\right)\right).$$
+    $$Q_{\varphi}(T)^{\dim(V)} = P_\varphi(T) \cdot \det\left(\sum_{j=0}^{n-1} T^{n-1-j}\otimes \varphi^j + \sum_{i=1}^{n-1}a_i \sum_{j=0}^{n-i-1} T^{n-i-1-j} \otimes \varphi^j\right).$$
 \end{proofenv}
 
 \begin{definitionenv}
-    Let $K$ be a field and $V$ be a finite dimensional vector space over $K$.
+    Let $K$ be a field and $V$ be a finite-dimensional vector space over $K$.
     Let $\varphi \in \End_{K}(V)$.
     If there is a basis $(e_i)_{i=1}^n$ which is composed of eigenvectors of $\varphi$, then we say that $\varphi$ is
     \textbf{diagonalizable} (or semi-simple).
 \end{definitionenv}
 
 \begin{propositionenv}
-    Let $K$ be a field and $V$ be a finite dimensional vector space over $K$,
-    and $\varphi \in \End_{K}(V)$
+    Let $K$ be a field and $V$ be a finite-dimensional vector space over $K$,
+    and $\varphi \in \End_{K}(V)$.
     Let $\lambda \in K$.
     The following statements are equivalent:
     \begin{enumerate}[label = (\arabic*)]
@@ -691,14 +691,17 @@ In this section, we fix a field $K$.
 \end{propositionenv}
 
 \begin{proofenv}
-    (1) $\Rightarrow$ (2). Let $W \coloneq \ker(\varphi - \lambda \Id_{V}) \neq 0$,
-    $Q_{\varphi}(T) = T - \lambda$ since $\varphi|_{W} = \lambda \Id_{W}$.
-    Since $Q_{\varphi}|_{W} \mid Q_{\varphi}$, $Q_{\varphi}(\lambda) = 0$.
+    (1) $\Rightarrow$ (2). Let $W \coloneq \ker(\varphi - \lambda \Id_{V}) \neq 0$.
+    The minimal polynomial of $\varphi|_{W}$ is $T - \lambda$ since $\varphi|_{W} = \lambda \Id_{W}$.
+    Since $Q_{\varphi|_{W}} \mid Q_{\varphi}$, $Q_{\varphi}(\lambda) = 0$.
 
     \quad
     (2) $\Rightarrow$ (1). Suppose that $Q_{\varphi}(T) = (T - \lambda)F(T)$.
     $\ker(F(\varphi)) \neq V$, so there exists $y \in V$, such that $x \coloneq F(\varphi)(y) \neq 0$.
-    $$(\varphi - \lambda \Id_{V})(x) = (\varphi - \lambda \Id_{V})(F(\varphi)(y)) = Q_{\varphi}(\varphi)(y).$$
+    $$(\varphi - \lambda \Id_{V})(x) = (\varphi - \lambda \Id_{V})(F(\varphi)(y)) = Q_{\varphi}(\varphi)(y) = 0.$$
+    Hence $\lambda$ is an eigenvalue of $\varphi$.
+
+    \quad The equivalence between (2) and (3) follows from the fact that $P_{\varphi}$ and $Q_{\varphi}$ have the same irreducible factors.
 \end{proofenv}
 
 \begin{theoremenv}
@@ -809,20 +812,20 @@ We fix a field $K$.
 We fix a field $K$.
 
 \begin{definitionenv}
-    Let $V$ be a finite dimensional vector space over $K$ and $\varphi \in \End_{K}(V)$.
-    We say that $\varphi$ is a \textbf{Jordan endomorphism} (Jordan bloc) if both the characteristic polynomial and the minimal polynomial of $\varphi$ are of the form $(T - \lambda)^d$,
+    Let $V$ be a finite-dimensional vector space over $K$ and $\varphi \in \End_{K}(V)$.
+    We say that $\varphi$ is a \textbf{Jordan endomorphism} (Jordan block) if both the characteristic polynomial and the minimal polynomial of $\varphi$ are of the form $(T - \lambda)^d$,
     where $\lambda \in K$ and $d = \dim(V)$.
 \end{definitionenv}
 
 \begin{lemmaenv}
-    Let $V$ be a finite dimensional vector space over $K$,
+    Let $V$ be a finite-dimensional vector space over $K$,
     $\varphi \in \End_{K}(V)$, $n \in \NN_{\ge 1}$, and $x \in V$.
-    Suppose that $\varphi(x)^n = 0$ and $\varphi^{n-1}(x) \neq 0$.
-    Then $x,\varphi(x), \cdots , \varphi^{n-1}(x)$ form a linear independent family.
+    Suppose that $\varphi^n(x) = 0$ and $\varphi^{n-1}(x) \neq 0$.
+    Then $x,\varphi(x), \cdots , \varphi^{n-1}(x)$ form a linearly independent family.
 \end{lemmaenv}
 
 \begin{proofenv}
-    Let $(a_1,\cdots,a_n) \in K^n$ such that
+    Let $(a_0,\cdots,a_{n-1}) \in K^n$ be such that
     $$a_0 x +a_1 \varphi(x) + \cdots + a_{n-1}\varphi^{n-1}(x) = 0.$$
     Then
     $$\varphi^{n-1}\left(a_0 x +a_1 \varphi(x) + \cdots + a_{n-1}\varphi^{n-1}(x)\right) = 0.$$
@@ -832,7 +835,7 @@ We fix a field $K$.
 \end{proofenv}
 
 \begin{remark}
-    Let $V$ be a finite dimensional vector space over $K$ and $\varphi \in \End_{K}(V)$ be a Jordan endomorphism with $P_{\varphi}(T) = (T - \lambda)^d$ with $\lambda \in K$, $d = \dim(V)$.
+    Let $V$ be a finite-dimensional vector space over $K$ and $\varphi \in \End_{K}(V)$ be a Jordan endomorphism with $P_{\varphi}(T) = (T - \lambda)^d$ with $\lambda \in K$, $d = \dim(V)$.
     Since $P_{\varphi}$ is also the minimal polynomial,
     $$(\varphi - \lambda \Id_{V})^{d - 1} \neq 0.$$
     Pick $x \in V \setminus \ker((\varphi - \lambda \Id_{V})^{d - 1})$.
@@ -868,11 +871,11 @@ We fix a field $K$.
 \end{remark}
 
 \begin{theoremenv}
-    Let $V$ be a finite dimensional vector space over $K$ and $\varphi \in \End_{K}(V)$.
-    Suppose that the characteristic polynomial of $V$ can be split into a product of polynomial of degree $1$.
+    Let $V$ be a finite-dimensional vector space over $K$ and $\varphi \in \End_{K}(V)$.
+    Suppose that the characteristic polynomial of $\varphi$ can be split into a product of polynomials of degree $1$.
     There exist vector subspaces $V_1,\cdots, V_l$ of $V$ such that
     \begin{enumerate}[label = (\arabic*)]
-        \item For any $i \in \{1,\cdots,n\}$, $\varphi(V_i) \subseteq V_i$, $\varphi_i \coloneq \varphi|_{V_i} \in \End_{K}(V_i)$ is a Jordan endomorphism.
+        \item For any $i \in \{1,\cdots,l\}$, $\varphi(V_i) \subseteq V_i$, $\varphi_i \coloneq \varphi|_{V_i} \in \End_{K}(V_i)$ is a Jordan endomorphism.
         \item $V$ is the direct sum of $V_1,\cdots, V_l$.
     \end{enumerate}
 \end{theoremenv}
@@ -880,7 +883,7 @@ We fix a field $K$.
 \begin{proofenv}
     We may assume without loss of generality that the minimal polynomial of $\varphi$ is of the form $(T - \lambda)^\alpha$ with $\lambda \in K$, $\alpha \in \NN_{\ge 1}$.
     Let $d = \dim(V)$, $\psi = \varphi - \lambda \Id_{V}$.
-    We reason by induction on $n$.
+    We reason by induction on $d$.
 
     \quad If $d = 0$, $P_{\varphi} = Q_{\varphi} = 1$.
     If $d = 1$, $P_{\varphi} = Q_{\varphi} = T - \lambda$. In these two cases $\varphi$ is Jordan.
@@ -888,12 +891,12 @@ We fix a field $K$.
     \quad We suppose that $\varphi$ is NOT Jordan ($d > \alpha$).
     Let $x \in V \setminus \ker(\psi^{\alpha - 1})$ and 
     $$W = \Span_{K}(\{x,\psi(x),\cdots,\psi^{\alpha - 1}(x)\}) \subsetneq V.$$
-    Moreover, $(x,\psi(x),\cdots,\psi^{d-1}(x))$ forms a basis of $W$.
+    Moreover, $(x,\psi(x),\cdots,\psi^{\alpha-1}(x))$ forms a basis of $W$.
     Let $\varphi':W\rightarrow W$ be the restriction of $\varphi$.
     Then the minimal polynomial of $\varphi'$ is $(T - \lambda)^\alpha$.
     Since $\alpha = \dim(W)$, $\varphi'$ is Jordan.
     Let $f: V \rightarrow K$ be a linear form such that
-    $$f(\psi^{\alpha - 1}(\alpha)) \neq 0.$$
+    $$f(x) = f(\psi(x)) = \cdots = f(\psi^{\alpha - 2}(x)) = 0, \quad f(\psi^{\alpha - 1}(x)) \neq 0.$$
     Let $H$ be the vector subspace of $V^\vee$ generated by 
     $$\{f,f\circ \psi , f \circ \psi^2 ,\cdots, f \circ \psi^{\alpha - 1}\} = \{f, \psi^\vee (f), (\psi^\vee)^2 (f),\cdots, (\psi^\vee)^{\alpha - 1}(f)\}.$$
     Note that $(\psi^\vee)^\alpha = (\psi^\alpha)^\vee = 0$ and 
@@ -910,9 +913,9 @@ We fix a field $K$.
     is surjective since $f, \psi^\vee(f), \cdots, (\psi^\vee)^{\alpha - 1}(f)$ are linearly independent.
     $U = \ker(\theta)$.
     So $\dim(V) = \dim(U) + \alpha$.
-    Let $(b_1,\cdots,b_\alpha) \in K^\alpha$, let $i$ be the smallest index in $\{1,\cdots,\alpha\}$ such that $b_i \neq 0$.
+    Let $(b_1,\cdots,b_\alpha) \in K^\alpha$, let $i$ be the largest index in $\{1,\cdots,\alpha\}$ such that $b_i \neq 0$.
     Let $y = b_1 x + b_2 \psi(x) + \cdots + b_{\alpha}\psi^{\alpha-1}(x) \in W$.
-    $$f \circ \psi^{\alpha - 1}(y) = b_i (f \circ \psi^{\alpha - 1})(x) \neq 0.$$
+    $$(f \circ \psi^{\alpha - i})(y) = b_i (f \circ \psi^{\alpha - 1})(x) \neq 0.$$
     So $y \notin U$, which means $U \cap W = \{0\}$.
     Since $\dim(U) + \dim (W) = \dim (V)$, $V$ is a direct sum of $U$ and $W$.
 
@@ -922,18 +925,18 @@ We fix a field $K$.
     Hence $\varphi(y) = \lambda y + \psi(y) \in U$.
     Since $U \subseteq V$, one has
     $$Q_{\varphi|_{U}} \mid Q_{\varphi}.$$
-    By the induction hypothesis, $U$ can be decomposed into a direct sum of Jordan basis.
+    By the induction hypothesis, $U$ can be decomposed into a direct sum of Jordan blocks.
 \end{proofenv}
 
 \begin{definitionenv}
-    The vector space in the above theorem are called Jordan blocs.
+    The vector spaces in the above theorem are called Jordan blocks.
 \end{definitionenv}
 
 \begin{remark}
     Under the hypothesis of the theorem $\varphi$ has a Dunford decomposition $\varphi = s + n$
     \begin{enumerate}[label = (\arabic*)]
-        \item $\dim(\ker(n))$ is the number of Jordan blocs.
-        \item $\dim(\ker(n^i)) - \dim(\ker(n^{i-1}))$ is the number of Jordan blocs of dimension greater than $i$.
+        \item $\dim(\ker(n))$ is the number of Jordan blocks.
+        \item $\dim(\ker(n^i)) - \dim(\ker(n^{i-1}))$ is the number of Jordan blocks of dimension greater than $i$.
     \end{enumerate}
 \end{remark}
 
@@ -941,14 +944,14 @@ We fix a field $K$.
 \section{Behavior under Conjugation}
 
 
-We fix a field $K$ and a finite dimensional vector space $V$ over $K$.
+We fix a field $K$ and a finite-dimensional vector space $V$ over $K$.
 Let $\varphi \in \End_{K}(V)$ and $g \in \GL(V)$, we call conjugate of $\varphi$ by $g$ the element
-$$g \circ \varphi \circ g^{-1} \in \End{K}(V).$$
+$$g \circ \varphi \circ g^{-1} \in \End_{K}(V).$$
 $$\begin{array}{rcl}
     \GL(V) \times \End_{K}(V) & \longrightarrow & \End_{K}(V)\\
-    (g,\varphi) & \longmapsto & g \circ g \circ \varphi \circ g^{-1}
+    (g,\varphi) & \longmapsto & g \circ \varphi \circ g^{-1}
 \end{array}$$
-is a right action.
+is a left action.
 
 \begin{theoremenv}
     $$P_{g \circ \varphi \circ g^{-1}} = P_{\varphi}, \quad Q_{g \circ \varphi \circ g^{-1}} = Q_{\varphi}.$$
@@ -957,7 +960,7 @@ is a right action.
     For $\psi \in \End_{K}(V)$, we still use $\psi$ to denote
     $$1 \otimes \psi \in \End_{K[T]}(K[T]\otimes V).$$
     $$\begin{aligned}
-        P_{g \circ \varphi \circ g^{-1}} = & \det \left(T \Id_{V} - g \circ \varphi \circ g_{-1}\right)\\
+        P_{g \circ \varphi \circ g^{-1}} = & \det \left(T \Id_{V} - g \circ \varphi \circ g^{-1}\right)\\
         = & \det\left(g \circ (T \Id_{V} - \varphi) \circ g^{-1}\right)\\
         = & \det(g) \cdot \det(T \Id_{V} - \varphi) \det(g^{-1})\\
         = & P_{\varphi} (T).
@@ -975,7 +978,7 @@ is a right action.
 \end{proofenv}
 
 \begin{theoremenv}
-    Let $V$ and $W$ be finite dimensional vector spaces over $K$,
+    Let $V$ and $W$ be finite-dimensional vector spaces over $K$,
     $\varphi : V \rightarrow W$, $\psi : W \rightarrow V$ be $K$-linear mappings.
     Then
     $$P_{\psi \circ \varphi}(T) T^{\dim(W)} = P_{\varphi\circ\psi}(T) T^{\dim(V)}.$$

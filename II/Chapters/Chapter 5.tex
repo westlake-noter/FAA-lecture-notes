@@ -543,7 +543,7 @@ pattern radius = 1pt}
             then we say that $\varphi$ is \textbf{faithful}.
         \item If for any $(x,y) \in X$, there exists $g \in G$ such that $\varphi(g,x) = y$,
             then we say that $\varphi$ is \textbf{transitive},
-            and that $X$ is a \textbf{homogenous space} of $G$.
+            and that $X$ is a \textbf{homogeneous space} of $G$.
         \item For any $x \in X$, we denote by
             $$ \stab (x) = \{g \in G \mid \varphi(g,x) = x\}.$$
             This is a subgroup of $G$ called the \textbf{stabilizer} of $x$ with respect to $\varphi$.
@@ -589,7 +589,7 @@ pattern radius = 1pt}
     \end{array}$$
     is open.
     Thus $\psi^{-1} (V)$ is an open subset of $G \times G/H$.
-    By definition, $\psi$ is transitive, hence $G/H$ is a homogenous space of $G$.
+    By definition, $\psi$ is transitive, hence $G/H$ is a homogeneous space of $G$.
 \end{exampleenv}
 
 \begin{exampleenv}
@@ -617,10 +617,10 @@ pattern radius = 1pt}
 \end{exampleenv}
 
 \begin{exampleenv}
-    Let $(V, \langle\ ,\ \rangle)$ be the finite dimensional inner product space over $\RR$,
+    Let $(V, \langle\ ,\ \rangle)$ be the finite-dimensional inner product space over $\RR$,
     $$ S =\{x \in V \mid \langle x, x \rangle = 1\}$$
     be the unit sphere of $(V,\langle\ ,\ \rangle)$.
-    Let $O(V,\langle\ ,\ \rangle)$ be the orthogonal group of $(V,\langle\ ,\ \rangle)$ ($\RR$-linear isomorphism that one $\RR$-linear isometries).
+    Let $O(V,\langle\ ,\ \rangle)$ be the orthogonal group of $(V,\langle\ ,\ \rangle)$ ($\RR$-linear isomorphisms that are $\RR$-linear isometries).
     Then $O(V,\langle\ ,\ \rangle)$ acts continuously on $S$.
     We choose two orthogonal bases $\left(e_i\right)_{i=1}^n$, $\left(e_i'\right)_{i = 1}^{n}$ of $(V,\langle\ ,\ \rangle)$ such that $x = e_1$ and $y = e_1'$.
     Then the mapping
@@ -629,7 +629,7 @@ pattern radius = 1pt}
         & \lambda_1 e_1 + \cdots + \lambda_n e_n & \longmapsto & \lambda_1 e_1' + \cdots + \lambda_n e_n'
     \end{array}$$
     is a linear isometry that takes $x$ to $y$.
-    So $S$ is a homogenous of the group $O(V,\langle\ ,\ \rangle)$.
+    So $S$ is a homogeneous space of the group $O(V,\langle\ ,\ \rangle)$.
 \end{exampleenv}
 
 \begin{propositionenv}\label{prop:5.2.17}
@@ -1366,7 +1366,7 @@ $$\begin{array}{rrcl}
 \end{corollaryenv}
 
 \begin{definitionenv}
-    Let $K$ be a field and $V$ be a finite dimensional vector space over $K$
+    Let $K$ be a field and $V$ be a finite-dimensional vector space over $K$
     $$\End_{K}(V) \coloneq \{K\text{-linear endomorphisms} V \rightarrow V\}.$$
     Let
     $$\GL(V) \coloneq \End_{K}(V)^\times = \{\varphi \in \End_{K}(V) \mid \det (\varphi) \neq 0\},$$
@@ -1427,7 +1427,7 @@ $$\begin{array}{rrcl}
 \end{proofenv}
 
 \begin{theoremenv}\label{thm:5.6.*}
-    Let $K$ be a field and $V$ be a finite dimensional vector space over $K$.
+    Let $K$ be a field and $V$ be a finite-dimensional vector space over $K$.
     Assume that, either $\dim_{K}(V) \neq 2$, or $K \neq \ZZ /(2\ZZ)$.
     Then
     $$[\GL(V), \GL(V)]_{\circ} = SL(V).$$
@@ -1532,8 +1532,8 @@ $$\begin{array}{rrcl}
 \end{remark}
 
 \begin{theoremenv}[Linear change of variables]\label{thm:5.6.9}
-    Let $V$ be a finite dimensional vector space over $\RR$ and $\nu$ be a Haar measure on $V$.
-    For any $f \in \GL(V)$, on has 
+    Let $V$ be a finite-dimensional vector space over $\RR$ and $\nu$ be a Haar measure on $V$.
+    For any $f \in \GL(V)$, one has
     $$f_*(\nu) = \left| \det(f)\right|^{-1} \nu.$$
     In other words, for any Borel subset $A \subseteq V$,
     $$\nu(f(A)) = \left| \det(f)\right| \nu(A).$$
@@ -1595,7 +1595,7 @@ $$\begin{array}{rrcl}
 \end{proofenv}
 
 \begin{theoremenv}[Change of variables]
-    Let $E$ be a finite dimensional vector space over $\RR$,
+    Let $E$ be a finite-dimensional vector space over $\RR$,
     $\nu$ be a Haar measure on $E$.
     Let $U,V$ be open subsets of $E$ and $\varphi : U \rightarrow V$ be a $C^1$-diffeomorphism.
     Then, for any Borel measurable mapping $f : V \rightarrow \RR_{\ge 0}$,

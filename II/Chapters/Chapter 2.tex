@@ -203,7 +203,7 @@ $$
     We say that $\varphi$ is \textbf{non-degenerate} when $l_\varphi$ is an isomorphism.
 \end{definitionenv}
 \begin{theoremenv}
-    Let $K$ be a field, $V$ be a finite dimensional vector space over $K$, $\varphi : V\times V\rightarrow K$ be a symmetric bilinear form.
+    Let $K$ be a field, $V$ be a finite-dimensional vector space over $K$, $\varphi : V\times V\rightarrow K$ be a symmetric bilinear form.
     $\varphi$ is non-degenerate if and only if its kernel is $\{0\}$.
 \end{theoremenv}
 \begin{proofenv}
@@ -264,9 +264,9 @@ $$
 \begin{remark}
     Assume $2$ is invertible in $K$, proposition \ref{2.3.4} shows that the correspondence
     $$ q\leftrightarrow \left(\varphi_q : V\times V\rightarrow K, (x,y) \mapsto \frac{1}{2} \left(q(x+y) - q(x) -q(y)\right)\right)$$
-    defines an isomorphism between the $K$-module of all quadratic forms. And the $K$-module of all bilinear symmetric forms on $V$. The bilinear form $\varphi_q$ is called the \textbf{polarization} of $q$. The kernel of $\varphi_q$ defined as 
+    defines an isomorphism between the $K$-module of all quadratic forms and the $K$-module of all bilinear symmetric forms on $V$. The bilinear form $\varphi_q$ is called the \textbf{polarization} of $q$. The kernel of $\varphi_q$ is defined as
     $$\{x\in V\mid  \forall y\in V, \varphi_q(x,y) = 0\}$$
-    is also called the kernel of $q$, and denoted as $\ker q$. We have $\ker q\subseteq C(q)$.
+    is also called the kernel of $q$, and denoted by $\ker q$. We have $\ker q\subseteq C(q)$.
 \end{remark}
 \begin{definitionenv}
     Let $K$ be a field, $V$ a vector space over $K$, $\varphi:V\times V\rightarrow K$ symmetric bilinear form, $\left(e_i\right)_{i\in I}$ a family of non-zero elements of $V$.
@@ -286,7 +286,7 @@ $$
     Since $\varphi$ is not isotropic, $\varphi(e_j,e_j)\neq 0 $ implies that $a_j=0$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $K$ be a field, $2$ is invertible in $K$, V is a finite dimensional vectors space in $K$, $\varphi : V\times V\rightarrow K$ symmetric bilinear. There exists a basis of $V$ which is $\varphi$-orthogonal.
+    Let $K$ be a field, $2$ is invertible in $K$, $V$ is a finite-dimensional vector space over $K$, and $\varphi : V\times V\rightarrow K$ is symmetric bilinear. There exists a basis of $V$ which is $\varphi$-orthogonal.
 \end{propositionenv}
 \begin{proofenv}
     Induction with respect to $r = \dim_{K}(V)$. If $r=0,1$, the result is trivial. Assume that $r \ge 2$, if $\varphi$ is zero bilinear form, then any basis is. In the remaining case, there exists $e_1\in V_1$ such that $\varphi(e_1,e_1) \neq 0$.
@@ -298,7 +298,7 @@ $$
     It is linear, non-zero, so surjective. $\dim_{K}\left(\ker l_{e_1}\right) = r- 1 $. Apply the induction hypothesis to $\ker l_{e_1}$, $\varphi : \ker l_{e_1} \times \ker l_{e_1} \rightarrow K$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $K$ be a field, $2^{-1}\in K$, $V$ a finite dimensional vector space over $K$, $q: V\rightarrow K$ quadratic form.
+    Let $K$ be a field, $2^{-1}\in K$, $V$ a finite-dimensional vector space over $K$, $q: V\rightarrow K$ quadratic form.
 
     \quad There exists a basis $\left(\alpha_i\right)_{i=1}^{n}$ of $V^\vee$ and $\left(\lambda_1,\cdots,\lambda_r\right)\in K^r$ such that
     $$ \forall x\in V, q(x) = \sum_{i=1}^{r} \lambda_i \alpha_i(x)^2.$$
@@ -310,7 +310,7 @@ $$
     $$ q(x) = \varphi\left(\sum_{i=1}^{r} a_i e_i, \sum_{i=1}^{r} a_i e_i\right) = \sum_{i=1}^{r} a_i^2 \varphi(e_i,e_i) = \sum_{i=1}^{r} \varphi(e_i,e_i) \alpha_i(x)^2.$$
 \end{proofenv}
 \begin{remark}
-    Let $K$ be a field, $2^{-1}\in K$, $V$ a finite dimensional vector space over $K$, $\varphi : V\times V\rightarrow K$ symmetric bilinear form, $q: V\rightarrow K$ quadratic form such that $\forall x\in V, q(x) = \varphi(x,x)$.
+    Let $K$ be a field, $2^{-1}\in K$, $V$ a finite-dimensional vector space over $K$, $\varphi : V\times V\rightarrow K$ symmetric bilinear form, $q: V\rightarrow K$ quadratic form such that $\forall x\in V, q(x) = \varphi(x,x)$.
 
     \quad Assume that $q$ can be written as 
     $$ q(x) = \sum_{i=1}^{r} \lambda_i \alpha_i(x)^2,\ r =\dim_{K}V,$$
@@ -328,7 +328,7 @@ $$
     We use an algorithm, to write $q$ as a linear combination of squares of linearly independent linear forms. We can assume that $q$ is non-zero.
     Consider the case, when $a_{i,i}\neq 0,$
     $$ q(x_1,\cdots,x_r) = a_{i,i} x_i^2 +\left(\sum_{j<i} a_{i,j} x_j + \sum_{j>i} a_{i,j} x_j\right)x_i + \tilde{q}\left(x_1,\cdots,x_r\right).$$
-    $\tilde{q}:K^{r}\rightarrow K$ is a quadratic form with expression independent on $x_i$. 
+    $\tilde{q}:K^{r}\rightarrow K$ is a quadratic form with expression independent of $x_i$.
 
     \quad After completing the square, we can write $q$ as
     $$ q(x_1,\cdots,x_r) = a_{i,i} \left(x_i + \frac{1}{2 a_{i,i}} \left(\sum_{j<i} a_{i,j} x_j + \sum_{j>i} a_{i,j} x_j\right)\right)^2 + q^*\left(x_1,\cdots,x_r\right),$$
@@ -359,7 +359,7 @@ $$
 \end{definitionenv}
 \begin{lemmaenv}\label{2.4.3}
     Let $V$ be a vector space over $\RR$, $q:V\rightarrow \RR$ is a quadratic form which is semi-definite (positive or negative).
-    Then the kernel of $q$ is equal to the isotropic cone if $q$.
+    Then the kernel of $q$ is equal to the isotropic cone of $q$.
 \end{lemmaenv}
 \begin{proofenv}
     Without loss of generality, suppose that $q$ is positive semi-definite. By definition, the kernel of $q$ is contained in the isotropic cone of $q$.
@@ -432,7 +432,7 @@ $$
     \end{itemize}
 \end{definitionenv}
 \begin{propositionenv}
-    Let $V$ be a finitely dimensional $\RR$-vector space, $q: V\rightarrow \RR$ a quadratic form.
+    Let $V$ be a finite-dimensional $\RR$-vector space, $q: V\rightarrow \RR$ a quadratic form.
     Let 
     $$ V = V_+ + V_- + V_0$$
     be a Sylvester decomposition of $V$. Then $V_0$ identifies with $\ker(q)$.
@@ -458,9 +458,9 @@ $$
 \begin{propositionenv}
     Let $K$ be a unitary ring, $M$ is a left $K$-module, $E,F$ be left $K$-submodules, then the mapping
     $$ E/(E\cap F )\rightarrow (E+F)/ F$$
-    which sends the class of $x$ in $E/(E\cap F)$ of the class of $x$ in $(E+F)/F$ is an isomorphism. 
+    which sends the class of $x$ in $E/(E\cap F)$ to the class of $x$ in $(E+F)/F$ is an isomorphism.
     
-    \quad In particular, if $K$ is a field and $M$ is finite dimensional over $K$, then
+    \quad In particular, if $K$ is a field and $M$ is finite-dimensional over $K$, then
     $$ \dim \left(E\cap F\right) + \dim \left(E+F\right) = \dim\left(E\right) + \dim \left(F\right).$$
 \end{propositionenv}
 \begin{proofenv}
@@ -473,7 +473,7 @@ $$
     We conclude that $f$ is surjective, its kernel equals $E\cap F$.
 \end{proofenv}
 \begin{theoremenv}[Sylvester's law of inertia]
-    Let $V$ be a finite dimensional $\RR$-vector space, $q : V\rightarrow \RR$ be a quadratic form.
+    Let $V$ be a finite-dimensional $\RR$-vector space, $q : V\rightarrow \RR$ be a quadratic form.
     \begin{enumerate}
         \item $q$ admits Sylvester decomposition.
         \item If $V = V_+ + V_- +V_0 = W_+ +W_- + W_0$ are two Sylvester decompositions, then
@@ -502,7 +502,7 @@ $$
     
 \end{proofenv}
 \begin{definitionenv}
-    Let $V$ be a finite dimensional $\RR$-vector space, $q:V\rightarrow \RR$ a quadratic form.
+    Let $V$ be a finite-dimensional $\RR$-vector space, $q:V\rightarrow \RR$ a quadratic form.
     If $V = V_0 + V_+ +V_-$, is a Sylvester decomposition, then the triple
     $$ \left(\dim_{\RR} V_+, \dim_{\RR} V_-, \dim_{\RR} V_0\right)$$
     is called \textbf{Sylvester inertia} of $q$.
