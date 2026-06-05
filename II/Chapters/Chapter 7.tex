@@ -1614,7 +1614,7 @@ By expanding the determinant along the first row, we get the equality.
     \end{figure}
 \end{remark}
 
-\begin{definitionenv}
+\begin{definitionenv}\label{def:7.5.12}
     Let $l \in \NN_{\ge 2} \cup \{\infty\}$, $M$ a $C^l$-submanifold of $E$.
     Let $V = U \cap M$, for some open $U \subseteq E$ and let $\omega$ be a $p$-form of class $C^1$ on $V$.
     We define $\dd \omega$ to be the $(p+1)$-form on $V$ such that for any tangent vector fields $X_0,\cdots,X_p$ of class $C^1$ on $V$,
@@ -1736,7 +1736,7 @@ By expanding the determinant along the first row, we get the equality.
     $$\Theta(x) = \sum a_{\lambda} e_{\lambda(1)} \wedge \cdots e_{\lambda(d)}.$$
 \end{remark}
 
-\begin{propositionenv}
+\begin{propositionenv}\label{prop:7.6.6}
     Let $M$ be a $C^l$-submanifold of $E$ and $\Theta$ be an orientation on $M$.
     Let $F$ be a vector space over $\RR$ of dimension $d$ and $\psi : W \longrightarrow E$ be a local chart ($W \subseteq F$ open neighborhood of $0$).
     Let $\xi : W \longrightarrow \bigwedge^d(F)$ be a mapping such that the homomorphism $\bigwedge^d(F) \longrightarrow \bigwedge^d(E)$ induced by $\DD \psi(x)$ (i.e. $v_1\wedge\cdots\wedge v_d \longmapsto \DD \psi(x)(v_1) \wedge \cdots \wedge \DD \psi(x)(v_d)$)
@@ -1768,3 +1768,286 @@ By expanding the determinant along the first row, we get the equality.
     Then $\det(\DD (\psi_2^{-1} \circ \psi_1)) > 0$, so by the formula of the change of variables,
     $$\int_{W_1} \psi_1^*(\omega) = \int_{W_2} \psi_2^*(\omega).$$
 \end{remark}
+
+\begin{definitionenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$ and $M$ be a $C^l$-submanifold of $E$.
+    Let $(\psi_i : W_i \longrightarrow M)_{i \in I}$ be a family of local charts of $M$ such that each $W_i$ is connected and $(\psi_i(W_i))_{i \in I}$ forms an open cover of $M$.
+    Let $(\chi_i)_{i \in I}$ be a partition of unity with respect to the open cover $(\psi_i(W_i))_{i \in I}$.
+    Let $\omega$ be a $d$-form on $M$ which is continuous with compact support.
+    We define
+    $$\int_{M} \omega = \sum_{i \in I} \int_{M} \chi_i \omega.$$
+    Note that this sum is finite since $\omega$ has compact support.
+    Moreover, the value of the sum does not depend on the choice of the covering local charts $(\psi_i : W_i \longrightarrow M)_{i \in I}$.
+    If $(\varphi_j : V_j \longrightarrow M)_{j \in J}$ is another family of local charts, with $V_j$ connected for all $j \in J$ and $(\varphi_j(V_j))_{j \in J}$ forms an open cover of $M$,
+    and $(\mu_j)_{j \in J}$ is a partition of unity for $(\varphi_j(V_j))_{j \in J}$, then
+    $$\sum_{i \in I} \int_{M} \chi_i \omega = \sum_{i \in I} \int_{M} \chi_i \sum_{j \in J} \mu_j \omega = \sum_{j \in J} \int_{M} \sum_{i \in I} \chi_i \mu_{j} \omega = \sum_{j \in J} \int_{M} \mu_j \omega.$$
+\end{definitionenv}
+
+
+\section{Stokes Formula}
+
+In this section, we fix a finite-dimensional vector space $F$ over $\RR$ and $l \in \NN_{\ge 1} \cup \{\infty\}$.
+
+\begin{definitionenv}
+    Let $F$ be a finite-dimensional vector space over $\RR$.
+    If $U$ is an open subset of $\RR_{\le 0} \times F$, the intersection of $U$ with $\{0\} \times F$ is called the \textbf{boundary part} of $U$ and denoted by $\partial U$.
+\end{definitionenv}
+
+\begin{definitionenv}
+    Let $F$ and $G$ be finite-dimensional vector spaces over $\RR$,
+    $U$ be open in $\RR_{\le 0} \times F$.
+    We say that a mapping $f: U \longrightarrow G$ is \textbf{differentiable} (resp. of class $C^l$)
+    if there exists an open subset $\tilde{U}$ of $\RR \times F$ together with a mapping $\tilde{f} : \tilde{U} \longrightarrow G$ which is differentiable (resp. of class $C^l$) and such that
+    $$\tilde{f} |_{\RR_{\le 0} \times F} = f.$$
+    If furthermore, $\tilde{f}$ can be selected to be an open immersion, then we say that $f$ is an open immersion.
+\end{definitionenv}
+
+\begin{remark}
+    Note that the value of $\DD \tilde{f}(p)(v)$ for $v \in \RR_{\le 0} \times F$ depends only on $f$ (i.e. does not depend on the choice of $\tilde{f}$).
+    Hence we can denote it by $\DD f (p)$.
+\end{remark}
+
+\begin{definitionenv}
+    Let $F,G$ be finite-dimensional vector spaces over $\RR$,
+    $U,V$ open in $\RR_{\le 0} \times F$, $\RR_{\le 0} \times G$ respectively.
+    We say that a bijection $f : U \longrightarrow V$ is a $C^l$-diffeomorphism if there exist $\tilde{U}$, $\tilde{V}$ open in $\RR \times F$, $\RR \times G$ respectively together with a $C^l$-diffeomorphism $\tilde{f} : \tilde{U} \longrightarrow \tilde{V}$ such that $f = \tilde{f} |_{U}$.
+\end{definitionenv}
+
+\begin{propositionenv}
+    Let $U$ be open in $\RR_{\le 0} \times F$.
+    An element $x \in \RR \times F$ belongs to $U \setminus \partial U$ if and only if for any $v \in \RR \times F$, there exists $\varepsilon > 0$ and a differentiable mapping $\gamma : [-\varepsilon, \varepsilon] \longrightarrow U$ such that $\gamma(0) = x$ and $\gamma'(0) = v$.
+\end{propositionenv}
+\begin{proofenv}
+    $U \setminus \partial U \subseteq \RR_{< 0} \times F$.
+    If $x \in U \setminus \partial U$, then there exists $\varepsilon > 0$ such that
+    $$x + t v \in U \setminus \partial U$$
+    for any $t \in [-\varepsilon, \varepsilon]$.
+    Hence
+    $$\begin{array}{rrcl}
+        \gamma : & [-\varepsilon, \varepsilon] & \longrightarrow & U\\
+        & t & \longmapsto & x + t v
+    \end{array}$$
+    satisfies the required conditions.
+    Assume that $x \in \partial U$.
+    Let $\varepsilon > 0$ and $\gamma: [-\varepsilon ,\varepsilon] \longrightarrow U$ be such that $\gamma(0) = x$ and $\gamma'(0) = v$ for some $v \in \RR \times F$.
+    We want to show that we cannot obtain an arbitrary $v \in \RR \times F$ this way.
+    Write $\gamma(t) = (\lambda(t), \mu(t))$.
+    By definition, $\lambda(t) \le 0$ for any $t$, $\lambda(0) = 0$ so $0$ is a local maximum of $\lambda$.
+    So $\lambda'(0) = 0$, so $\gamma'(0)$ cannot attain an arbitrary $v \in \RR \times F$.
+\end{proofenv}
+
+\begin{corollaryenv}\label{cor:7.7.6}
+    Let $F,G$ be finite-dimensional vector spaces over $\RR$,
+    $U,V$ open in $\RR_{\le 0} \times F$, $\RR_{\le 0} \times G$ respectively.
+    Suppose that $f : U \longrightarrow V$ is a $C^l$-diffeomorphism.
+    Then
+    $$f(\partial U) = \partial V.$$
+\end{corollaryenv}
+\begin{proofenv}
+    \quad
+    \begin{enumerate}[label=\Roman*.]
+        \item Prove that $f(U \setminus \partial U) \subseteq V \setminus \partial V$.
+            Let $x \in U \setminus \partial U$.
+            For any $v \in \RR \times F$, there exists $\varepsilon > 0$ and $\gamma : [-\varepsilon, \varepsilon] \longrightarrow U$ such that $\gamma(0) = x$ and $\gamma'(0) = \DD f(x)^{-1} (v)$.
+            Let $\mu = f \circ \gamma$, then $\mu(0) = f(x)$ and $\mu'(0) = \DD f (x) (\gamma'(0)) = v$.
+            Hence $f(x) \in V \setminus \partial V$.
+        \item For the other inclusion, notice that $f^{-1}: V \longrightarrow U$ is also a $C^l$-diffeomorphism, hence by I,
+            $$f^{-1}(V \setminus \partial V) \subseteq U \setminus \partial U.$$
+    \end{enumerate}
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $E$ be a finite-dimensional vector space over $\RR$ and $M \subseteq E$ be a submanifold of dimension $d$ ($\dim(E) \ge d \in \NN$).
+    We say that $M$ is a submanifold with boundary of class $C^l$ of $E$ if for any $p \in M$, there exists an open neighborhood $U$ of $p$ in $E$, a vector space $F$ of dimension $d - 1$ over $\RR$, an open subset $\tilde{W}$ of $\RR \times F$, together with an immersion $\tilde{\psi} : \tilde{W} \longrightarrow E$ of class $C^l$,
+    which defines a homeomorphism between
+    $$W \coloneq \tilde{W} \cap (\RR_{\le 0} \times F) \text{ and } U \cap M.$$
+    By abuse of notation, we say that
+    $$\psi : W \longrightarrow M \; (\psi \coloneq \tilde{\psi}|_{W})$$
+    is a local chart of $M$ around $p$.
+    We call the boundary of $M$ the union of all $\psi(\partial W)$, where $\psi : W \longrightarrow M$ is a local chart.
+
+    \quad For any $p \in M$ and $\psi : W \longrightarrow M$ (local chart around $p$) $W \subseteq \RR_{\le 0} \times F$, $\dim (F) = d - 1$, we denote by $T_p M$ the image of $\RR \times F$ by the $\RR$-linear mapping $\DD \psi (\psi^{-1}(p))$.
+    By the chain rule, $T_p M$ does not depend on the local chart.
+\end{definitionenv}
+
+\begin{remark}
+    Let $M$ be a submanifold with boundary, $p \in \partial M$, $\psi : W \longrightarrow M$ local chart around $p$, $W \subseteq \RR_{\le 0} \times F$.
+    By corollary \ref{cor:7.7.6}, $p \in \psi(\partial W)$.
+    Notice that $\psi|_{\partial W} : \partial W \longrightarrow \partial M$ defines a local chart of $\partial M$.
+    In particular, $\partial M$ is a $C^l$-submanifold of dimension $d - 1$ of $E$.
+\end{remark}
+
+\begin{figure}[H]
+    \centering
+    
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_i6oan2jsd}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_i6oan2jsd}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_i2qj4nyh1}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_i2qj4nyh1}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp22571488499777093] 
+\draw  (29,108) -- (172.5,108)(100.03,53) -- (100.03,153) (165.5,103) -- (172.5,108) -- (165.5,113) (95.03,60) -- (100.03,53) -- (105.03,60)  ;
+%Shape: Rectangle [id:dp8926252384069236] 
+\draw  [draw opacity=0][pattern=_i6oan2jsd,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (29.5,61) -- (99.5,61) -- (99.5,151) -- (29.5,151) -- cycle ;
+%Straight Lines [id:da313317326466214] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (100.03,108) -- (135.5,108) ;
+\draw [shift={(137.5,108)}, rotate = 180] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Circle [id:dp06696851213473343] 
+\draw  [pattern=_i2qj4nyh1,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (244,105.5) .. controls (244,82.58) and (262.58,64) .. (285.5,64) .. controls (308.42,64) and (327,82.58) .. (327,105.5) .. controls (327,128.42) and (308.42,147) .. (285.5,147) .. controls (262.58,147) and (244,128.42) .. (244,105.5) -- cycle ;
+%Straight Lines [id:da045689933762919854] 
+\draw    (285.5,105.5) -- (310.5,105.04) ;
+\draw [shift={(312.5,105)}, rotate = 178.94] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da595685990806564] 
+\draw    (285.5,105.5) -- (284.88,79.67) ;
+\draw [shift={(284.83,77.67)}, rotate = 88.63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9806300365403715] 
+\draw    (319.5,81.5) -- (301.11,59.21) ;
+\draw [shift={(299.83,57.67)}, rotate = 50.47] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3543615278641723] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (319.5,81.5) -- (346.89,61.19) ;
+\draw [shift={(348.5,60)}, rotate = 143.45] [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da2669580804696162] 
+\draw    (132,83) .. controls (159.09,62.31) and (202.18,62) .. (230.71,82.07) ;
+\draw [shift={(232,83)}, rotate = 216.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (106,42.4) node [anchor=north west][inner sep=0.75pt]    {$F$};
+% Text Node
+\draw (166,84.4) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}$};
+
+
+\end{tikzpicture}
+\caption*{A way to define a normal vector using charts}
+\end{figure}
+
+\begin{definitionenv}
+    Let $F$ be a finite-dimensional vector space over $\RR$.
+    Let $\xi \in \det(\RR \times F)$, $\xi \neq 0$, $\eta \in \det (F)$ be such that
+    $$\xi = (1,0) \wedge \eta$$
+    (we identify $F$ with the space of vectors $(0,x) \in \RR \times F$)
+    Then the orbit of $\eta$ by the action of $\RR_{> 0}$ only depends on the orbit on $\xi$ by the action of $\RR_{>0}$.
+    Thus if we view the orbit of $\xi$ as an orientation of $\RR \times F$, then the orbit of $\eta$ is called the orientation of $F$ induced by $\xi$.
+
+    \quad Let $M$ be a submanifold with boundary of dimension $d$ of $E$.
+    We call orientation of $M$ any continuous mapping $\Theta$ from $M$ to $\bigwedge^d(E)$ such that
+    $$\Theta (p) \in \bigwedge^d (T_p M) \setminus \{0\}.$$
+    Note that if $\psi : W \longrightarrow M$ is a local chart, $W \subseteq \RR_{\le 0} \times F$,
+    $\dim(F) = d - 1$, then $\Theta$ determines an orientation on $F$.
+    (Same way in proposition \ref{prop:7.6.6}, as observed above.)
+
+    \quad Let $M$ be a submanifold with boundary of dimension $d$ of $E$.
+    We call tangent vector field on $M$ any continuous mapping
+    $$\begin{array}{rrcl}
+        X : & M & \longrightarrow & E\\
+        & p & \longmapsto & X (p)
+    \end{array}$$
+    such that $X(p) \in T_p M$.
+    We fix $X : M \longrightarrow E$.
+    Let $\psi : W \longrightarrow M$ be a local chart, then there exists a unique tangent vector field $Y$ on $W$ such that the mapping
+    $$\begin{array}{rrcl}
+        \psi_* : & \psi(W) & \longrightarrow & E\\
+        & \psi(x) & \longmapsto & \DD \psi(x) (Y(x))
+    \end{array}$$
+    is equal to $X|_{\psi(W)}$.
+    If for any local chart $\psi : W \longrightarrow M$, the tangent vector field $Y$ on $W$ such that $\psi_*(Y) = X|_{\psi(W)}$ is of class $C^m$, $m \le l$, we say that $X$ is of class $C^m$.
+    We call $p$-form on $M$ any $\omega = (\omega_p)_{p \in M}$ where $\omega_p \in \bigwedge^p (T^*_pM)$.
+    If $X_1,\cdots,X_p$ are tangent vector fields on $M$, we denote by $\omega(X_1,\cdots,X_p)$ the mapping
+    $$\begin{array}{rcl}
+        M & \longrightarrow & \RR\\
+        p & \longmapsto & \omega_p (X_1(p),\cdots,X_p(p)).
+    \end{array}$$
+    If for any tangent fields of class $C^m$, the mapping $\omega(X_1,\cdots,X_p)$ is of class $C^m$, we say that $\omega$ is of class $C^m$.
+    If $\omega$ is of class $C^1$, the differential $\dd \omega$ is constructed as in definition \ref{def:7.5.12}.
+
+    \quad For any $a \in \partial M$, $T_a \partial M$ is a vector subspace of $T_a M$ and hence $T^*_a \partial M$ is a quotient vector space of $T^*_a M$.
+    We denote by $(\omega|_{\partial M})_{a}$ the image of $\omega_a$ by the quotient mapping
+    $$\bigwedge^p T^*_a M \longrightarrow \bigwedge^p T^*_a \partial M.$$
+\end{definitionenv}
+
+\begin{theoremenv}[Stokes]
+    Let $M$ be a $C^1$-submanifold with boundary of dimension $d$ of $E$.
+    We assume that $M$ is orientable and fix an orientation on $M$.
+    Let $\omega$ be a $d - 1$-form of class $C^1$ with compact support on $M$.
+    Then
+    $$\int_{M} \dd \omega = \int_{\partial M} \omega|_{\partial M}.$$
+\end{theoremenv}
+\begin{proofenv}
+    By partition of unity, we may assume that the support of $\omega$ is contained in the image of the local chart.
+    Hence we reduce the problem to the case where $M$ is an open subset of $\RR_{\le 0} \times F$,
+    where $\dim (F) = d - 1$.
+    After extending the domain of definition (extending $\omega$ by $0$),
+    Without loss of generality, $M = \RR_{<0} \times F$ or $M = \RR_{\le 0} \times F$.
+    After fixing a basis of $F$, without loss of generality, $F = \RR^{d - 1}$.
+
+    \quad Let $x_1,\cdots,x_d : \RR \times \RR^{d - 1} \longrightarrow \RR$ be projections to the $i^\text{th}$ coordinate respectively.
+    We denote by $\mu$ the usual Haar measure on $\RR^d$.
+    We can choose the orientation in the way that
+    $$\int_{M} f \dd x_1 \wedge \cdots \wedge \dd x_d = \int_{M} f \dd \mu$$
+    for any non-negative Borel function $f$.
+    \begin{enumerate}[label=\Roman*.]
+        \item $M = \RR_{<0} \times \RR^{d - 1}$,
+            $$\omega = \sum_{i=1}^{d} f_i \dd x_1 \wedge \cdots \wedge \dd x_{i - 1} \wedge \dd x_{i + 1} \wedge \cdots \wedge \dd x_d.$$
+            Then
+            $$\dd \omega = \sum_{i=1}^{d} (-1)^{i+1} \frac{\partial f_i}{\partial x_i} \dd x_1 \wedge \cdots \wedge \dd x_{d},$$
+            $$\int_{M} \dd \omega = \sum_{i=1}^{d} (-1)^{i} \int_{\RR^d} \frac{\partial f_i}{\partial x_i} \dd \mu.$$
+            Since $f_i$ is of compact support
+            $$\int_{\RR} \frac{\partial f_i}{\partial x_i} \dd x_i = 0.$$
+            So
+            $$\int_{M} \dd \omega = 0.$$
+        \item $M = \RR_{\le 0} \times \RR^{d - 1}$.
+            The above argument shows that
+            $$\int_{M} \frac{\partial f_i}{\partial x_i} \dd x_1 \wedge \cdots \wedge \dd x_d = 0, \text{ for } i \in \{2,\cdots,d\}$$
+            and
+            $$ \int_{M} \frac{\partial f_1}{\partial x_1} \dd x_2 \wedge \cdots \wedge \dd x_d = \int_{\RR^{d-1}} f_1 (0,x_2,\cdots,x_d) \dd x_2 \cdots \dd x_d.$$
+            which equals
+            $$\int_{\partial M} \omega|_{\partial M}.$$
+    \end{enumerate}
+\end{proofenv}
