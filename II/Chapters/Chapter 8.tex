@@ -1,0 +1,179 @@
+\chapter{Fourier Series}
+
+\section{Jensen Inequality}
+
+\begin{definitionenv}
+    Let $E$ be a vector space over $\RR$, $S \subseteq E$ be a subset.
+    We call a \textbf{convex combination} of elements of $S$ any element $x \in E$ which can be written as
+    $$x = \lambda_1 x_1 + \cdots + \lambda_n x_n,$$
+    where $n$ is a positive integer, $\lambda_1,\cdots,\lambda_n$ are non-negative real numbers such that
+    $$\lambda_1 + \cdots + \lambda_n = 1$$
+    and $(x_1,\cdots,x_n) \in S^n$.
+
+    \quad We denote by $\Conv(S)$ the set of all convex combinations of elements of $S$ and call it the \textbf{convex hull} of $S$.
+    If $\Conv(S) = S$, then we say that $S$ is a convex subset of $E$.
+
+    \quad Let $U$ be a convex subset of $E$, $f : U \longrightarrow \RR$ be a mapping.
+    If the epigraph of $f$, i.e.
+    $$\Gamma_{+} = \{(x,t) \in U \times \RR \mid f(x) \le t\}$$
+    is a convex subset of $E \times \RR$, then we say that $f$ is \textbf{convex}.
+    If the hypograph of $f$, i.e.
+    $$\Gamma_{-} = \{(x,t) \in U \times \RR \mid f(x) \ge t\}$$
+    is a convex subset of $E \times \RR$, then we say that $f$ is \textbf{concave}.
+\end{definitionenv}
+
+\begin{propositionenv}
+    Let $E$ be a vector space over $\RR$, $U \subseteq E$ be a subset.
+    Then $U$ is convex if and only if for any $t \in [0,1]$, any $(x,y) \in U^2$,
+    $$tx + (1-t)y \in U.$$
+\end{propositionenv}
+\begin{proofenv}
+    The necessary is clear. For the sufficiency, we reason by induction with respect to the number of elements in the convex combination denoted as $n$.
+    The cases $n=1$ and $n=2$ are clear.
+    In the following, we prove the passage from $n$ to $n+1$ elements in the convex combination.
+    Let $x_1,\cdots,x_{n+1} \in U$ and $\lambda_1,\cdots,\lambda_{n+1} \in \RR_{\ge 0}$, $\lambda_1 + \cdots + \lambda_{n+1} = 1$.
+    If $\lambda_{n+1}=1$, the assertion is clear. Otherwise $\lambda_1+\cdots+\lambda_n>0$.
+    For $i \in \{1,\cdots,n\}$, put
+    $\mu_i = \frac{\lambda_i}{\lambda_1 + \cdots + \lambda_n}$.
+    Then $\mu_1 + \cdots + \mu_n = 1$.
+    By the induction hypothesis, we obtain
+    $$y \coloneq \mu_1 x_1 + \cdots + \mu_n x_n \in U.$$
+    Let $t = \lambda_1 + \cdots + \lambda_n$.
+    One has $1-t = \lambda_{n+1}$.
+    By the case $n=2$, $ty + (1-t)x_{n+1} = \lambda_{1}x_1 + \cdots + \lambda_{n+1}x_{n+1} \in U$ as required.
+\end{proofenv}
+
+\begin{theoremenv}[Jensen's Inequality]
+    Let $E$ be a vector space over $\RR$, $U \subseteq E$ be a convex subset,
+    $f : U \longrightarrow \RR$ be a mapping, then the following statements are equivalent:
+    \begin{enumerate}[label=(\arabic*)]
+        \item $f$ is convex.
+        \item For any $n \in \NN_{\ge 1}$, any $(x_1,\cdots,x_n) \in U^n$, any $(\lambda_1,\cdots,\lambda_n) \in \RR_{\ge 0}^n$ such that $\lambda_1 + \cdots + \lambda_n = 1$, one has
+            $$f(\lambda_1 x_1 + \cdots + \lambda_n x_n) \le \lambda_1 f(x_1) + \cdots + \lambda_n f(x_n).$$
+        \item  For any $(x,y) \in U^2$, any $t \in [0,1]$, one has
+            $$f(tx + (1-t)y) \le t f(x) + (1-t)f(y).$$
+    \end{enumerate}
+\end{theoremenv}
+\begin{proofenv}
+    The inequality
+    $$f(\lambda_1 x_1 + \cdots + \lambda_n x_n) \le \lambda_1 f(x_1) + \cdots + \lambda_n f(x_n)$$
+    can be interpreted as
+    $$(\lambda_1 x_1 + \cdots + \lambda_n x_n, \lambda_1 f(x_1) + \cdots + \lambda_n f(x_n)) = \lambda_1 (x_1,f(x_1)) + \cdots + \lambda_n (x_n,f(x_n))$$
+    belongs to the epigraph of $f$.
+    The first two statements are therefore equivalent.
+    The first and the third statements are equivalent by the similar reasoning.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $E$ be a vector space over $\RR$.
+    We call \textbf{affine function} on $E$ any mapping $f : E \longrightarrow \RR$ of the form
+    $$f(x) = \varphi(x) + C,$$
+    where $\varphi : E \longrightarrow \RR$ is $\RR$-linear and $C \in \RR$ is a constant.
+    For any $(x,y) \in E \times E$, $t \in [0,1]$,
+    $$\begin{aligned}
+        f(tx + (1 - t)y)
+        &= \varphi (tx + (1 - t)y) + C\\
+        &= t \varphi(x) + (1 - t)\varphi(y) + C\\
+        &= t \varphi(x) + (1 - t)\varphi(y) + C(t + (1 - t))\\
+        &= t f(x) + (1 - t) f(y).
+    \end{aligned}$$
+    So $f$ is both convex and concave.
+\end{definitionenv}
+
+\begin{propositionenv}
+    Let $E$ be a vector space over $\RR$, $U \subseteq E$ be a convex subset.
+    Let $(f_i)_{i \in I}$ be a family of convex mappings from $U$ to $\RR$.
+    Assume that for any $x \in U$, $\displaystyle \sup_{i \in I}f_i(x) \in \RR$, then the mapping
+    $$\begin{array}{rrcl}
+        f : &  U & \longrightarrow & \RR\\
+        & x & \longmapsto & \displaystyle \sup_{i \in I}f_i(x)
+    \end{array}$$
+    is convex.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(x,y) \in U^2$, $t \in [0,1]$.
+    $$\begin{aligned}
+        f(tx + (1 - t)y) &= \sup_{i \in I}f_i(tx + (1 - t)y)\\
+        & \le \sup_{i \in I}(t f_i(x) + (1 - t)f_i(y))\\
+        & \le \sup_{i \in I} t f_i(x) + \sup_{i \in I}(1 - t)f_i(y)\\
+        & = t \sup_{i \in I}f_i(x) + (1 - t) \sup_{i \in I}f_i(y)\\
+        & = t f(x) + (1 - t) f(y).
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{propositionenv}
+    Let $H$ be a Hilbert space,
+    $U \subseteq H$ be a convex subset,
+    $f : U \longrightarrow \RR$ be a mapping.
+    Assume that $f$ is at least twice differentiable and $\DD^2 f(x)$ is semipositive (resp. seminegative) for any $x \in U$.
+    Then $f$ is convex (resp. concave).
+    \quad Moreover, for any $a \in U$,
+    $$\forall x \in U,\quad f(x) \ge f(a) + \DD f(a)(x - a) \quad \left(\text{resp. } f(x) \le f(a) + \DD f(a)(x - a) \right).$$
+\end{propositionenv}
+\begin{proofenv}
+    It suffices to prove the semipositive case.
+    We claim that for arbitrary $a \in U$, one has
+    $$\forall x \in U \quad f(x) \ge f(a) + \DD f(a)(x - a).$$
+    Consider
+    $$g : t \longmapsto f(a + t(x - a)).$$
+    $g$ is at least twice differentiable.
+    One has
+    $$g'(t) = \DD f(a + t(x - a))(x - a),$$
+    $$g''(t) = \DD^2 f(a + t(x - a))(x - a, x - a).$$
+    By the Taylor's formula (Lagrange form), there exists $\theta \in [0,1]$ such that
+    $$\begin{aligned}
+        f(x) = & g(1) = g(0) + g'(0) + \frac{1}{2} g''(\theta)\\
+        & = f(a) + \DD f(a)(x - a) + \frac{1}{2} \DD^2 f(a + \theta(x - a))(x - a, x - a)\\
+        & \ge f(a) + \DD f(a)(x - a). 
+    \end{aligned}$$
+    Denote by $f_a$ the affine function defined as
+    $$f_a(x) \coloneq f(a) + \DD f(a) (x - a).$$
+    Then
+    $$f = \sup_{a \in U} f_{a}.$$
+    Hence $f$ is convex.
+\end{proofenv}
+
+\section{Hölder Inequality}
+We fix a measure space $(\Omega,\mathscr{A},\nu)$, and $\mathbb{K} \in \{\RR,\CC\}$.
+
+\begin{definitionenv}
+    Let $p \in \interval[open right]{1}{\infty}$.
+    If $f : \Omega \longrightarrow \mathbb{K}$ is $\mathscr{A}$-measurable, we put
+    $$\|f\|_{L^{p}} = \left(\int_{\Omega} |f(\omega)|^p \nu(\dd \omega)\right)^{1/p}.$$
+    We denote by $\mathcal{L}^{p}(\Omega,\mathscr{A},\nu)$ the set of $\mathscr{A}$-measurable mappings from $\Omega$ to $\mathbb{K}$ such that $\|f\|_{L^{p}} < + \infty$.
+
+    \quad For $\lambda \in \mathbb{K}$,
+    $$\|\lambda f\|_{L^{p}} = |\lambda| \|f\|_{L^{p}}$$
+    provided that $\lambda f \in \mathcal{L}^{p}(\Omega,\mathscr{A},\nu)$.
+\end{definitionenv}
+
+\begin{definitionenv}
+    For any $f : \Omega \longrightarrow \mathbb{K}$ measurable, put
+    $$\|f\|_{L^{\infty}} = \inf_{\substack{A \in \mathscr{A}\\\nu(A) = 0}}\sup_{\omega \in \Omega \setminus A} |f(\omega)|.$$
+    We denote by $\mathcal{L}^{\infty}(\Omega,\mathscr{A},\nu)$ the set of all measurable $f : \Omega \longrightarrow \mathbb{K}$ such that $\|f\|_{L^{\infty}} < +\infty$.
+    Note that the set
+    $$\{\omega \in \Omega \mid |f(\omega)| > \|f\|_{L^{\infty}}\} = \bigcup_{\varepsilon \in \QQ_{>0}}\{\omega \in \Omega \mid |f(\omega)| > \|f\|_{L^{\infty}} + \varepsilon\}$$
+    is negligible.
+
+    \quad It turns out that $\mathcal{L}^{\infty}(\Omega,\mathscr{A},\nu)$ forms a vector space over $\mathbb{K}$ and $\|\cdot\|_{L^{\infty}}$ defines a seminorm on $\mathcal{L}^{\infty}(\Omega,\mathscr{A},\nu).$
+    
+    \quad Indeed, if $f,g \in \mathcal{L}^{\infty}(\Omega,\mathscr{A},\nu)$ and $A \in \mathscr{A}$, $\nu(A) = 0$,
+    $$\sup_{\omega \in \Omega\setminus A} |(f + g)(\omega)| \le (\sup_{\omega \in \Omega \setminus A}|f(\omega)|) + (\sup_{\omega \in \Omega \setminus A}|g(\omega)|).$$
+    Taking the infimum with respect to $A \in \mathscr{A}$, we obtain
+    $$\|f + g\|_{L^{\infty}} \le \|f\|_{L^{\infty}} + \|g\|_{L^{\infty}}.$$
+
+    \quad The null space of the seminorm $\|\cdot\|_{L^{\infty}}$ is the set of all negligible functions.
+    We denote by $L^{\infty}(\Omega,\mathscr{A},\nu)$ the quotient of $\mathcal{L}^{\infty}(\Omega,\mathscr{A},\nu)$ by the null space.
+    The seminorm $\|\cdot\|_{L^{\infty}}$ induces a norm on $L^{\infty}(\Omega,\mathscr{A},\nu)$.
+    By abuse of notation, this norm is denoted by $\|\cdot\|_{L^{\infty}}$.
+\end{definitionenv}
+
+\begin{theoremenv}[Hölder Inequality]
+    Let $n$ be a positive integer, $p_1,\cdots,p_n \in \RR_{\ge 1} \cup \{\infty\}$ such that
+    $$\frac{1}{p_1} + \cdots + \frac{1}{p_n} = 1,$$
+    where $\frac{1}{\infty} \coloneq 0$ by convention.
+    Let $f_1,\cdots,f_n : \Omega \longrightarrow \mathbb{K}$ be measurable.
+    One has
+    $$\|f_1 \cdot \cdots \cdot f_n\|_{L^{1}} \le \prod_{i = 1}^n \|f_i\|_{L^{p_i}},$$
+    provided that $\dis \prod_{i = 1}^n \|f_i\|_{L^{p_i}}$ is well defined.
+\end{theoremenv}
