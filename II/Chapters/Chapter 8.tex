@@ -174,6 +174,209 @@ We fix a measure space $(\Omega,\mathscr{A},\nu)$, and $\mathbb{K} \in \{\RR,\CC
     where $\frac{1}{\infty} \coloneq 0$ by convention.
     Let $f_1,\cdots,f_n : \Omega \longrightarrow \mathbb{K}$ be measurable.
     One has
-    $$\|f_1 \cdot \cdots \cdot f_n\|_{L^{1}} \le \prod_{i = 1}^n \|f_i\|_{L^{p_i}},$$
+    $$\|\prod_{i=1}^{n}f_i\|_{L^{1}} \le \prod_{i = 1}^n \|f_i\|_{L^{p_i}},$$
     provided that $\dis \prod_{i = 1}^n \|f_i\|_{L^{p_i}}$ is well defined.
 \end{theoremenv}
+\begin{proofenv}
+    We may assume that $\|f_{j}\|_{L^{p_j}} > 0$ for any $j \in \{1,\cdots,n\}$, since otherwise
+    $$\{\omega \in \Omega \mid f_{j} (\omega) \neq 0\}$$
+    is of measure $0$ and hence $f_1 \cdot \cdots \cdot f_n$ is also negligible, which leads to
+    $$\|f_1 \cdot \cdots \cdot f_n\|_{L^{1}} = 0.$$
+    We reason by induction on $n$.
+    The case $n=1$ is clear.
+    Assume that the statement holds for the case $n-1$. If at least one of $p_1, \cdots, p_n$ is $\infty$, let $p_n = \infty$, then
+    $$\frac{1}{p_1} + \cdots + \frac{1}{p_{n-1}} = 1.$$
+    So the thesis follows from the induction hypothesis.
+    In the remaining part, $p_1,\cdots,p_n \in \RR_{\ge 1}$.
+    For any $x_1,\cdots,x_n \in \RR_{>0}$,
+    $$\prod_{i = 1}^{n} x_i = \exp \left(\sum_{j = 1}^{n} \frac{\ln(x_j^{p_j})}{p_j}\right).$$
+    Since $\exp$ is convex and $\frac{1}{p_1} + \cdots + \frac{1}{p_n} = 1$, by Jensen's inequality,
+    $$\prod_{i = 1}^{n} x_i \le \sum_{j = 1}^{n} \frac{1}{p_j} \exp\left(\ln(x_j^{p_j})\right) = \sum_{j=1}^{n} \frac{x_j^{p_j}}{p_j}.$$
+    It follows that
+    $$\frac{|\prod_{i=1}^{n} f_i|}{\prod_{i=1}^{n}\|f_i\|_{L^{p_i}}} \le \sum_{j=1}^{n} \frac{|f_j|^{p_j}}{p_j \cdot \|f_j\|^{p_j}_{L^{p_j}}}.$$
+    Taking the integral with respect to $\nu$,
+    $$\frac{1}{\prod_{i=1}^{n} \|f_i\|_{L^{p_i}}} \int_{\Omega} |\prod_{i=1}^{n} f_i| (\omega) \dd \nu(\omega) \le \sum_{i=1}^{n}\frac{1}{p_i} = 1.$$
+\end{proofenv}
+
+\begin{theoremenv}[Minkowski Inequality]\label{thm:8.2.4}
+    Let $p \in \RR_{\ge 1}$ and $f,g \in \mathcal{L}^{p}(\Omega,\mathscr{A},\nu)$, then $f + g \in \mathcal{L}^{p}(\Omega,\mathscr{A},\nu)$,
+    $$\|f + g\|_{L^{p}} \le \|f\|_{L^{p}} + \|g\|_{L^{p}}.$$
+    In particular, $\mathcal{L}^{p}(\Omega,\mathscr{A},\nu)$ is a vector space over $\mathbb{K}$ and $\|\cdot\|_{L^{p}}$ is a seminorm on $\mathcal{L}^{p}(\Omega,\mathscr{A},\nu).$
+\end{theoremenv}
+\begin{proofenv}
+    If $p = 1$, the statement follows from $|f + g| \le |f| + |g|$.
+    Suppose that $p > 1$, we put $q \coloneq (1 - p^{-1})^{-1}$ so that $p^{-1} + q^{-1} = 1$.
+    Without loss of generality, $f,g$ only take nonnegative values.
+    Apply Hölder's inequality to $f$ and $(f + g)^{p-1}$,
+    $$\int_{\Omega} f(f + g)^{p-1} \dd \nu \le \|f\|_{L^p} \left(\int_{\Omega} (f + g)^{p} \dd \nu\right)^{\frac{p-1}{p}}.$$
+    Similarly,
+    $$\int_{\Omega} g(f + g)^{p-1} \dd \nu \le \|g\|_{L^p} \left(\int_{\Omega} (f + g)^{p} \dd \nu\right)^{\frac{p-1}{p}}.$$
+    Summing the two inequalities, we obtain
+    $$\|f+g\|^p_{L^p} = \int_{\Omega} (f + g)^{p} \dd \nu \le (\|f\|_{L^p} + \|g\|_{L^p}) \|f+g\|_{L^p}^{p-1}.$$
+\end{proofenv}
+
+\begin{remark}
+    Note that the null space of $\mathcal{L}^p(\Omega,\mathscr{A},\nu)$ with respect to the seminorm $\|\cdot\|_{L^p}$ coincides with the vector space of negligible functions.
+    We denote by $L^p(\Omega,\mathscr{A},\nu)$ the quotient of $\mathcal{L}^p(\Omega,\mathscr{A},\nu)$ by the negligible functions.
+    The seminorm $\|\cdot\|_{L^p}$ induces a norm on $L^p(\Omega,\mathscr{A},\nu)$.
+\end{remark}
+
+\begin{lemmaenv}\label{lem:8.2.6}
+    Let $p \in \RR_{\ge 1} \cup \{\infty\}$ and $(u_n)_{n \in \NN}$ be a sequence of elements in $\mathcal{L}^{p}(\Omega,\mathscr{A},\nu)$.
+    Suppose that
+    $$C \coloneq \sum_{n \in \NN}\|u_n\|_{L^p} < + \infty.$$
+    Then there exists $A \in \mathscr{A}$ such that $\nu(A) = 0$ and $(u_n(\omega))_{n \in \NN}$ converges absolutely for $\omega \in \Omega \setminus A$.
+    Moreover, if we denote by
+    $$\begin{array}{rrcl}
+        u : & \Omega & \longrightarrow & \RR\\
+        & \omega & \longmapsto & \begin{cases}
+            \dis \sum_{n \in \NN} u_n(\omega) & \text{if } \omega \in \Omega \setminus A\\
+            0 & \text{if } \omega \in A
+        \end{cases},
+    \end{array}$$
+    then $u \in \mathcal{L}^p(\Omega,\mathscr{A},\nu)$ and
+    $$\lim_{n \rightarrow +\infty}\|u - \sum_{k=0}^{n}u_k\|_{L^p} = 0.$$
+\end{lemmaenv}
+\begin{proofenv}
+    For any $n \in \NN$,
+    $$v_n = \sum_{k=0}^{n}|u_k|, \quad v = \sum_{n \in \NN}|u_n| = \lim_{n \rightarrow \infty} v_n.$$
+    The sequence $(v_n)_{n \in \NN}$ is increasing.
+    For $p < \infty$, by \ref{thm:8.2.4},
+    $$\|v_n\|_{L^p} \le \sum_{k=0}^{n} \|u_k\|_{L^p} \le C.$$
+    For $p = \infty$,
+    $$\{\omega \in \Omega \mid v_n(\omega) > C\} \subseteq \{\omega \in \Omega \mid v(\omega) > C\},$$
+    $$\{\omega \in \Omega \mid v(\omega) = +\infty\} \subseteq \bigcup_{n \in \NN} \{\omega \in \Omega \mid v_{n}(\omega) > C\}.$$
+    Hence $A \coloneq \{\omega \in \Omega \mid v(\omega) = + \infty\}$ is of measure $0$.
+    We can deduce that for any $\omega \in \Omega \setminus A$, $\sum_{n \in \NN} u_n (\omega)$ converges absolutely.
+    Put
+    $$u(\omega) = \begin{cases}
+        \sum_{n \in \NN} u_n(\omega), & \omega \in \Omega \setminus A\\
+        0, & \omega \in A
+    \end{cases}.$$
+    Since $|u|\le v$ for any $\omega \in \Omega$, we obtain
+    $$u \in \mathcal{L}^p(\Omega,\mathscr{A},\nu).$$
+    For $p \neq \infty$,
+    $$\|u\|_{L^p} \le \left(\int_{\Omega} v(\omega)^p \dd \nu(\omega)\right)^{\frac{1}{p}} \le \sum_{n \in \NN} \|u_n\|_{L^p}.$$
+    For $p = \infty$,
+    $$\|u\|_{L^\infty} \le \|v\|_{L^\infty} \le \sum_{n \in \NN} \|u_n\|_{L^\infty}.$$
+    Similarly,
+    $$\|u - \sum_{k=0}^{n}u_k\|_{L^p} \le \sum_{k=n+1}^{\infty}\|u_k\|_{L^p},$$
+    so
+    $$\lim_{n \rightarrow \infty} \|u - \sum_{k=0}^{n} u_k\|_{L^p} = 0.$$
+\end{proofenv}
+
+\begin{propositionenv}\label{prop:8.2.7}
+    Let $p \in \RR_{\ge 1}$.
+    The seminormed vector space $\mathcal{L}^p(\Omega,\mathscr{A},\nu)$ is complete.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(f_n)_{n \in \NN}$ be a Cauchy sequence in $\mathcal{L}^p(\Omega, \mathscr{A}, \nu)$.
+    We will extract a subsequence $(f_{n_{k}})_{k \in \NN}$ in the following way:
+    if $n_0,\cdots,n_k$ are chosen, then $n_{k+1}$ is chosen so that $n_{k+1} > n_k$ and
+    $$\forall l,m \in \NN_{\ge n_{k+1}}, \; \|f_l - f_m\| \le 2^{-(k+1)}.$$
+    Thus
+    $$\|f_{n_0}\|_{L^p} + \sum_{k \in \NN} \|f_{n_{k+1}} - f_{n_k}\|_{L^p} \le \|f_{n_0}\|_{L^p} + \sum_{k \in \NN}2^{-k} = \|f_{n_0}\|_{L^p} + 2 < + \infty.$$
+    By lemma \ref{lem:8.2.6}, $(f_{n_{k}})_{k \in \NN}$ converges in $\mathcal{L}^p(\Omega,\mathscr{A},\nu)$.
+\end{proofenv}
+
+\begin{corollaryenv}
+    The $\mathbb{K}$-vector space $L^2(\Omega,\mathscr{A},\nu)$ with the inner product
+    $$\langle f,g \rangle_{L^2} = \int_{\Omega} \bar{f}(\omega) g(\omega) \dd \nu(\omega)$$
+    forms a Hilbert space.
+\end{corollaryenv}
+\begin{remark}
+    From the proofs of lemma \ref{lem:8.2.6} and proposition \ref{prop:8.2.7},
+    we observe that if $(f_n)_{n \in \NN}$ is a convergent sequence in $\mathcal{L}^p(\Omega,\mathscr{A},\nu)$,
+    then it has a subsequence $(f_{n_k})_{k \in \NN}$ such that the series
+    $$\sum_{k \in \NN_{\ge 1}}(f_{n_{k}} - f_{n_{k-1}})$$
+    converges absolutely $\nu$-almost everywhere to the limit of $(f_n)_{n \in \NN}$ in $\mathcal{L}^p(\Omega,\mathscr{A},\nu)$.
+\end{remark}
+
+\begin{remark}
+    Assume that $\nu(\Omega) < +\infty$.
+    For any $p,q \in \RR_{\ge 1} \cup \{\infty\}$ such that $p < q$, one has
+    $$\mathcal{L}^q(\Omega,\mathscr{A},\nu) \subseteq \mathcal{L}^p(\Omega,\mathscr{A},\nu).$$
+    Indeed, if $q \in \RR_{\ge 1}$, we have $\mathbbm{1}_{\Omega} \in \mathcal{L}^{q/(q - p)}(\Omega,\mathscr{A},\nu)$.
+    From Hölder (for $|f|^p$ and $\mathbbm{1}_{\Omega}$)
+    $$\int_{\Omega} |f|^p \dd \nu \le \left(\int_{\Omega} |f|^q \dd \nu\right)^{p/q} \cdot \left(\int_{\Omega} \mathbbm{1}_{\Omega}^{q/(q-p)}\right)^{(q-p)/q}.$$
+    Hence $\|f\|^{p}_{L^p} \le \|f\|^p_{L^q} \cdot \nu(\Omega)$.
+    If $q = \infty$, for any $f \in \mathcal{L}^\infty(\Omega,\mathscr{A},\nu)$,
+    $$\int_{\Omega} |f|^p \dd \nu \le \|f\|^p_{L^\infty} \nu(\Omega) < + \infty.$$
+\end{remark}
+
+
+\section{Haar Measure on a Torus}
+Let $\mathbb{K} \in \{\RR,\CC\}$.
+
+\begin{definitionenv}
+    Let $(V,\langle \cdot,\cdot \rangle)$ be a Hilbert space over $\mathbb{K}$.
+    We say that an orthogonal family $(e_i)_{i \in I}$ (resp. orthonormal family) is an orthogonal basis (resp. orthonormal basis) of $V$ if
+    $$\Vect_{\mathbb{K}}(\{e_i \mid i \in I\})$$
+    is dense in $V$.
+\end{definitionenv}
+
+\begin{propositionenv}
+    Let $(V,\langle \cdot,\cdot \rangle)$ be a Hilbert space over $\mathbb{K}$ and $(e_i)_{i \in I}$ be an orthogonal family.
+    Then $(e_i)_{i \in I}$ is an orthogonal basis if and only if
+    $$\{e_i \mid i \in I\}^\perp = \{0\}.$$
+\end{propositionenv}
+\begin{proofenv}
+    Without loss of generality, $\{e_i\}_{i \in I}$ is an orthonormal family.
+    Let
+    $$W = \overline{\Vect_{\mathbb{K}}(\{e_i \mid i \in I\})}.$$
+
+    ``$\Rightarrow$'': Suppose that $W = V$.
+    If $x \in V$ is such that $\langle e_i,x \rangle = 0$ for any $i \in I$, by proposition \ref{prop:3.2.7}, we obtain that $x = p_{W}(x) = 0$.
+
+    ``$\Leftarrow$'': Suppose that $\{e_i \mid i \in I\}^{\perp} = \{0\}$.
+    By proposition \ref{prop:3.2.7}, for any $x \in V$,
+    $$x - p_W(x) \in W^\perp \subseteq \{e_i \mid i \in I\}^\perp.$$
+    Hence $x - p_{W}(x) = 0$.
+\end{proofenv}
+
+In the rest of the section, we fix a finite-dimensional vector space $E$ over $\RR$ equipped with Haar measure $\mu$.
+Let $(e_j)_{j=1}^n$ be a basis of $E$ and $(e^\vee_{j})_{j=1}^{n}$ be the dual basis.
+We let
+$$D \coloneq \{a_1 e_1 + \cdots + a_n e_n \mid (a_1,\cdots,a_n) \in \interval[open right]{0}{1}^n\},$$
+$$\mathrm{Vol}(D) \coloneq \mu(D).$$
+Let $M$ be a sub-$\ZZ$-module of $E$ generated by $(e_j)_{j=1}^n$, $N$ be a sub-$\ZZ$-module of $E^\vee$ generated by $(e^\vee_j)_{j=1}^{n}$.
+
+For any $\alpha \in N$,
+$$\begin{array}{rrcl}
+    \varphi_\alpha : & E & \longrightarrow & \CC\\
+    & x & \longmapsto & \exp (2 \pi \mathrm{i} \alpha(x)).
+\end{array}$$
+It is a group morphism from $(E,+)$ to the unit circle in $\CC$.
+Note that $\alpha(m) \in \ZZ$ for any $m \in M$.
+Hence $\varphi_{\alpha} (m) = 1$.
+This means that $\varphi_{\alpha}$ is $M$-periodic, namely, for any $x \in E$ and $m \in M$,
+$$\varphi_{\alpha}(x + m) = \varphi_{\alpha}(x).$$
+In particular, $\varphi_{\alpha}$ induces a morphism of groups from $E/M$ to the unit circle in $\CC$ (denoted $\varphi_{\alpha}$ by abuse of notation).
+For $\alpha, \beta \in N$,
+$$\varphi_{\alpha + \beta} = \varphi_{\alpha} \varphi_{\beta}.$$
+Denote by $L^2(D)$ the $\CC$ vector space of square-integrable, Borel measurable functions on $D$.
+We equip $L^2(D)$ with the following inner product
+$$\forall f,g \in L^2(D) \quad \langle f,g \rangle \coloneq \frac{1}{\mathrm{Vol}(D)}\int_{D} \bar{f}(x) g(x) \Vol_D(\dd x).$$
+Note that this inner product is independent of the choice of Haar measure $\mu$.
+
+\begin{propositionenv}
+    The family $(\varphi_{\alpha})_{\alpha \in N}$ forms an orthonormal family in the Hilbert space $L^2(D)$.
+\end{propositionenv}
+\begin{proofenv}
+    $E \cong \prod_{j=1}^{n} \RR e_j$.
+    Suppose that the volume of $D$ is the product of the usual Haar measures on $\RR e_{j}$ (i.e. measure of $[0,1]e_j$ which is $1$).
+    For any $\alpha \in N$,
+    $$\langle \varphi_\alpha, \varphi_\alpha \rangle = \frac{1}{\Vol(D)} \int_D 1 \Vol_D(\dd x) = 1.$$
+    For $\alpha \neq \beta$,
+    $$\langle \varphi_\alpha, \varphi_\beta \rangle = \frac{1}{\Vol(D)} \int_D \exp\left(2 \pi \mathrm{i} (\beta - \alpha)(x)\right) \Vol_{D}(\dd x).$$
+    Suppose that $\beta - \alpha = a_1 e^\vee_1 + \cdots + a_n e^\vee_n$, $(a_1,\cdots,a_n) \in \ZZ^n$.
+    $$\int_{D} \exp(2 \pi \mathrm{i} (\beta - \alpha)(x))\Vol_D(\dd x) = \prod_{j=1}^{n} \int_{0}^{1} \exp\left(2 \pi \mathrm{i}a_{j} t\right) \dd t.$$
+    If $a_j \neq 0$,
+    $$\int_{0}^{1} \exp(2 \pi \mathrm{i} a_j t) \dd t = \left[\frac{\exp(2 \pi \mathrm{i} a_j t)}{2 \pi \mathrm{i} a_j}\right]_{t = 0}^{t = 1} = 0.$$
+\end{proofenv}
+
+\begin{propositionenv}
+    Let $\mathbb{T}_M = E/M$, $\pi : E \longrightarrow \mathbb{T}_M$, then $\pi|_D$ is an isomorphism of measurable spaces.
+    Namely, if we equip $\mathbb{T}_M$ with a Haar measure such that $\mu(\mathbb{T}_M) = 1$, then for any integrable $h : \mathbb{T}_M \longrightarrow \CC$,
+    $$\int_{\mathbb{T}_M} h(t) \eta(\dd t) = \frac{1}{\Vol(D)} \int_{D} h(\pi(x)) \Vol_{D}(\dd x).$$
+\end{propositionenv}
