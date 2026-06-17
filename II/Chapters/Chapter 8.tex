@@ -552,9 +552,9 @@ For any $\alpha \in N$, we denote by $\varphi_{\alpha} : \mathbb{T}_M \longright
     \begin{tikzcd}
         E & {\mathbb{T}_{M}} \\
         & {\mathbb{C}}
-        \arrow[from=1-1, to=1-2]
-        \arrow["{\varphi_{\alpha}}"', from=1-1, to=2-2]
-        \arrow[from=1-2, to=2-2]
+        \arrow["{\pi}", from=1-1, to=1-2]
+        \arrow[from=1-1, to=2-2]
+        \arrow["{\varphi_{\alpha}}", from=1-2, to=2-2]
     \end{tikzcd}
 \end{figure}
 Note that $\varphi_{\alpha} \in L^\infty(\mathbb{T}_{M})$.
@@ -594,7 +594,7 @@ $$\varphi_{b_1e^\vee_1 + \cdots + b_de^\vee_d} = \varphi_{1}^{b_1} \cdots \varph
     $$\delta_{n} \coloneq \sum_{\alpha \in N, \|\alpha\| \le n} \varphi_{\alpha}.$$
 \end{definitionenv}
 
-\begin{propositionenv}
+\begin{propositionenv}\label{prop:8.5.4}
     Let $f \in L^1(\mathbb{T}_{M})$.
     One has
     $$S_n(f) = \delta_{n} * f.$$
@@ -604,7 +604,7 @@ $$\varphi_{b_1e^\vee_1 + \cdots + b_de^\vee_d} = \varphi_{1}^{b_1} \cdots \varph
     $$(\varphi_{\alpha} * f)(x) = \int_{\mathbb{T}_{M}} f(y) \varphi_{\alpha}(x - y) \eta(\dd y) = \varphi_{\alpha}(x) \int_{\mathbb{T}_{M}}f(y) \varphi_{\alpha}(-y)\eta(\dd y).$$
 \end{proofenv}
 
-\begin{remark}
+\begin{remark}\label{rem:8.5.5}
     One can compute $\delta_n$ in the following way
     $$\delta_n = \sum_{(b_1,\cdots,b_d) \in \{-n,\cdots,n\}^d} \varphi_{b_1e^\vee_1 + \cdots + b_de^\vee_d} = \sum_{(b_1,\cdots,b_d) \in \{-n,\cdots,n\}^d} \prod_{j = 1}^{d} \varphi_{j}^{b_j} = \prod_{j=1}^{d} \sum_{k=-n}^{n} \varphi_j^k.$$
     Note that for any $j \in \{1,\cdots,d\}$,
@@ -614,7 +614,7 @@ $$\varphi_{b_1e^\vee_1 + \cdots + b_de^\vee_d} = \varphi_{1}^{b_1} \cdots \varph
     \end{cases}.$$
     For any $j \in \{1,\cdots,d\}$, put
     $$\delta_{n,j} = \sum_{k=-n}^{n} \varphi_j^k.$$
-    By the fact that $\varphi_{j}^{-k} = \bar{\varphi}_{j}^{k}$, we obtain $\delta_{n,j}$ takes only real values.
+    By the fact that $\varphi_{j}^{-k} = \bar{\varphi_{j}^{k}}$, we obtain $\delta_{n,j}$ takes only real values.
 \end{remark}
 
 \begin{definitionenv}
@@ -629,7 +629,7 @@ $$\varphi_{b_1e^\vee_1 + \cdots + b_de^\vee_d} = \varphi_{1}^{b_1} \cdots \varph
     $$\delta_{n,j} (\tau_{\Theta}(x)) = \sum_{k= - n}^{n} \varphi_{j}(x)^{k(-1)^{\mathbbm{1}_{\Theta}(j)}} = \delta_{n,j}(x).$$
 \end{definitionenv}
 
-\begin{lemmaenv}[Riemann-Lebesgue]
+\begin{lemmaenv}[Riemann-Lebesgue]\label{lem:8.5.7}
     Let $f : \RR \longrightarrow \RR$ be a Lebesgue integrable mapping.
     Then
     $$\lim_{\lambda \to + \infty} \int_{\RR} f(t) \exp(\mathrm{i} \lambda t) \dd t = 0.$$
@@ -671,3 +671,78 @@ $$\varphi_{b_1e^\vee_1 + \cdots + b_de^\vee_d} = \varphi_{1}^{b_1} \cdots \varph
             \end{enumerate}
     \end{enumerate}
 \end{theoremenv}
+\begin{proofenv}
+    \quad
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $D \coloneq \{a_1 e_1 + \cdots + a_d e_d \mid a_1, \cdots, a_d \in \interval[open right]{-\frac{1}{2}}{\frac{1}{2}}\}$.
+            Then, since $\delta_{n}(y) = \delta_{n} (-y)$, we define
+            $$S_n(f)(x) = \frac{1}{\Vol(D)} \int_{D} f(x + y)\delta_{n}(y) \mu(\dd y).$$
+            By \ref{prop:8.5.4},
+            $$\begin{aligned}
+                S_{n}(f)(x) = & \frac{1}{\Vol(D)} \int_{D} f(x + y) \delta_{n}(y) \mu(\dd y)\\
+                = & \frac{1}{2^d \Vol(P)} \sum_{\Theta \subseteq \{1,\cdots,d\}} \int_{P} f(x + \tau_{\Theta}(y)) \delta_{n}(\tau_{\Theta}(y))\mu(\dd y)\\
+                = & \frac{1}{2^d \Vol(P)} \sum_{\Theta \subseteq \{1,\cdots,d\}} \int_{P} f(x + \tau_{\Theta}(y)) \delta_{n}(y)\mu(\dd y).
+            \end{aligned}$$
+        \item We apply (1) to the case where $f = 1$,
+            $$S_n(f) (x) = 1 = \frac{1}{2^d \Vol(P)} \sum_{\Theta \subseteq \{1,\cdots,d\}} \int_{P} \delta_{n} (y) \mu(\dd y).$$
+            By remark \ref{rem:8.5.5},
+            $$\begin{aligned}
+                \delta_{n}(y_1 e_1 + \cdots + y_d e_d) = & \prod_{j=1}^{d} \frac{\exp(\pi \mathrm{i} (2n + 1) y_{j}) - \exp(-\pi \mathrm{i} (2n + 1)y_{j})}{\exp(\pi \mathrm{i} y_{j}) - \exp(-\pi \mathrm{i} y_{j})}\\
+                = & \prod_{j=1}^{d} \frac{\sin(\pi (2n + 1) y_j)}{\sin (\pi y_j)}
+            \end{aligned}$$
+            By our assumption,
+            $$(y \in P) \longmapsto \frac{\sum_{\Theta \subseteq \{1,\cdots,d\}}(f(x + \tau_{\Theta}(y)) - f_{\Theta}(x))}{\sin(\pi e_1^\vee(y)) \cdots \sin(\pi e_d^\vee(y))}$$
+            is integrable on $P$.
+            (This is because $(y \in P) \longmapsto \frac{e_j^\vee (y)}{\sin(\pi e_j^\vee(y))}$ is bounded.)
+            By Fubini's theorem, lemma \ref{lem:8.5.7} (Riemann-Lebesgue), and dominated convergence,
+            $$\lim_{n \to +\infty} S_{n}(f) (x) = \frac{1}{2^d} \sum_{\Theta \subseteq \{1,\cdots,d\}} f_{\Theta}(x).$$
+    \end{enumerate}
+\end{proofenv}
+
+\begin{remark}\label{rem:8.5.9}
+    Notice in the case $d = 1$ the equality,
+    $$1 = \frac{1}{2^d \Vol(P)} \sum_{\Theta \subseteq \{1,\cdots,d\}} \int_{P} \delta_{n}(y) \mu(\dd y),$$
+    shows that
+    $$\int_{0}^{\frac{1}{2}} \frac{\sin(\pi (2n + 1) t)}{\sin(\pi t)} \dd t = \frac{1}{2}.$$
+\end{remark}
+
+\begin{remark}
+    For any $n \in \NN$, $j \in \{1,\cdots,d\}$, we define the average of $\delta_{k,j}$, $F_{n,j} : \mathbb{T}_{M} \longrightarrow \RR$, as $F_{n,j} \coloneq \frac{1}{n + 1} \sum_{k=0}^{n} \delta_{k,j}$.
+    Note that
+    $$F_{n,j} (0) = \frac{1}{n + 1} \sum_{k=0}^{n} (2k + 1) = n + 1$$
+    and
+    $$F_{n,j} = \frac{\varphi_{j}(x)^{n+2} - \varphi_{j}(x) + \varphi_{j}(x)^{-n} - \varphi_{j}(x)}{(n+1)(\varphi_{j}(x) - 1)^2}$$
+    for $x \neq 0$.
+    If by abuse of notation, we consider $F_{n,j}$ as a $M$-periodic function on $E$, then
+    $$F_{n,j}(y_1 e_1 + \cdots + y_d e_d) = \frac{\exp(2 \pi (n + 2) \mathrm{i} y_{j}) + \exp (-2\pi n \mathrm{i} y_{j}) - 2 \exp (2\pi \mathrm{i} y_{j})}{(n+1)(\exp(2 \pi \mathrm{i} y_{j}) - 1)^2}.$$
+    Whenever $y_1 e_1 + \cdots + y_d e_d$ does not belong to $M$.
+    Then $n^\text{th}$ F\'ejer kernel is defined as the product of $F_{n,j}$ when $j$ varies in $\{1,\cdots,d\}$, (i.e. $F_n = \prod_{j=1}^{d} F_{n,j}$).
+    Namely, as an $M$-periodic function on $E$,
+    $$F_n(y_1 e_1 + \cdots + y_d e_d) = \prod_{j=1}^{d}\frac{\sin^2(\pi (n + 1)y_{j})}{(n+1)\sin^2(\pi y_{j})}.$$
+    Similarly to remark \ref{rem:8.5.9},
+    $$\int_{0}^{\frac{1}{2}} \frac{\sin^2(\pi(n+1)t)}{(n+1)\sin^2(\pi t)} \dd t = \frac{1}{2}.$$
+\end{remark}
+
+\begin{theoremenv}[F\'ejer]
+    Let $f : \mathbb{T}_{M} \longrightarrow \CC$ be a continuous mapping.
+    For any $n \in \NN$, let
+    $$\tilde{S}_n (f) = \frac{1}{n + 1} \sum_{k=0}^{n} S_{k}(f).$$
+    The sequence $\left(\tilde{S}_n(f)\right)_{n \in \NN}$ converges uniformly to $f$.
+\end{theoremenv}
+\begin{proofenv}
+    By definition,
+    $$\tilde{S}_{n}(f)(x) - f(x) = \frac{1}{2^d\Vol(P)} \int_{P} \sum_{\Theta \subseteq \{1,\cdots,d\}} (f(x + \tau_{\Theta}(y)) - f(x)) F_{n}(y) \mu(\dd y).$$
+    For any $\delta \in \interval[open]{0}{\frac{1}{2}}$ and $\Psi \subseteq \{1,\cdots,d\}$, we let
+    $$P_{\Psi}(\delta) = \{a_1 e_1 + \cdots + a_d e_d \mid (a_1,\cdots,a_d) \in \interval[open]{0}{\delta}^{\{1,\cdots,d\} \setminus \Psi} \times \interval[open right]{\delta}{\frac{1}{2}}^\Psi\},$$
+    $$\varepsilon_1(\delta) = \sup_{\substack{a,b \in E\\\|a-b\| \le \delta}} |f(a) - f(b)|, \; \varepsilon_2(\delta) = \int_{\delta}^{\frac{1}{2}} \frac{\dd y}{\sin^2(\pi y)}.$$
+    Without loss of generality, we may assume that $\mu \sim \Vol$ identifies with the Lebesgue measure on $\RR^d \cong E$, via $((a_1,\cdots,a_d) \longmapsto a_1 e_1 + \cdots + a_d e_d)$.
+    $$\begin{aligned}
+        & |\tilde{S}_{n} (f) - f(x)|\\
+        \le & \int_{P_{\varnothing}(\delta)} 2^{d+1} \varepsilon_{1}(\delta) F_{n}(y) \mu(\dd y) + \sum_{\substack{\Psi \subseteq \{1,\cdots,d\}\\\Psi \neq \varnothing}} \|f\|_{\text{sup}} \left(\frac{1}{2}\right)^{d - \mathrm{card}(\Psi)} \varepsilon_2(\delta)^{\mathrm{card}(\Psi)}\\
+        \le & 2^{d-1} \varepsilon_1(\delta) + \sum_{\substack{\Psi \subseteq \{1,\cdots,d\}\\\Psi \neq \varnothing}} 2^{d+1} \|f\|_{\text{sup}} \left(\frac{1}{2}\right)^{d - \mathrm{card}(\Psi)} \left(\frac{\varepsilon_2(\delta)}{n+1}\right)^{\mathrm{card}(\Psi)}.
+    \end{aligned}$$
+    Hence
+    $$\limsup_{n \to +\infty} \|\tilde{S}_n(f) - f\|_{\text{sup}} \le 2^{d-1} \varepsilon_1(\delta).$$
+    Taking the limit when $\delta \to 0^+$, we get
+    $$\limsup_{n \to +\infty} \|\tilde{S}_n(f) - f\|_{\text{sup}} = 0.$$
+\end{proofenv}
