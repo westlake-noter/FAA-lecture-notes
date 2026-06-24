@@ -2,7 +2,7 @@
 
 ## Suggested Title
 
-Fundamental Algebra and Analysis Course Archive / 基础代数与分析课程归档
+Fundamental Algebra and Analysis Course Archive / 代数与分析基础课程归档
 
 ## Suggested Tag
 
@@ -37,7 +37,7 @@ Please use this release as the primary download location for PDF bundles.
 
 ### 中文
 
-本 release 用于归档 **基础代数与分析** 课程材料。
+本 release 用于归档 **代数与分析基础** 课程材料。
 
 截至 2026 年 6 月 24 日，今天所有课程均已结束。之后本仓库将仅以非常低的频率维护，预计只会在读者主动指出 typo、勘误，或贡献小范围改进时更新。
 

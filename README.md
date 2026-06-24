@@ -21,9 +21,9 @@ This repository is released under the MIT License. See [LICENSE](LICENSE) for de
 
 ---
 
-# 基础代数与分析
+# 代数与分析基础
 
-这个仓库用于归档 **基础代数与分析** 课程讲义的源文件。
+这个仓库用于归档 **代数与分析基础** 课程讲义的源文件。
 
 截至 2026 年 6 月 24 日，今天所有课程均已结束。本仓库主要作为两部分课程 LaTeX 源文件的归档：
 
