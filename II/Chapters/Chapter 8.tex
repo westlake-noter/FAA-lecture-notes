@@ -835,4 +835,113 @@ The results obtained in the previous section lead to the following statements.
         $$a_0(f) = \frac{1}{T} \int_{0}^{T} f(t) \dd t,$$
         $$a_{k}(f) = \frac{2}{T} \int_{0}^{T} f(t) \cos(2 \pi k t/T) \dd t,$$
         $$b_{k}(f) = \frac{2}{T} \int_{0}^{T} f(t) \sin(2 \pi k t/T) \dd t.$$
+    \item For any $f \in \mathcal{L}^{2}(\RR/\ZZ T)$, the Fourier series of $f$
+        $$S_n(f) = \frac{1}{T} \sum_{k=-n}^{n} \left(\int_{0}^{T}\exp(-2\pi\mathrm{i}kt/T) f(t) \dd t\right) \varphi_{k}$$
+        converges in $L^2(\RR/\ZZ T)$ to $f$.
+    \item Let $f : \RR/\ZZ T \longrightarrow \CC$ be a mapping.
+        We view it as a $T$-periodic mapping from $\RR$ to $\CC$.
+        We assume that
+        $$f(x +) \coloneq \lim_{\substack{\varepsilon \to 0\\\varepsilon > 0}} f(x + \varepsilon),\quad f(x-) \coloneq \lim_{\substack{\varepsilon \to 0\\\varepsilon > 0}} f(x - \varepsilon)$$
+        exist, and the function
+        $$(y \in \interval[open]{0}{\frac{1}{2}}) \longmapsto \frac{f(x + y) + f(x - y) - f(x + ) - f(x - )}{y}$$
+        is integrable with respect to Lebesgue measure.
+        Then the sequence $(S_{n}(f)(x))_{n \in \NN}$ converges to $\frac{f(x+) + f(x-)}{2}$.
 \end{enumerate}
+
+\begin{propositionenv}
+    Let $f : \RR /\ZZ T \longrightarrow \CC$ be a continuous mapping.
+    Assume that viewed as a $T$-periodic mapping from $\RR$ to $\CC$, $f$ is of class $C^1$.
+    Then
+    $$c_n(f') = \frac{2 \pi \mathrm{i} n c_{n}(f)}{T}.$$
+\end{propositionenv}
+\begin{proofenv}
+    We use integration by parts,
+    $$\begin{aligned}
+        c_n(f') = & \frac{1}{T} \int_{0}^{T} f'(t) \exp(-2 \pi \mathrm{i} n t /T) \dd t\\
+        = & \left[\frac{f(t) \exp(-2 \pi \mathrm{i} n t/T)}{T}\right]_{0}^{T} - \frac{1}{T} \int_{0}^{T} f(t) \frac{-2 \pi \mathrm{i} n}{T} \exp(- 2 \pi \mathrm{i} n t/T) \dd t\\
+        = & \frac{1}{T} \left(f(T) - f(0) + 2 \pi \mathrm{i} n c_n (f)\right)\\
+        = \frac{2 \pi \mathrm{i} n c_n(f)}{T}.
+    \end{aligned}$$
+\end{proofenv}
+
+\begin{propositionenv}[Wirtinger's Inequality]
+    Let $f : \RR \longrightarrow \CC$ be a $T$-periodic function of class $C^1$.
+    Let
+    $$m_f = \frac{1}{T} \int_{0}^{T} f(t) \dd t.$$
+    Then the following inequality holds.
+    $$\int_{0}^{T} |f(t) - m_f|^2 \dd t \le \frac{T^2}{4 \pi^2} \int_{0}^{T} |f'(t)|^2 \dd t.$$
+\end{propositionenv}
+\begin{proofenv}
+    By adding a constant function to $f$, we may assume that $m_f = 0$.
+    One has
+    $$c_n(f') = \frac{2 \pi \mathrm{i} n c_n(f)}{T}.$$
+    Notice that $c_0(f) = c_0(f') = 0$,
+    $$\begin{aligned}
+        \frac{1}{T} \int_{0}^{T} |f'(t)|^2 \dd t = & \sum_{n \in \ZZ \setminus \{0\}} |c_n(f')|^2 = \sum_{n \in \ZZ \setminus \{0\}} \frac{4 \pi^2 n^2}{T^2} |c_n (f)|^2\\
+        \ge & \frac{4 \pi^2}{T^2} \sum_{n \in \ZZ \setminus \{0\}} |c_n(f)|^2 = \frac{4 \pi^2}{T^2} \frac{1}{T} \int_{0}^{T} |f(t)|^2 \dd t.
+    \end{aligned}$$
+\end{proofenv}
+
+
+\section{Fourier Transform}
+
+
+\begin{definitionenv}
+    Let $G$ be an abelian locally compact Hausdorff group.
+    A \textbf{character} of $G$ is a continuous group homomorphism
+    $$\chi : G \longrightarrow S^1$$
+    where $S^1 = \{z \in \CC \mid |z| = 1\}$.
+    The Pontryagin dual $\hat{G}$ of $G$ is the group of characters of $G$ with operation of pointwise multiplication
+    $$(\chi_1 \chi_2)(x) = \chi_1(x) \chi_2(x).$$
+    Neutral element $1^\vee_{G} (x) = 1$, inverse element $\chi^{-1} (x) = \overline{\chi}(x)$.
+    We give $\hat{G}$ the structure of topological group giving it so-called \textbf{compact-open} topology.
+    For any pair $(K,V)$ of subsets of $G$ and $S^1$ respectively such that $K \subseteq G$ is compact and $V$ is an open neighborhood of $1$ in $S^1$, we define a subset of $\hat{G}$
+    $$W(K,V) = \{\chi \in \hat{G} \mid \chi(K) \subseteq V\}.$$
+    One can check that these form a neighborhood basis for $1^\vee_{G}$.
+    It determines a topology on $\hat{G}$ called compact-open topology.
+\end{definitionenv}
+
+\begin{remark}
+    If $G$ is discrete, the compact-open topology on $\hat{G}$ agrees with the topology of pointwise convergence.
+\end{remark}
+
+\begin{definitionenv}
+    Let $G$ be an abelian locally compact Hausdorff group and let $\mu$ be a Haar measure on $G$.
+    Let $f \in L^1(G,\CC)$.
+    We define the \textbf{Fourier transform} $\hat{f} : \hat{G} \longrightarrow \CC$ of $f$ by the formula
+    $$\hat{f}(\chi) = \int_{G} f(y) \overline{\chi}(y)\mu(\dd y).$$
+\end{definitionenv}
+
+\begin{definitionenv}
+    We say that $G$ is \textbf{Pontryagin self-dual} when $G \cong \hat{G}$.
+\end{definitionenv}
+
+\begin{exampleenv}
+    For $G = \RR$, consider
+    $$\begin{array}{rcl}
+        \RR & \longrightarrow & \hat{\RR}\\
+        t & \longmapsto & (s \longmapsto \exp(2 \pi \mathrm{i} s t)).
+    \end{array}$$
+    It is easy to see that it is an isomorphism of groups.
+    One has to show that it is a homeomorphism when we consider $\hat{\RR}$ (i.e. $\Hom_{\text{continuous}}(\RR,S^1)$ with compact-open topology).
+    We can then conclude that $\RR$ is self-dual.
+    The Fourier transform takes the following form
+    $$\hat{f} (s \longmapsto \exp(2 \pi \mathrm{i} s t)) \sim \hat{f}(t) = \int_{\RR} f(s) \exp(-2 \pi \mathrm{i} t s) \mu(\dd s).$$
+\end{exampleenv}
+
+\begin{remark}
+    We conclude that $\RR^d$ is also Pontryagin self-dual.
+    Any finite-dimensional vector space over $\RR$ is Pontryagin self-dual.
+\end{remark}
+
+\begin{exampleenv}
+    We fix a finite-dimensional vector space $E$ over $\RR$ and let $M$ be the sub-$\ZZ$-module of $E$ generated by a basis $(e_i)_{i=1}^{d}$ of $E$.
+    Let $N$ be a sub-$\ZZ$-module of $E^\vee$ generated by $(e^\vee_i)_{i=1}^{d}$.
+    $\mathbb{T}_{M} = E/M$ is considered with Haar measure $\eta$ such that $\eta(\mathbb{T}_{M}) = 1$.
+    Let $f \in L^1(\mathbb{T}_{M})$, then for any $\alpha \in N$,
+    $$\hat{f} (\varphi_{\alpha}) = c_{\alpha}(f) = \int_{\mathbb{T}_{M}} f(x) \overline{\varphi_{\alpha}(x)} \eta(\dd x).$$
+    One can check that $N$ is Pontryagin dual of $\mathbb{T}_{M}$ (i.e. $N = \hat{\mathbb{T}}_{M}$).
+
+    \quad In general, one can speak of Fourier series of a $M$-periodic function when we deal with a compact $E/M$.
+    From the general theory, Pontryagin dual of a compact group is discrete.
+\end{exampleenv}
